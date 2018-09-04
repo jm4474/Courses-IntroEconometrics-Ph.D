@@ -1,0 +1,14 @@
+\begin{thebibliography}{2}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Billingsley}{Billingsley}{1995}]{Billingsley95}
+\textsc{Billingsley, P.} (1995): \emph{Probability and Measure}, John Wiley \&
+  Sons, New York, 3rd ed.
+
+\bibitem[\protect\citeauthoryear{Durrett}{Durrett}{2010}]{durrett2010}
+\textsc{Durrett, R.} (2010): \emph{Probability: Theory and Examples}, Cambridge
+  Series in Statistical and Probabilistic Mathematics, Cambridge University
+  Press, 4th ed.
+
+\end{thebibliography}
