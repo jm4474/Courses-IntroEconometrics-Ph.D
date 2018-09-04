@@ -1,0 +1,80 @@
+%The pst-fun package is very convenient for plotting mathematical functions
+%The package ragged2e is used to "justify" the text in the slides
+\usepackage{beamerthemetree}
+ \usepackage{graphics}
+\usepackage{pst-func}
+\usepackage{ragged2e} 
+\usepackage{centernot}
+%My standard preamble
+\usepackage[longnamesfirst]{natbib}  
+\renewcommand{\bibsection}{\subsubsection*{\bibname } }
+\setlength{\bibsep}{6.5pt}
+\newcommand\cites[1]{\citeauthor{#1}'s \citeyearpar{#1}}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{color}
+	\definecolor{MyDarkBlue}{rgb}{0,0.38,0.85}
+\usepackage{hyperref}
+	\hypersetup{linkcolor=MyDarkBlue, citecolor=MyDarkBlue, colorlinks=true}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{enumerate}
+%Pre-amble for the figures
+\usepackage[format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage{subfigure}                               %This is the package I use for inserting multiple figures
+\captionsetup[subfloat] {position=bottom} 
+\usepackage{fancybox}
+%And some theorem environments
+\newtheorem{cor}{Corollary}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{result}{Result}
+\newtheorem{claim}{Claim}
+\newtheorem*{coro}{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+\newtheorem{axiom}{Axiom}
+\newtheorem{assumption}{Assumption}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{axiom*}{Axiom}
+\newcommand{\refaxiom}[1]{\hyperref[{#1}]{Axiom }\autoref{#1}}
+\newcommand{\refass}[1]{\hyperref[{#1}]{Assumption }\autoref{#1}}
+\newcommand{\refres}[1]{\hyperref[{#1}]{Result }\autoref{#1}}
+\newcommand{\reflemma}[1]{\hyperref[{#1}]{Lemma }\autoref{#1}}
+\newcommand{\refprop}[1]{\hyperref[{#1}]{Proposition }\autoref{#1}}
+\newcommand{\refcor}[1]{\hyperref[{#1}]{Corollary }\autoref{#1}}
+\newcommand{\refdef}[1]{\hyperref[{#1}]{Definition }\autoref{#1}}
+
+%AdditionalStuff and Shortcuts
+\usetheme{Singapore}
+\setbeamertemplate{footline}[frame number]
+%\useoutertheme{progressbar}
+\usecolortheme{seagull}
+
+\usepackage{pgfpages}
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen}
+
+%These are some of the commands that I use all the time
+\usepackage{manfnt}
+%--------------------------------------------Shortcuts for math symbols--------------------------------------------
+\newcommand{\F}{\mathcal{F}}                                            %Sigma algebra
+\newcommand{\T}{\mathcal{T}}                                            %Topology  
+\newcommand{\R}{\mathbb{R}}                                            %Real Numbers
+\newcommand{\cdist}{\overset{d}{\rightarrow}}                     %Convergence in distributions
+\newcommand{\cprob}{\overset{p}{\rightarrow}}                   %Convergence in probability
+\newcommand{\cas}{\overset{a.s}{\rightarrow}}                    %Almost sure convergence
+\newcommand{\prob}{\mathbb{P}}                                         %Bold probability
+\newcommand{\expec}{\mathbb{E}}                                      %Bold Expectation
+\newcommand{\y}{y}                                                              % Outcome Variable
+\newcommand{\X}{X}                                                             % Exogenous regressor    
+\newcommand{\Y}{Y}                                                             % Endogenous regressor
+\newcommand{\w}[1]{#1}                                                       % Within Transformation
+\newcommand{\kron}{\otimes}                                               %Kroenecker
+\newcommand{\eye}[1]{\mathbb{I}_{#1}}      			   %Identity matrix
+\newcommand{\caps}[1]{{\scshape{#1}}}      			   %Identity matrix
+\newcommand{\p}{\bot}                                    			   %Projection matrix
+\newcommand{\kronmean}[2]{\left(\begin{array}{c} #1 \\1 \end{array}\right) \kron #2 }         
+%kronecker mean (beta 1) kron something

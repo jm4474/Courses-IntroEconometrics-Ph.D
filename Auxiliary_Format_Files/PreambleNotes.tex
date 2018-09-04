@@ -1,0 +1,145 @@
+%------------------------------------------------------My packages--------------------------------------------------
+
+\usepackage{todonotes}                         %I use this to include comments on the PDF document. 
+                                                                     %Requires todonotes.sty
+                                                                     
+
+\usepackage[longnamesfirst]{natbib}  % I use this package for the bibliography
+\setlength{\bibsep}{6.5pt}  
+
+\usepackage{setspace}                          %This package allows us to use singlespacing,doublespacing,
+\usepackage{amsfonts}                          %The standard math fonts (American Math Society)
+\usepackage{amsmath}                          %Mathematics package
+\usepackage{amssymb}                         %Symbols (American Math Society)
+\usepackage{amsthm}                           % Theorem enviroment (American Math society)
+\usepackage{bm}                                    %Bold greeks
+\usepackage{bbm}                                  %Bold numerals
+\usepackage{color}                                 %Good for introducing texts of different colors
+	\definecolor{MyDarkBlue}{rgb}{0.1,0.2,0.65}
+\usepackage{hyperref}                          %Controls hyperreferences
+	\hypersetup{linkcolor=black, citecolor=MyDarkBlue, urlcolor=black, colorlinks=true}
+\usepackage{mathtools}                        % I copied this from Tomasz (not sure what it does)
+\usepackage{graphicx}                          % Idem
+
+\usepackage{subfig}                               %This is the package I use for inserting multiple figures
+\captionsetup[subfloat] {position=bottom} 
+
+\usepackage{enumerate}                      %Item evironments
+\usepackage[vmargin={1.5in, 1.5in},hmargin={1in, 1in}]{geometry} 
+
+
+\usepackage[T1]{fontenc}
+
+\usepackage{lmodern} \normalfont %to load T1lmr.fd 
+\DeclareFontShape{T1}{lmr}{bx}{sc} { <-> ssub * cmr/bx/sc }{}
+
+%\usepackage[labelfont=bf, margin=1cm]{caption}
+
+\usepackage{pst-func}
+
+\numberwithin{equation}{section}
+
+
+
+%--------------------------------------------------New Theorems---------------------------------------------------
+
+\newtheorem{lemma}{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{result}{Result}
+\newtheorem{claim}{Claim}
+\newtheorem*{coro}{Corollary}
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem{remark}{Remark}
+\newtheorem{axiom}{Axiom}
+\newtheorem*{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem*{axiom*}{Axiom}
+\newtheorem*{comment*} {Comment}
+\newtheorem{example}{Example}
+
+%---------------------------------------------Some commands for Autoreference------------------------------
+
+\newcommand{\refaxiom}[1]{\hyperref[{#1}]{Axiom }\autoref{#1}}
+\newcommand{\refass}[1]{\hyperref[{#1}]{Assumption }\autoref{#1}}
+\newcommand{\refres}[1]{\hyperref[{#1}]{Result }\autoref{#1}}
+\newcommand{\refprop}[1]{\hyperref[{#1}]{Proposition }\autoref{#1}}
+\newcommand{\refcor}[1]{\hyperref[{#1}]{Corollary }\autoref{#1}}
+\newcommand{\reflemma}[1]{\hyperref[{#1}]{Lemma }\autoref{#1}}
+\newcommand{\refremark}[1]{\hyperref[{#1}]{Remark }\autoref{#1}}
+\newcommand{\reftheorem}[1]{\hyperref[{#1}]{Theorem}\autoref{#1}}
+
+
+
+  
+%--------------------------------------------Shortcuts for math symbols--------------------------------------------
+
+\newcommand{\F}{\mathcal{F}}                                               %Sigma algebra
+\newcommand{\T}{\mathcal{T}}                                               %Topology  
+\newcommand{\R}{\mathbb{R}}                                              %Real Numbers
+\newcommand{\cdist}{\overset{d}{\rightarrow}}                    %Convergence in distributions
+\newcommand{\cprob}{\overset{p}{\rightarrow}}                  %Convergence in probability
+\newcommand{\cas}{\overset{a.s}{\rightarrow}}                   %Almost sure convergence
+\newcommand{\prob}{\mathbb{P}}                                         %Bold probability
+\newcommand{\expec}{\mathbb{E}}                                      %Bold Expectation
+\newcommand{\e}{\varepsilon}                                                %epsilon
+
+
+\newcommand\cites[1]{\citeauthor{#1}'s \citeyearpar{#1}}               %Possesive cite (I never use it)
+
+%--------------------------------------------Commands I have used before-----------------------------------
+\newcommand{\y}{y}                                       % Outcome Variable
+\newcommand{\Y}{X}                                      % Endogenous regressor
+\newcommand{\Ybar}{\textbf{Y}}               % Matrix of Endogenours Regressors
+\newcommand{\vbar}{\textbf{V}}               % Matrix of Reduced Form Errors
+\newcommand{\Gammab}{\mathbf{\Gamma}}               % Unrestricted coefficients
+\newcommand{\w}[1]{\ddot{#1}}                    % Within Transformation
+\newcommand{\0}{\textbf{0}}                          % Bold 0
+\newcommand{\eye}[1]{\mathbb{I}_{#1}}      %Identity matrix
+\newcommand{\N}{\mathcal{N}}                     % Cal N (for Normal)
+\newcommand{\kron}{\otimes}                        %Kroenecker
+\newcommand{\norm}{\rho}                             %Rho parameter in Gary's re-parameterization
+\newcommand{\vect}{\text{vec}}                       %Text vectorization 
+\newcommand{\SX}{\mathbf{X}}
+\newcommand{\Comment}[1]{\todo[inline, color=green!40]{\textbf{Comment: }#1}}         %Creates a green box for my comments
+\newcommand{\Remark}[1]{\todo[inline, color=blue!40]{\textbf{Remark: }#1}}         %Creates a green box for my comments
+\newcommand{\kronmean}[2]{\left(\begin{array}{c} #1 \\1 \end{array}\right) \kron #2 }                            %kronecker mean (beta 1) kron something
+\newcommand{\p}{\bot}                                     %the projection command
+\newcommand{\kronmeanzero}[2]{\left(\begin{array}{c} #1 \\0 \end{array}\right) \kron #2 }                            %kronecker mean (beta 0) kron something
+
+
+%----------------------------------------Commands for this paper---------------------------------------
+\newcommand{\x}{x}                                                           %Realization
+\newcommand{\X}{X}                                                         %Random Variable
+\newcommand{\SW}{\mathcal{W}}                                     %Sample Space
+\newcommand{\ParamS}{\mathbf{\Theta}}                    %Parameter Space
+
+\newcommand{\W}{\textbf{W}}                                          %Weighting Function
+
+\newcommand{\Borel}[1]{\mathcal{B}({#1})}                    %Borel sigma algebra
+ 
+%A double line
+\def\doubleline{
+\begin{center}
+\line(1,0){400}\\
+\line(1,0){400}
+\end{center}
+}
+
+%An "Important" header
+\def\Important{
+\begin{center}
+\line(1,0){480}\\
+\textcolor{red}{Important}
+\line(1,0){480}
+\end{center}
+}
+
+
+
+\newcommand{\Ideas}[1]{\todo[inline]{\textbf{Ideas: }#1}}         %Creates an orange box fot the main ideas of each section. 
