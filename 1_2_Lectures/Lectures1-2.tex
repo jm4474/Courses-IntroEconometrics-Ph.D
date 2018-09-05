@@ -93,6 +93,12 @@ $$F^*(A) \equiv \{\mathcal{F} \: | \: \mathcal{F} \: \text{is a} \: \sigma\text{
 \end{enumerate}
 \end{prproblem}
 
+\begin{prproblem}[Optional] \label{prprob:closed_under_inter}
+  Show that $\sigma$-algebra is ``closed'' under countable intersections. That
+  is, if $F_n \in \mathcal{F}$ for all $n\in\mathbb{N}$ then $\cap_{n=1}^\infty
+  F_n \in \mathcal{F}$.
+\end{prproblem}
+
 \subsubsection{Probability Measures}
 
 Once we know which are the objects that uncertainty will refer to, we need to have a formal way of expressing the ``likelihood'' of the different events we have specified. In order to do this we will define a \emph{probability measure}. 
@@ -116,7 +122,10 @@ Some implications of the definition of a probability measure.
 \item \textbf{Monotonicity:} For events $A,B$, $A \subseteq B$ implies $\mathbb{P}(A) \leq \mathbb{P}(B)$.
 
 \begin{proof}
-Write $B= A \cup (B \backslash A)$. By definition $A \cap (B\backslash A)=\emptyset$. Therefore, by finite additivity (which is implied by $\sigma$-additivity) we have $\prob(B)=\prob(A) + \prob(B \backslash A)$, which implies $\prob(B)-\prob(A)= \prob(B \backslash A) \geq 0$, as $\prob$ is a $[0,1]$-valued set function.  
+Write $B= A \cup (B \backslash A)$. By assumption, $A\in \mathcal{F}$; Practice Problem \ref{prprob:closed_under_inter} implies $B\setminus
+A \in \mathcal{F}$ because $B\setminus A = B
+\cap \left( \Omega\setminus A \right)$. By definition $A \cap (B\backslash
+A)=\emptyset$.  Therefore, by finite additivity (which is implied by $\sigma$-additivity) we have $\prob(B)=\prob(A) + \prob(B \backslash A)$, which implies $\prob(B)-\prob(A)= \prob(B \backslash A) \geq 0$, as $\prob$ is a $[0,1]$-valued set function.  
 \end{proof}
 
 \item \textbf{Boole's Inequality:} (\cite{Billingsley95} p. 24) Boole's inequality is a pretty useful result that will show up quite often.  Let $A_n$ be any sequence of events in $\mathcal{F}$. Then
