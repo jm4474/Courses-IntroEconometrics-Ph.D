@@ -70,7 +70,6 @@ Let $\Omega$ be any given nonempty set and let $\mathcal{F}$ be a nonempty colle
 \begin{enumerate}
 	\item $\mathcal{F}$ is ``closed'' under complements: $F \in \mathcal{F} \implies \Omega \backslash F \in \mathcal{F}$
 	\item $\mathcal{F}$ is ``closed'' under countable unions: $F_{n} \in \mathcal{F}$ for all $n \in \mathbb{N} \implies \cup_{n=1}^{\infty} F_n \in \mathcal{F}$.
-  \item $\mathcal{F}$ contains the set $\Omega$: $\Omega \in \mathcal{F}$
 \end{enumerate}
 
 \begin{definition}[\textbf{$\sigma$-algebra}] (\cite{Billingsley95}, p. 19 and 20)
@@ -289,7 +288,8 @@ One common way to classify the random variables and their c.d.f.s is the followi
 
 \begin{definition}[Simple, Discrete, Continuous, and Absolutely Continuous Random Variables]  \:\
 \begin{enumerate}
-\item \textbf{Simple Random Variables:} A random variable $X$ is simple if there is a finite set $\{x_1, \ldots x_k\}$, $x_1<x_2, \ldots x_k$ such that 
+\item \textbf{Simple Random Variables:} A random variable $X$ is simple if there
+  is a finite set $\{x_1, \ldots x_k\}$, $x_1<x_2< \ldots < x_k$ such that 
 $$\prob_{X}(\{x_1, \ldots x_k\}^c)=0$$
 \item \textbf{Discrete Random Variables:} A random variable $X$ is discrete if there is a countable set $\{x_1, x_2, \ldots\}$, $x_1<x_2<\ldots$ such that 
 $$\prob_{X}(\{x_1, x_2\ldots \}^c)=0$$
