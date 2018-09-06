@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  5 SEP 2018 09:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  6 SEP 2018 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1250,43 +1250,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 [4]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 190.
+(hyperref)                removing `math shift' on input line 189.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 220.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 219.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 220.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 219.
  [6]
-Overfull \hbox (1.58365pt too wide) in paragraph at lines 292--293
+Overfull \hbox (1.58365pt too wide) in paragraph at lines 291--292
 []\T1/lmr/bx/n/10.95 Simple Ran-dom Vari-ables: \T1/lmr/m/n/10.95 A ran-dom var
 i-able $\OML/lmm/m/it/10.95 X$ \T1/lmr/m/n/10.95 is sim-ple if there is a fi-ni
 te set $\OMS/lmsy/m/n/10.95 f\OML/lmm/m/it/10.95 x[]; [] x[]\OMS/lmsy/m/n/10.95
@@ -1299,14 +1299,14 @@ Package caption Warning: Unused \captionsetup[subfloat] on input line 25.
 See the caption package documentation for explanation.
 
 [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 371.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 371.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
  (./Lectures1-2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 371.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 371.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
 Package rerunfilecheck Info: File `Lectures1-2.out' has not changed.
 (rerunfilecheck)             Checksum: 83137D4F63AFA3C69DA12CAD199E5A6C;664.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 371.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
  )
 (\end occurred inside a group at level 1)
 
@@ -1321,4 +1321,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  63i,11n,96p,705b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Lectures1-2.dvi (11 pages, 56044 bytes).
+Output written on Lectures1-2.dvi (11 pages, 55804 bytes).
