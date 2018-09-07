@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  6 SEP 2018 21:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  7 SEP 2018 11:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1688,18 +1688,15 @@ Package rerunfilecheck Info: File `Slides-1-2.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 936.
  ) 
 Here is how much of TeX's memory you used:
  23111 strings out of 493090
  428223 string characters out of 6134868
- 610180 words of memory out of 5000000
+ 610212 words of memory out of 5000000
  26044 multiletter control sequences out of 15000+600000
  16716 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,16n,96p,726b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Slides-1-2.dvi (76 pages, 774820 bytes).
+Output written on Slides-1-2.dvi (76 pages, 774728 bytes).
