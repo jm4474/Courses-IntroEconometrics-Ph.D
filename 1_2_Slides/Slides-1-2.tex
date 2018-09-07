@@ -27,7 +27,6 @@
 Introduction to Probability and Statistics for Economists \\
 (Ph.D. in Economics, 1st year)
 \end{center}
-
 }
 
 
@@ -95,7 +94,8 @@ $$(\Omega, \mathcal{F}, \prob)  $$
 $$(\Omega, \mathcal{F}, \prob)  $$
 \begin{enumerate} [<+- | alert@+>]
 \item $(\Omega, \mathcal{F})$ measurable space. 
-\item [] $$\mathcal{F}: \textrm{ Set of events } (\subseteq \Omega).$$
+\item [] $$\Omega: \textrm{ States of the world}, \quad \mathcal{F}: \textrm{ Set of events } (\subseteq \Omega).$$
+\vspace{.1cm}
 \item $\prob: \mathcal{F} \rightarrow [0,1].$ Probability Measure
 \item [] $$\text{`How likely is an event in $\mathcal{F}$'}$$ 
 \end{enumerate}
@@ -124,7 +124,7 @@ $$\prob\Big( \cup_{i=1}^{m} A_i \Big) = \sum_{i=1}^{m} \prob(A_i) $$
 \frame{
 \frametitle{\normalsize {\scshape Important}}
 \begin{center}
-\textcolor{blue}{Normalization and $\sigma$-additivity define a probability measure}
+\textcolor{blue}{Normalization and $\sigma$-additivity \underline{define} a probability measure}
 \end{center}
 }
 
@@ -199,8 +199,22 @@ $$\prob_{X} [F]  \equiv \prob [ \: \{\omega \: | \: X(\omega) \in F \} \:  ], \q
 \uput[25](-3.7,3.2){\footnotesize $S=\{0,1\}$}
 \only<1>{\psline[linecolor=red, linewidth=.1] (-3,2)(-.2,2)}
 \only<1>{\psline[linecolor=red, linewidth=.1] (-.2,-3)(3,-3)}
-\only<2>{\psline[linecolor=blue, linewidth=.1] (-3,-3)(-.2,-3)}
-\only<2>{\psline[linecolor=blue, linewidth=.1] (-.2,2)(3,2)}
+\uput[25](-.4,-3.4){\footnotesize $0.5$}
+\end{pspicture*} 
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize \alt<2>{$P_{X_2}(1)=.5$}{$P_{X_1}(1)=.5$}}
+\begin{center}
+\begin{pspicture*}(-4,-4) (4,4) 
+\psaxes[ticks=none, labels=none]{->}(-3,-3)(-3,-3)(3,3)
+\uput[25](3.5,-3.4){\footnotesize $\Omega$}
+\uput[25](-3.3,-3.4){\footnotesize $0$}
+\uput[25](2.5,-3.4){\footnotesize $1$}
+\uput[25](-3.7,3.2){\footnotesize $S=\{0,1\}$}
+\only<1>{\psline[linecolor=blue, linewidth=.1] (-3,-3)(-.2,-3)}
+\only<1>{\psline[linecolor=blue, linewidth=.1] (-.2,2)(3,2)}
 \uput[25](-.4,-3.4){\footnotesize $0.5$}
 \end{pspicture*} 
 \end{center}
@@ -229,36 +243,15 @@ $$F_{X}(x) \equiv \prob\Big\{ \omega \in \Omega \: | \: X(\omega) \leq x \Big\} 
 
 \frame{
 \begin{center}
-\textbf{Examples of c.d.f.}
+\textbf{Examples of c.d.f.}\\
+\hyperlink{Uniform-cdf}{\beamergotobutton{Uniform cdf and r.v. with Uniform distribution}}\\
+\hyperlink{Bernoulli-cdf}{\beamergotobutton{Bernoulli cdf and r.v. with Bernoulli distribution}} \\
+\hyperlink{Properties}{\beamerskipbutton{Skip to Properties}}
 \end{center}
 }
 
 \frame{
-\frametitle{\normalsize $X(\omega)=a + \omega [b-a]$}
-\begin{center}
-\begin{pspicture*}(-4,-4) (4,4) 
-\psaxes[ticks=none, labels=none]{->}(-3,-3)(-3,-3)(3,3)
-\uput[25](3.5,-3.4){\footnotesize $\Omega$}
-\uput[25](-3.3,-3.4){\footnotesize $0$}
-\uput[25](2.5,-3.4){\footnotesize $1$}
-\uput[25](-3.7,3.2){\footnotesize $S=\R$}
-\uput[25](-3.7,-3){\footnotesize $a$}
-\uput[25](-3.7,2.8){\footnotesize $b$}
-\psPolynomial[coeff=0 1,linecolor=red]{-3}{2.8}
-\end{pspicture*} 
-\end{center}
-}
-
-\frame{
-If $x \in [a,b]:$
-\begin{eqnarray*}
-\prob\{ \omega \in \Omega \: | \: X(\omega) \leq x \} &=& \prob\{ \omega \in \Omega \: | \: a+\omega(b-a) \leq x \} \\ \pause
-&=& \prob\{ \omega \in \Omega \: | \: \omega (b-a) \leq x-a  \} \\ \pause
-&=& \prob\{ \: [0, x-a/(b-a)] \: \} \\ \pause
-&=& x-a/(b-a) \pause
-\end{eqnarray*}
-\pause Hence,
-
+\label{Uniform-cdf}
 $$F_{X}(x) = 
 \left \{
 \begin{array}{ccc}
@@ -291,9 +284,7 @@ $$F_{X}(x) =
 }
 
 \frame{
-\frametitle{\normalsize $X(\omega) = \mathbf{1}[\omega \geq 1-p ]$ }
-
-
+\frametitle{\normalsize $X(\omega)=a + \omega [b-a]$}
 \begin{center}
 \begin{pspicture*}(-4,-4) (4,4) 
 \psaxes[ticks=none, labels=none]{->}(-3,-3)(-3,-3)(3,3)
@@ -301,15 +292,17 @@ $$F_{X}(x) =
 \uput[25](-3.3,-3.4){\footnotesize $0$}
 \uput[25](2.5,-3.4){\footnotesize $1$}
 \uput[25](-3.7,3.2){\footnotesize $S=\R$}
-\psline[linecolor=red] (-3,-3)(-2,-3)
-\psline[linecolor=red] (-2,2)(3,2)
-\uput[25](-2.3,-3.4){\footnotesize $1-p$}
-
+\uput[25](-3.7,-3){\footnotesize $a$}
+\uput[25](-3.7,2.8){\footnotesize $b$}
+\psPolynomial[coeff=0 1,linecolor=red]{-3}{2.8}
 \end{pspicture*} 
 \end{center}
 }
 
+
+
 \frame{
+\label{Bernoulli-cdf}
 $$F_{X}(x) = 
 \left \{
 \begin{array}{ccc}
@@ -342,9 +335,10 @@ $$F_{X}(x) =
 \end{center}
 }
 
+\frame{
+\frametitle{\normalsize $X(\omega) = \mathbf{1}[\omega \geq 1-p ]$ }
 
-\frame{ 
-\frametitle{\normalsize $X(\omega)=\omega^2$}
+
 \begin{center}
 \begin{pspicture*}(-4,-4) (4,4) 
 \psaxes[ticks=none, labels=none]{->}(-3,-3)(-3,-3)(3,3)
@@ -352,112 +346,25 @@ $$F_{X}(x) =
 \uput[25](-3.3,-3.4){\footnotesize $0$}
 \uput[25](2.5,-3.4){\footnotesize $1$}
 \uput[25](-3.7,3.2){\footnotesize $S=\R$}
-\uput[25](-3.7,-3){\footnotesize $0$}
-\uput[25](-3.7,2.8){\footnotesize $1$}
+\psline[linecolor=red] (-3,-3)(-2,-3)
+\psline[linecolor=red] (-2,2)(3,2)
+\uput[25](-2.3,-3.4){\footnotesize $1-p$}
 
-\psPolynomial[coeff=-1.5 1 .166,linecolor=red]{-3}{2.8}
-\end{pspicture*} 
-\end{center}
-}
-
-\frame{
-If $x \in [0,1]:$
-\begin{eqnarray*}
-\prob\{ \omega \in \Omega \: | \: X(\omega) \leq x \} &=& \prob\{ \omega \in \Omega \: | \: \omega^2 \leq x \} \\ \pause
-&=& \prob\{ \omega \in \Omega \: | \: \omega \leq \sqrt{x}  \} \\ \pause
-&=& \prob\{ \: [0, \sqrt{x}] \: \} \\ \pause
-&=& \sqrt{x}
-\end{eqnarray*}
-\pause Hence,
-
-$$F_{X}(x) = 
-\left \{
-\begin{array}{ccc}
-0  & \text{if}  & x < 0   \\
-& &\\
- \sqrt{x} &  \text{if} & x \in [0,1)  \\
- & &\\
- 1 & \text{if}  & x \geq 1   
-\end{array}
-\right.
- $$
-
-}
-
-\section{Discrete/Continuous Type}
-
-\frame{
-\begin{center}
-\textbf{Discrete and Continuous Type of Real-Valued Random Variables}
-\end{center}
-}
-
-\frame{
-\begin{center}
-Let's take a look to the c.d.f.s we have computed
-\end{center}
-}
-
-\frame{
-\frametitle{\normalsize \scshape Uniform Distribution on $[a,b]$ }
-\begin{center}
-\begin{pspicture*}(-4,-4) (4,4) 
-\psaxes[ticks=none, labels=none]{->}(0,-3)(-4,-3)(4,1.3)
-\uput[25](-3.5,2){\footnotesize $F_{X}(x) = 
-\left \{
-\begin{array}{ccc}
-0  & \text{if}  & x < a   \\
-& &\\
-(x-a)/b-a &  \text{if} & x \in [a,b)  \\
- & &\\
- 1 & \text{if}  & x \geq b   
-\end{array}
-\right.
- $}
-\uput[25](3.5,-3.4){\footnotesize $\R$}
-\uput[25](-.3,-3.4){\footnotesize $0$}
-\uput[25](-1.2,-3.4){\footnotesize $a$}
-\uput[25](.8,-3.4){\footnotesize $b$}
-\uput[25](-.5,-1){\footnotesize $1$}
-\psline[linecolor=blue, linewidth=.1] (-4,-3)(-1,-3)
-\psline[linecolor=blue, linewidth=.1] (1,-1)(4,-1)
-\psPolynomial[coeff=-2 1, linewidth=.1, linecolor=blue]{-1}{1}
 \end{pspicture*} 
 \end{center}
 }
 
 
-
 \frame{
-\frametitle{\normalsize {\scshape Bernoulli Distribution with parameter $p$} }
+\label{Properties}
 \begin{center}
-\begin{pspicture*}(-4,-4) (4,4) 
-\psaxes[ticks=none, labels=none]{->}(0,-3)(-4,-3)(4,1.3)
-\uput[25](-3,2){\footnotesize $F_{X}(x) = 
-\left \{
-\begin{array}{ccc}
-0  & \text{if}  & x < 0   \\
-& &\\
-1-p &  \text{if} & x \in [0,1)  \\
- & &\\
- 1 & \text{if}  & x \geq 1  
-\end{array}
-\right.
- $}
-\uput[25](3.5,-3.4){\footnotesize $\R$}
-\uput[25](-.3,-3.4){\footnotesize $0$}
-\uput[25](-.5,-1){\footnotesize $1$}
-\uput[25](2,-3.4){\footnotesize $1$}
-\uput[25](-1,-2.7){\footnotesize $1-p$}
-\psline[linecolor=blue, linewidth=.1] (-4,-3)(0,-3)
-\psline[linecolor=blue, linewidth=.1] (0,-2.5)(2.25,-2.5)
-\psline[linecolor=blue, linewidth=.1] (2.25,-1)(4,-1)
-\end{pspicture*} 
+\textbf{What are the common properties of c.d.f?}
 \end{center}
 }
 
+
 \frame{
-\frametitle{\normalsize {\scshape What are the common properties?}}
+\frametitle{\normalsize {\scshape Characterization}}
 
 \begin{enumerate}
 \item $F_{X}$ is non-decreasing \vspace{.3cm}
@@ -467,6 +374,16 @@ Let's take a look to the c.d.f.s we have computed
 \end{enumerate}
 \begin{center}
 \item [] \textcolor{blue}{In fact, these 4 properties characterize the induced c.d.f. of a real-valued random variable!}
+\end{center}
+}
+
+
+
+\section{Discrete/Continuous Type}
+
+\frame{
+\begin{center}
+\textbf{Discrete and Continuous Type of Real-Valued Random Variables}
 \end{center}
 }
 
@@ -492,19 +409,6 @@ are called \textcolor{blue}{discrete}.
 
 
 \frame{
-\frametitle{\normalsize {\scshape Uniform[a,b]}}
-\begin{itemize}[<+->]
-\item [$\star$] Note that the $U[a,b]$ is not \textcolor{blue}{discrete}. Why? \vspace{.3cm} 
-\item [$\star$] $P_{X}(X=x) = 0 \quad \forall \quad x \in \R.$ \vspace{.3cm} 
-\item [$\star$] However, $U[a,b]$ has a special property as well! \vspace{.3cm} 
-
-\item []
-$$\textcolor{blue}{ F_X(x) = \int_{-\infty}^{x} \frac{1}{b-a} \mathbf{1}\{z \in [a,b]\} dz   } $$
-
-\end{itemize}
-}
-
-\frame{
 \frametitle{\normalsize {\scshape (Absolutely) Continuous Distributions}}
 Random Variables for which
 $$ \textcolor{blue}{ F_X(x) = \int_{-\infty}^{x} f(z) dz   }  $$
@@ -526,21 +430,43 @@ The function $f(z)$ is called \pause \vspace{.3cm}
 \end{center}
 }
 
-
 \frame{
 \begin{center}
-\textbf{Examples of (Univariate) Discrete Distributions}
+The set
+$$\{z \in \R \: | \: f(z) > 0 \} \subseteq \R $$
+is called the \textcolor{blue}{support} of the continuous r.v. \vspace{.5cm}
 \end{center}
 }
 
 
 \frame{
+\frametitle{\normalsize {\scshape From p.d.f. to probabilities}}
+Let $X$ be a real-valued random variable with p.d.f. $f(z)$ \pause \vspace{.5cm}
+\begin{itemize}  [<+->]
+\item [$\star$] \alert<2>{$\prob_{X}[X \leq a] = \int_{-\infty}^{a} f(z) dz$} \vspace{.5cm}
+\item [$\star$] \alert<3>{$\prob_{X}[a \leq X \leq b] = \int_{a}^{b} f(z) dz$} \vspace{.5cm} 
+\item [$\star$] \alert<4>{$\prob_{X}[X > a ] = \int_{a}^{\infty} f(z) dz$} 
+\end{itemize}
+}
+
+
+
+
+
+\frame{
+\label{Examples-Discrete}
 \begin{center}
-\textbf{Discrete Finite Support}
+\textbf{Examples of (Univariate) Discrete Distributions}\\
+\vspace{.2cm}
+\hyperlink{Bernoulli}{\beamergotobutton{Bernoulli}}
+\hyperlink{Binomial}{\beamergotobutton{Binomial}} \\
+\hyperlink{Examples-Continuous}{\beamerskipbutton{Skip to Continuous Distributions}}
 \end{center}
 }
 
+
 \frame{
+\label{Bernoulli}
 \frametitle{\normalsize {\scshape Bernoulli Distribution $(p)$,  $p \in (0,1)$}}
 \begin{itemize}
 \item [$\star$] The Bernoulli distribution with parameters $p$ has support:
@@ -559,10 +485,12 @@ $$\textcolor{blue}{p^{x} (1-p)^{1-x}>0}$$ \pause
 \item 
 $$\sum_{x \in \{0,1\}} p^{x} (1-p)^{1-x} = (1-p) + p$$
 \end{enumerate}
+\hyperlink{Examples-Discrete}{\beamerreturnbutton{Examples}}
 }
 
 
 \frame{
+\label{Binomial}
 \frametitle{\normalsize {\scshape Binomial Distribution $(n,p)$, $n \in \mathbb{N}, p \in (0,1)$}}
 \begin{itemize}
 \item [$\star$] The binomial distribution with parameters $(n,p)$ has support:
@@ -712,60 +640,25 @@ $$a=p, \quad b=1-p $$
 \end{center}
 }
 
-
 \frame{
 \begin{center}
-\textbf{Examples of (Univariate) Continuous Distributions}
+\hyperlink{Examples-Discrete}{\beamerreturnbutton{Examples}}
+\end{center}
+}
+
+
+\frame{
+\label{Examples-Continuous}
+\begin{center}
+\textbf{Examples of (Univariate) Continuous Distributions}\\
+\hyperlink{Uniform}{\beamergotobutton{Uniform}}
+\hyperlink{Normal}{\beamergotobutton{Normal}} \\
+\hyperlink{Moments}{\beamerskipbutton{Skip to Moments}}
 \end{center}
 }
 
 \frame{
-\frametitle{\normalsize {\scshape (Absolutely) Continuous Real-valued r.v.s}}
-Random Variables for which
-$$ \textcolor{blue}{ F_X(x) = \int_{-\infty}^{x} f(z) dz   }  $$
-\noindent for some $f(z) \geq 0$ $\forall z \in \R$ are called: \pause \vspace{.3cm}
-\begin{center}
-\textcolor{blue}{(Absolutely) Continuous} 
-\end{center} 
-The function $f(z)$ is called  \vspace{.3cm}
-\begin{center}
-\textcolor{blue}{Probability Density Function (p.d.f.)} 
-\end{center}
-}
-
-\frame{ 
-\frametitle{\normalsize {\scshape Properties of a p.d.f.}}
-\begin{itemize}
-\item [$\star$] A function $f:\R \rightarrow \R$ is a p.d.f. if \vspace{.5cm}
-\begin{enumerate} [a)]
-\item $f(z) \geq 0$ \vspace{.25cm}
-\item $\int_{\{z \in \R \: | \: f(z) > 0 \}} f(z) dz = 1$ \vspace{.5cm}
-\end{enumerate}   
-\item [$\star$] a), b) $\implies$ $F(x) = \int_{-\infty}^{x} f(z)dz$ is a c.d.f. \vspace{.5cm}
-\item[$\star$] The set
-$$\{z \in \R \: | \: f(z) > 0 \} \subseteq \R $$
-is called the \textcolor{blue}{support} of the continuous r.v. \vspace{.5cm}
-\end{itemize}
-}
-
-\frame{
-\frametitle{\normalsize {\scshape From p.d.f. to probabilities}}
-Let $X$ be a real-valued random variable with p.d.f. $f(z)$ \pause \vspace{.5cm}
-\begin{itemize}  [<+->]
-\item [$\star$] \alert<2>{$\prob_{X}[X \leq a] = \int_{-\infty}^{a} f(z) dz$} \vspace{.5cm}
-\item [$\star$] \alert<3>{$\prob_{X}[a \leq X \leq b] = \int_{a}^{b} f(z) dz$} \vspace{.5cm} 
-\item [$\star$] \alert<4>{$\prob_{X}[X > a ] = \int_{a}^{\infty} f(z) dz$} 
-\end{itemize}
-}
-
-
-\frame{
-\begin{center}
-\textbf{Examples of Absolutely Continuous Distributions}
-\end{center}
-}
-
-\frame{
+\label{Uniform}
 \frametitle{\normalsize {\scshape Uniform [a,b]}}
 \begin{itemize}
 \item [$\star$] The uniform distribution with parameters $[a,b]$ has p.d.f. 
@@ -803,6 +696,7 @@ $$f(z)=\frac{1}{b-a} \mathbf{1}\{z \in [a,b]\}$$ \pause
 }
 
 \frame{
+\label{Normal}
 \frametitle{\normalsize {\scshape Normal Distribution $(\mu, \sigma^2)$}}
 \begin{itemize}
 \item [$\star$] The normal distribution with parameters $(\mu, \sigma^2)$ has p.d.f. 
@@ -926,15 +820,16 @@ $$ \int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2 \pi}} \exp\Big( -\frac{1}{2 \
 
 
 \frame{
+\label{Moments}
 \begin{center}
-\textbf{Mean ($\mu$) and variance ($\sigma^2$)}
+\textbf{Moments}
 \end{center}
 }
 
 \frame{
-\frametitle{\normalsize \scshape{Definiton: Mean of a discrete r.v.}}
+\frametitle{\normalsize \scshape{Mean of a discrete r.v.}}
 \begin{itemize}[<+-|alert@+>]
-\item [$\star$] {Let $X$ be a discrete r.v. with ($S$, $\prob_{X}$)} \vspace{.3cm}
+\item [$\star$] {Let $X$ be a discrete r.v. with support $S$ and p.m.f. $\prob_{X}$} \vspace{.3cm}
 \item [$\star$] {The mean or expected value of $X$ is defined as:}
 $$\expec_{\prob_{X}}[X] \equiv \mu \equiv \sum_{x_n \in S} x_n \: \prob_{X}[X = x_n ] $$ 
 \item [$\star$] {The variance of $X$ is defined as:}
@@ -943,108 +838,12 @@ $$\expec_{\prob_{X}}[(X-\mu)^2] \equiv \sigma^2 \equiv \sum_{x_n \in S} (x_n-\mu
 \end{itemize}
 }
 
-\frame{
-\begin{center}
-Let's compute the $\mu$ and $\sigma^2$ for some of the discrete distributions we have introduced 
-\end{center}
-}
-
-\frame{
-\frametitle{\normalsize \scshape {Bernoulli (p)} }
-\begin{itemize}[<+- | alert@+>]
-\item [$\star$] {S=\{0,1\}} \vspace{.3cm}
-\item [$\star$] {$\expec_{\prob_{X}}[X] \equiv \mu = (0)(1-p) + 1 (p) = p$} \vspace{.3cm}
-\item [$\star$] {$\expec_{\prob_{X}}[(X-\mu)^2] \equiv \sigma^2$ =} \pause
-\textcolor{blue}{\begin{eqnarray*}
-(0-p)^2(1-p) + (1-p)^2 p &=& p(1-p) [p + (1-p)] \\
-&=& p(1-p) 
-\end{eqnarray*} }  
-\end{itemize}
-}
-
-\frame{
-\frametitle{\normalsize \scshape {Binomial (n,p)}}
-\begin{itemize}[<+- | alert@+>]
-\item [$\star$] {S=\{0,1, \ldots n\}} \vspace{.3cm}
-\item [$\star$] {$\expec_{\prob_{X}}[X] \equiv \mu = \ldots$}
-\begin{eqnarray*}
-\sum_{m=0}^{n} \frac{m n! p^m(1-p)^{n-m}}{(n-m)! m!}  &=& \sum_{m=1}^{n} \frac{n! p^m(1-p)^{n-m}}{(n-m)! m-1!} \\ \pause
-&=& np \sum_{m=1}^{n} \frac{n-1! p^{m-1}(1-p)^{n-m}}{(n-m)! m-1!} \\ \pause
-&=& \textcolor{blue}{np} \pause
-\end{eqnarray*} 
-\item [$\star$] {$\expec_{\prob_{X}}[(X-\mu)^2] \equiv \sigma^2$ =$n p(1-p)$} 
-\end{itemize}
-}
-
-
-\frame{
-\frametitle{\normalsize {\scshape Binomial $(3,.1)$ } $\mu=.3, \sigma^2 = .27$}
-\begin{center}
-\psset{xunit=1cm,yunit=5cm}
-\begin{pspicture}(0,.5)(7,0.55)
-\psaxes[Dy=0.2,dy=0.2\psyunit]{->}(0,0)(-.5,0)(4,0)
-\uput[-90](4,0){$\text{Supp}$} \uput[90](0,0.5){}
-\psBinomial[markZeros,printValue,fillstyle=vlines]{3}{0.1}
-\psline[linecolor=red](.3,-.05)(.3,.05)
-\end{pspicture}
-\end{center}
-}
-
-
-\frame{
-\frametitle{\normalsize {\scshape Binomial $(3,.3)$ }, $\mu=.9, \sigma^2 = .63 $}
-
-\begin{center}
-\psset{xunit=1cm,yunit=5cm}
-\begin{pspicture}(-1,.5)(7,0.55)
-\psaxes[Dy=0.2,dy=0.2\psyunit]{->}(0,0)(-.5,0)(4,0)
-\uput[-90](4,0){$\text{Supp}$} \uput[90](0,0.5){}
-\psBinomial[markZeros,printValue,fillstyle=vlines]{3}{0.3}
-\psline[linecolor=red](.9,-.05)(.9,.05)
-\end{pspicture}
-\end{center}
-}
-
-\frame{
-\frametitle{\normalsize {\scshape Binomial $(3,.5)$ }, $\mu=1.5, \sigma^2 = .75 $}
-\begin{center}
-\psset{xunit=1cm,yunit=5cm}
-\begin{pspicture}(-1,.5)(7,0.55)
-\psaxes[Dy=0.2,dy=0.2\psyunit]{->}(0,0)(-.5,0)(4,0)
-\uput[-90](4,0){$\text{Supp}$} \uput[90](0,0.5){}
-\psBinomial[markZeros,printValue,fillstyle=vlines]{3}{0.5}
-\psline[linecolor=red](1.5,-.05)(1.5,.05)
-\end{pspicture}
-\end{center}
-}
-
-\frame{
-\frametitle{\normalsize {\scshape Binomial $(3,.7)$, $\mu=2.1, \sigma^2 = .63 $}}
-\begin{center}
-\psset{xunit=1cm,yunit=5cm}
-\begin{pspicture}(-1,.5)(7,0.55)
-\psaxes[Dy=0.2,dy=0.2\psyunit]{->}(0,0)(-.5,0)(4,0)
-\uput[-90](4,0){$\text{Supp}$} \uput[90](0,0.5){}
-\psBinomial[markZeros,printValue,fillstyle=vlines]{3}{0.7}
-\psline[linecolor=red](2.1,-.05)(2.1,.05)
-\end{pspicture}
-\end{center}
-}
-
 \frame{ 
-\frametitle{\normalsize {\scshape Expected Value-Continuous Type}}
+\frametitle{\normalsize {\scshape Mean of a Continuous Type r.v.}}
 \begin{itemize} [<+->] 
-\item [$\star$] For a discrete random variable $X$ we have defined the \textbf{expected value of a transformation:} 
-$$ \sum_{i=1}^{n} u(x_i) \prob_X(X=x_i) $$
-\item [$\star$] The analogous definition for a continuous-type random variable $X$ with p.d.f. $f_X$is:
-\alert<2>{$$\expec_{f_X}[X] = \int_{-\infty}^{\infty} u(z) f_X(z) dz $$}
-\end{itemize}
-}
-
-\frame{ 
-\frametitle{\normalsize {$\mu$ and $\sigma$}}
-\begin{itemize}
-\item [$\star$] Therefore, the mean and the variance of a continuous-type r.v. X are given by:
+\item [$\star$] For a continuous-type random variable $g(X)$, where $X \sim f_X$:
+\alert<2>{$$\expec_{f_X}[X] \equiv \int_{-\infty}^{\infty} g(z) f_X(z) dz $$}
+\item [$\star$] Therefore, the mean and the variance of X are given by:
 \begin{eqnarray*}
 \mu &=& \int_{-\infty}^{\infty} z f_X(z)dz \\
 \sigma^2 &=& \int_{-\infty}^{\infty} (z-\mu)^2 f_X(z) dz
@@ -1052,17 +851,23 @@ $$ \sum_{i=1}^{n} u(x_i) \prob_X(X=x_i) $$
 \end{itemize}
 }
 
+
 \frame{
 \begin{center}
-Let's compute $\mu$ and $\sigma^2$ for the uniform $[a,b]$
+\textbf{Examples}\\
+\hyperlink{Mean-Uniform}{\beamergotobutton{Mean of a Uniform [a,b]}} \\
+\hyperlink{Variance-Uniform}{\beamergotobutton{Second Moment of a Uniform [a,b]}}\\
+\hyperlink{MGF}{\beamerskipbutton{Skip to Moment Generating Function}}
 \end{center}
 }
 
 \frame{
+\label{Mean-Uniform}
 \frametitle{\normalsize {\scshape U[a,b]}: $\mu$}
 \begin{itemize}
+\item [$\star$] $\mu = \frac{b+a}{2}$ \vspace{.3cm}
 \item [$\star$] $f(z)=\frac{1}{b-a} \mathbf{1}\{z \in [a,b]\}$ \vspace{.3cm}
-\item [$\star$] $\mu$ is given by:
+\item [$\star$] Derivation:
 \begin{eqnarray*}
 \mu = \int_{-\infty}^{\infty} z f(z) dz  &=& \frac{1}{b-a}\int_{a}^{b} z dz \\ \pause
 &=& \frac{1}{2}\frac{1}{b-a} z^2 \Big]_{a}^{b} \\ \pause
@@ -1073,11 +878,11 @@ Let's compute $\mu$ and $\sigma^2$ for the uniform $[a,b]$
 }
 
 \frame{
-\frametitle{\normalsize {\scshape U[a,b]}: $\sigma^2$}
+\label{Variance-Uniform}
+\frametitle{\normalsize {\scshape U[a,b]}: $\mathbb{E}[X^2]$}
 \begin{itemize}
-\item [$\star$] Note that 
-$$\expec_f[(X-\mu)^2] = \expec_{f}[X^2] - 2\mu \expec_f[X] + \mu^2  $$ \pause
-\item [$\star$] $\sigma^2$ is given by: 
+\item [$\star$] $\mathbb{E}[X^2] = \frac{b^2 + ab + a^2}{3}$ \vspace{.3cm}
+\item [$\star$] Derivation: 
 \begin{eqnarray*}
 \expec[X^2] = \int_{-\infty}^{\infty} z^2 f(z) dz  &=& \frac{1}{b-a}\int_{a}^{b} z^2 dz \\ \pause
 &=& \frac{1}{3}\frac{1}{b-a} z^3 \Big]_{a}^{b} \\ \pause
@@ -1089,65 +894,12 @@ $$\expec_f[(X-\mu)^2] = \expec_{f}[X^2] - 2\mu \expec_f[X] + \mu^2  $$ \pause
 
 \frame{
 \noindent Hence, $\sigma^2$ is given by:
-$$ \frac{b^2 + ab + a^2}{3} - \frac{b^2 + 2ab + a^2}{4} = \frac{(b-a)^2}{12} $$
+$$ \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \frac{b^2 + ab + a^2}{3} - \frac{b^2 + 2ab + a^2}{4} = \frac{(b-a)^2}{12} $$
 }
 
 
 \frame{
-\frametitle{\normalsize \scshape U$[a,b]: \mu$ }
-\begin{center}
-\begin{pspicture*}(-4,-4) (4,4) 
-\psaxes[ticks=none, labels=none]{->}(0,-3)(-4,-3)(4,1.3)
-\uput[25](-3.5,2){\footnotesize $f(z) = 
-\left \{
-\begin{array}{ccc}
-0  & \text{if}  & z < a   \\
-& &\\
-1/(b-a) &  \text{if} & z \in [a,b]  \\
- & &\\
- 0 & \text{if}  & z > b   
-\end{array}
-\right.
- $}
-\uput[25](3.5,-3.4){\footnotesize $\R$}
-\uput[25](-.8,-3.4){\footnotesize $\mu=\frac{a+b}{2}$}
-\uput[25](-1.2,-3.4){\footnotesize $a$}
-\uput[25](.8,-3.4){\footnotesize $b$}
-\uput[25](1.2,-1.1){\footnotesize $1/(b-a)$}
-\psline[linecolor=blue, linewidth=.1] (-4,-3)(-1,-3)
-\psline[linecolor=blue, linewidth=.1] (1,-3)(4,-3)
-\psPolynomial[coeff=-1 0, linewidth=.1, linecolor=blue]{-1}{1}
-\end{pspicture*} 
-\end{center}
-}
-
-\frame{
-\begin{center}
-Let's now compute the expectation and variance of the normal distribution
-\end{center}
-}
-
-\frame{
-\frametitle{\normalsize {\scshape $\mathcal{N}(\mu, \sigma^2)$}}
-$$f(z) = \frac{1}{\sigma \sqrt{2 \pi}} \exp\Big(-\frac{1}{2\sigma^2} (z-\mu)^2 \Big) $$ \pause
-Note first that:
-$$ \int_{-\infty}^{\infty} z \frac{1}{\sigma \sqrt{2 \pi}} \exp\Big(-\frac{1}{2\sigma^2} z^2 \Big)dz = 0 \: \: \text{(why?)}  $$
-}
-
-\frame{
-\frametitle{\normalsize {\scshape $\mathcal{N}(\mu, \sigma^2)$}}
-Let
-$$u= z-\mu $$ \pause
-Note that:
-\begin{eqnarray*}
-\int_{-\infty}^{\infty} z \frac{1}{\sigma \sqrt{2 \pi}} \exp\Big(-\frac{1}{2\sigma^2} (z-\mu)^2 \Big) dz &=& \\ \pause
-&& \\
-\int_{-\infty}^{\infty} (u+\mu) \frac{1}{\sigma \sqrt{2 \pi}} \exp\Big(-\frac{1}{2\sigma^2} u^2 \Big) du &=& \mu 
-\end{eqnarray*}
-}
-
-
-\frame{
+\label{MGF}
 \begin{center}
 \textbf{Moment Generating Function}
 \end{center}
@@ -1158,9 +910,9 @@ Note that:
 \frametitle{\normalsize \caps{MGF}}
 \begin{itemize}[<+-|alert@+>]
 \justifying
-\item [$\star$] The real-valued random variable $X$ is said to have a moment generating function $m_{X}:(-\epsilon,\epsilon)\rightarrow [0,\infty]$ if
-$$ E_{F}\Big[\exp \Big( t X \Big)\Big] < \infty, \quad \forall \: t \in (-\epsilon,\epsilon).$$
-\item [$\star$] If the MGF is differentiable at $t=0$ we can obtain the k-th moment of $X$ as the $k$-th derivative of the MGF evaluated at $t=0$. 
+\item [$\star$] The $\mathbb{R}$-valued r.v. $X$ has moment generating function $m_{X}(\cdot)$ if
+$$ m_{x}(t) \equiv E_{F}\Big[\exp \Big( t X \Big)\Big] < \infty, \quad \forall \: t \in (-\epsilon,\epsilon).$$
+\item [$\star$] The k-th moment of $X$ is the $k$-th derivative of $m_{x}(t)$ at $t=0$. 
 \end{itemize}
 }
 

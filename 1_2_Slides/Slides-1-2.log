@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  4 SEP 2018 13:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  6 SEP 2018 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,17 +1470,17 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] [3
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 59.
+LaTeX Font Info:    Try loading font information for U+msa on input line 58.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 59.
+LaTeX Font Info:    Try loading font information for U+msb on input line 58.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 59.
+line 58.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1514,33 +1514,33 @@ thkerncmss.
 ] [17
 
 ]
-Overfull \vbox (13.56754pt too high) detected at line 207
+Overfull \vbox (13.56754pt too high) detected at line 205
  []
 
 [18
 
-] [19
+]
+Overfull \vbox (13.56754pt too high) detected at line 221
+ []
+
+[19
 
 ] [20
 
 ] [21
 
-]
-Overfull \vbox (13.56754pt too high) detected at line 250
- []
-
-[22
+] [22
 
 ] [23
 
 ]
-Overfull \vbox (13.56754pt too high) detected at line 291
+Overfull \vbox (13.56754pt too high) detected at line 284
  []
 
 [24
 
 ]
-Overfull \vbox (13.56754pt too high) detected at line 310
+Overfull \vbox (13.56754pt too high) detected at line 300
  []
 
 [25
@@ -1548,13 +1548,13 @@ Overfull \vbox (13.56754pt too high) detected at line 310
 ] [26
 
 ]
-Overfull \vbox (13.56754pt too high) detected at line 343
+Overfull \vbox (13.56754pt too high) detected at line 336
  []
 
 [27
 
 ]
-Overfull \vbox (13.56754pt too high) detected at line 361
+Overfull \vbox (13.56754pt too high) detected at line 355
  []
 
 [28
@@ -1565,17 +1565,9 @@ Overfull \vbox (13.56754pt too high) detected at line 361
 
 ] [31
 
-]
-Overfull \vbox (13.56754pt too high) detected at line 427
- []
+] [32
 
-[32
-
-]
-Overfull \vbox (13.56754pt too high) detected at line 457
- []
-
-[33
+] [33
 
 ] [34
 
@@ -1595,7 +1587,8 @@ Overfull \vbox (13.56754pt too high) detected at line 457
 
 ] [42
 
-] [43
+]
+[43
 
 ] [44
 
@@ -1605,8 +1598,7 @@ Overfull \vbox (13.56754pt too high) detected at line 457
 
 ] [47
 
-]
-[48
+] [48
 
 ] [49
 
@@ -1624,7 +1616,11 @@ Overfull \vbox (13.56754pt too high) detected at line 457
 
 ] [56
 
-] [57
+]
+Overfull \vbox (13.56754pt too high) detected at line 696
+ []
+
+[57
 
 ] [58
 
@@ -1636,11 +1632,7 @@ Overfull \vbox (13.56754pt too high) detected at line 457
 
 ] [62
 
-]
-Overfull \vbox (13.56754pt too high) detected at line 803
- []
-
-[63
+] [63
 
 ] [64
 
@@ -1658,7 +1650,8 @@ Overfull \vbox (13.56754pt too high) detected at line 803
 
 ] [71
 
-] [72
+]
+[72
 
 ] [73
 
@@ -1666,57 +1659,7 @@ Overfull \vbox (13.56754pt too high) detected at line 803
 
 ] [75
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 963
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 963.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 963.
-
-[76
-
-] [77
-
-] [78
-
-] [79
-
-] [80
-
-] [81
-
-] [82
-
-] [83
-
-] [84
-
-] [85
-
-] [86
-
-] [87
-
-]
-Overfull \vbox (13.56754pt too high) detected at line 1122
- []
-
-[88
-
-] [89
-
-] [90
-
-] [91
-
-] [92
-
-] [93
-
-] [94
+] [76
 
 ]
 \tf@nav=\write7
@@ -1733,12 +1676,11 @@ Overfull \vbox (13.56754pt too high) detected at line 1122
 Package caption Warning: Unused \captionsetup[subfloat] on input line 28.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1184.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1184.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 936.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 936.
 (./Slides-1-2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1184.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1184.
-
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 936.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 936.
 Package rerunfilecheck Info: File `Slides-1-2.out' has not changed.
 (rerunfilecheck)             Checksum: 8582CDA465FAE22DF3C2A9971DB36ED0;258.
 
@@ -1747,17 +1689,17 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1184.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 936.
  ) 
 Here is how much of TeX's memory you used:
- 23119 strings out of 493090
- 427720 string characters out of 6134868
- 614327 words of memory out of 5000000
- 26050 multiletter control sequences out of 15000+600000
- 19453 words of font info for 70 fonts, out of 8000000 for 9000
+ 23111 strings out of 493090
+ 428223 string characters out of 6134868
+ 610180 words of memory out of 5000000
+ 26044 multiletter control sequences out of 15000+600000
+ 16716 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,16n,96p,726b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Slides-1-2.dvi (94 pages, 972360 bytes).
+Output written on Slides-1-2.dvi (76 pages, 774820 bytes).
