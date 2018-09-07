@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  6 SEP 2018 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  6 SEP 2018 16:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1285,28 +1285,21 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 219.
- [6]
-Overfull \hbox (1.58365pt too wide) in paragraph at lines 291--292
-[]\T1/lmr/bx/n/10.95 Simple Ran-dom Vari-ables: \T1/lmr/m/n/10.95 A ran-dom var
-i-able $\OML/lmm/m/it/10.95 X$ \T1/lmr/m/n/10.95 is sim-ple if there is a fi-ni
-te set $\OMS/lmsy/m/n/10.95 f\OML/lmm/m/it/10.95 x[]; [] x[]\OMS/lmsy/m/n/10.95
- g$\T1/lmr/m/n/10.95 ,
- []
-
-[7] [8] [9] [10] (./Lectures1-2.bbl)
+ [6] [7] [8]
+[9] [10] (./Lectures1-2.bbl)
 
 Package caption Warning: Unused \captionsetup[subfloat] on input line 25.
 See the caption package documentation for explanation.
 
 [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 367.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 367.
  (./Lectures1-2.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 370.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 367.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 367.
 Package rerunfilecheck Info: File `Lectures1-2.out' has not changed.
 (rerunfilecheck)             Checksum: 83137D4F63AFA3C69DA12CAD199E5A6C;664.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 367.
  )
 (\end occurred inside a group at level 1)
 
@@ -1319,6 +1312,6 @@ Here is how much of TeX's memory you used:
  25551 multiletter control sequences out of 15000+600000
  53547 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,11n,96p,705b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,96p,705b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Lectures1-2.dvi (11 pages, 55804 bytes).
+Output written on Lectures1-2.dvi (11 pages, 54964 bytes).

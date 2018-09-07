@@ -286,14 +286,11 @@ F(x) =
 
 One common way to classify the random variables and their c.d.f.s is the following:
 
-\begin{definition}[Simple, Discrete, Continuous, and Absolutely Continuous Random Variables]  \:\
+\begin{definition}[Discrete and Absolutely Continuous Random Variables]  \:\
 \begin{enumerate}
-\item \textbf{Simple Random Variables:} A random variable $X$ is simple if there is a finite set $\{x_1, \ldots x_k\}$, $x_1<x_2, \ldots x_k$ such that 
-$$\prob_{X}(\{x_1, \ldots x_k\}^c)=0$$
 \item \textbf{Discrete Random Variables:} A random variable $X$ is discrete if there is a countable set $\{x_1, x_2, \ldots\}$, $x_1<x_2<\ldots$ such that 
 $$\prob_{X}(\{x_1, x_2\ldots \}^c)=0$$
 The smallest set $\{x_1, x_2, \ldots\}$ for which $\prob_{X}(\{x_1, x_2\ldots \}^c)=0$ is called the support of $X$. The map $p: \text{Supp} \rightarrow [0,1]$ defined by $p(s)\equiv\prob_{X}(s)$ is called the probability mass function. 
-\item \textbf{Continuous Random Variables:} A random variable $X$ is continuous if the c.d.f. of $X$ is a continuous function.
 \item \textbf{Absolutely Continuous Random Variables (w.r.t. Lebesgue Measure):} A random variable $X$ is absolutely continuous if:
 $$F(x) = \int_{-\infty}^{x} f(y)dy $$
 for some integrable, nonnegative function $f$ that we will call the \textbf{probability density function} (p.d.f.) of $X$. If $F$ is continuously differentiable the p.d.f. will coincide with the derivative of $F$ (see p. 257 in \cite{Billingsley95}).
@@ -301,7 +298,7 @@ for some integrable, nonnegative function $f$ that we will call the \textbf{prob
 
 \end{definition}
 
-A Bernoulli r.v. is an example of a simple distribution. A Geometric r.v. is an example of a discrete random variable. The gaussian, pareto, and exponential distribution are both continuous and absolutely continuous random variables. Note that not every random variable falls into one of the categories above (see, for example, the entry for Cantor's function in wikipedia) .
+A Bernoulli r.v. is an example of a discrete distribution with finite support. A Geometric r.v. is an example of a discrete random variable with countable support. The gaussian, pareto, and exponential distribution are both continuous and absolutely continuous random variables. Note that not every random variable falls into one of the categories above (see, for example, the entry for Cantor's function in wikipedia) .
 
 \subsubsection{Moments of Discrete and Absolutely Continuous Random Variables}
 In this section we introduce the definition of expectation for only discrete and absolutely continuous random variables. For a more detailed exposition you can see Chapters 1.4-1.6 in \cite{durrett2010}.
