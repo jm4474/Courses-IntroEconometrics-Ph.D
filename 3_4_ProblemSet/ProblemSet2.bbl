@@ -1,0 +1,11 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Cram{\'e}r and Wold}{Cram{\'e}r and
+  Wold}{1936}]{cramer1936some}
+\textsc{Cram{\'e}r, H. and H.~Wold} (1936): \enquote{Some theorems on
+  distribution functions,} \emph{Journal of the London Mathematical Society},
+  1, 290--294.
+
+\end{thebibliography}
