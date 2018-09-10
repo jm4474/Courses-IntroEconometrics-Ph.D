@@ -1,0 +1,475 @@
+%%!TEX TS-program = latex
+
+%This template gives a nice gray-sober environment. 
+\documentclass[red]{beamer}
+\usepackage{etex}
+\input ../Auxiliary_Format_Files/PreambleSlides.tex
+\usepackage[utf8]{inputenc}
+ 
+\title{{\scshape Econometrics I}}
+\author{{\scshape Jos\'e Luis Montiel Olea}}
+\date{}
+
+%---------------------------------------------------Begin Document-------------------------------------
+\begin{document}
+\setbeamerfont{alerted text}{series=\normalfont}
+\setbeamercolor{alerted text}{fg=blue}
+
+\frame{\titlepage}
+
+
+\frame{
+\begin{center}
+\textbf{Lectures 3 and 4} 
+\end{center}
+}
+
+\frame{
+\begin{center}
+\textbf{MV Distributions, Independence, and Conditional Probability} 
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Overview}}
+\begin{itemize}
+\justifying
+\item [$\star$] Define random vectors along with multivariate c.d.f.s\\
+\textcolor{gray}{(mean, covariance matrix, moment generating function)} \vspace{.5cm}
+\item[$\star$] Present some useful characterizations of independence \\
+\textcolor{gray}{(general definition relegated to the appendix of the notes)} \vspace{.5cm}
+\item [$\star$] Introduce conditional probability and conditional expectation 
+\textcolor{gray}{(general definition also in the appendix of the notes)}
+\end{itemize}
+}
+
+
+
+
+
+
+\section{Random Vectors and MV distributions}
+
+\frame{
+\begin{center}
+\textbf{1. Random Vectors and MV distributions}
+\end{center}
+}
+
+
+\frame{
+\frametitle{\normalsize {\scshape Introduction}}
+\begin{itemize}
+\justifying
+\item [$\star$] So far, we have been working with \textcolor{blue}{real-valued} random variables:
+$$X: \Omega \rightarrow \R $$ 
+\item[$\star$] Consequently, we have learned to think about statements like: 
+$$P_{X}(X \leq x),$$
+\item [$\star$] where $x$ is some \textcolor{blue}{real} number. 
+\end{itemize}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Motivation}}
+\begin{itemize}
+\item [$\star$] Econ data usually involve more than one random variable\\
+\textcolor{gray}{(think about cross-sectional or time series data)} \vspace{.5cm}
+\item [$\star$] \text{Thus, we will work with } \textcolor{blue}{$X_s: \Omega \rightarrow \R, \quad s \in \{1,2 \ldots S\} $} \vspace{.5cm}
+\item [$\star$] We will introduce the following statements: \vspace{.5cm}
+\begin{enumerate}
+\item Joint Probability Statements. 
+\item[] $$\prob_{X} \Big[ X_1 \leq x_1, \ldots X_S \leq x_s \Big] $$
+\item Conditional Probability Statements. 
+
+\item[] $$\prob_{X} \Big[ X_1 \leq x_1 \: \Big | \: X_2 \leq x_2 \Big] $$
+\end{enumerate}
+\end{itemize}
+}
+
+
+\frame{ 
+\frametitle{\normalsize {\scshape $\R^s$-valued random variable}}
+\begin{itemize}
+\item [$\star$] The $\mathbb{R}^{S}$-valued mapping defined over $(\Omega, \mathcal{F})$
+\item [] $$\mathbf{X}(\omega) \equiv \Big( \: X_1(\omega),  \ldots, X_{S}(\omega) \: \Big)' $$
+\item [] is a random vector if for all $A \in B(\mathbb{R}^{S})$
+\item [] $$ \mathbf{X}^{-1}(A) \in \mathcal{F}.$$
+
+\item [$\star$] The definition is analogous to real-valued case
+\end{itemize}
+}
+
+
+\frame{ 
+\frametitle {\normalsize {\scshape Multivariate Cumulative Distribution Functions}}
+\justifying
+\begin{itemize}
+\item [$\star$] The c.d.f. of the $\mathbb{R}^{S}$ valued random vector $\textbf{X}(\omega)$ is a function
+$$F_{X}: \R^S \rightarrow [0,1] $$
+defined as
+$$F_{X}(x_1, \ldots, x_S) \equiv \prob\{ \omega \in \Omega \: | \: X_i(\omega)\leq x_i \: \text{for all } i=1,\ldots, S. \} $$
+\item [$\star$] Thus, the c.d.f. tell us how often each $X_i$ is below $x_i$. 
+\end{itemize} 
+}
+
+\frame{
+\begin{center}
+We classify random vectors according to their c.d.f.s \\
+(discrete and continuous)
+\end{center}
+}
+
+\frame{
+\frametitle {\normalsize {\scshape Absolutely Continuous Random Vector}}
+\begin{enumerate}
+\item [$\star$] An $\R^{S}$-valued random vector is absolutely continuous if:
+
+$$F(x_1, x_2, \ldots x_S) = \int_{-\infty}^{x_1} \ldots  \int_{-\infty}^{x_S} \textcolor{blue}{f(z_1, \ldots z_S)} dz_1 \ldots  dz_S$$
+
+\noindent for some nonnegative function $f:\R^{S} \rightarrow \R^{+}$ . \vspace{.3cm}
+\item [$\star$] $f(x_1, \ldots, x_n) = \partial^n F(x_1, \ldots, x_n)/ \partial x_1 \ldots \partial x_n$ is the p.d.f. of $\mathbf{X}$.
+
+\end{enumerate}
+}
+
+\frame{
+\frametitle {\normalsize {\scshape Marginal Distributions of $\mathbf{X}$}}
+$$ F_s: \mathbb{R} \rightarrow [0,1] $$
+\vspace{.5cm}
+$$F_s(x) \equiv \prob \Big[ \mathbf{X}^{-1} \Big( \R \times \ldots (-\infty, x ) \ldots \times \R \Big) \Big]  $$
+}
+
+\frame{
+\frametitle{\normalsize {\scshape From joint to marginals}}
+\begin{center}
+How to recover a marginal p.d.f. from a joint p.d.f? 
+\end{center}
+\begin{center}
+Just integrate variables out. 
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Moments of Random Vector}}
+Let $g: \mathbb{R}^{S} \rightarrow \mathbb{R}^{m}$.  Write
+$$g(\textbf{x})=(g_1(\textbf{x}), g_2(\textbf{x}), \ldots g_{m}(\textbf{x}))'$$
+\noindent and let
+
+\begin{eqnarray*}
+\expec_{F}[g(\mathbf{X})] &=& \Big( \expec_{F}[g_1(\mathbf{X})], \expec_{F}[g_2(\mathbf{X})], \ldots, \expec_{F}[g_m(\mathbf{X})] \Big)' \\
+&\equiv& \Big( \int_{\R^{S}} g_1(\mathbf{x})f(\mathbf{x})d\mathbf{x}, \ldots, \int_{\R^{S}} g_m(\mathbf{x})f(\mathbf{x})d\mathbf{x}\Big)'
+\end{eqnarray*}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Mean, Variance, Covariance}}
+\begin{center}
+$\mu \equiv \mathbb{E}[\mathbf{X}]$, $\Sigma \equiv \mathbb{E}[(\mathbf{X}-\mu)(\mathbf{X}-\mu)’]$
+\end{center}
+\begin{center}
+$$\textrm{Cov}(X,Y) \equiv \mathbb{E}[ (X - \mu_x)(Y-\mu_y) ].$$
+\end{center}
+}
+
+
+
+\frame{
+\frametitle{\normalsize {\scshape Moment Generating Function of $\mathbf{X}$}}
+The moment generating function of $m_{\mathbf{X}}: \R^{S} \rightarrow \R$ is given by:
+$$m_{\mathbf{X}}(t) \equiv \expec_{F}[\exp(t’\mathbf{X})] \quad t \in \R^{S}  $$
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Remarks about the m.g.f.}}
+\begin{enumerate}
+\justifying
+\item [$\star$] Vectors with the same m.g.f. have the same joint distribution \vspace{.3cm}
+\item [$\star$] Vectors with the same distribution $\forall$ linear combinations have the same joint distribution \\
+\textcolor{gray}{(see Cramer-Wold Theorem in the notes and problem 2)}
+\end{enumerate}
+}
+
+\frame{
+\begin{center}
+\textbf{Examples of Bivariate Vectors}\\
+(Bivariate Normal and Bivariate Bernoulli)
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Bivariate Normal}}
+\begin{enumerate}
+\item [$\star$] Let $\mu \in \R^2$ and let $\Sigma$ be a p.s.d. matrix of dimension $2 \times 2$. \vspace{.5cm}
+
+\item [$\star$] $\mathbf{X} \sim \mathcal{N}_{2}(\mathbf{\mu}, \Sigma)$, if:
+$$ \expec_{F}[\exp(t'\mathbf{X})]= \exp\Big(t'\mu + \frac{1}{2} t'\Sigma t \Big).$$
+\end{enumerate}
+}
+
+\frame{ 
+\frametitle{\normalsize {\scshape Some Properties of the Bivariate Normal}}
+\begin{enumerate}
+\item $\mu \in \mathbb{R}^2, A \in \mathbb{R}^{2 \times 2}$.
+$$\mathbf{Z} \sim \mathcal{N}_2(0, \mathbb{I}_2) \implies \mu + A\mathbf{Z} \sim \mathcal{N}_2(\mu, AA’).$$
+\vspace{.1cm}
+\item $\mathbf{X} \sim \mathcal{N}(\mu,\Sigma) \iff c’\mathbf{X} \sim \mathcal{N}(c’\mu, c’\Sigma c)$ for all $c \in \mathbb{R}^2$. \vspace{.7cm}
+\item $\mathbf{X} \sim \mathcal{N}(\mu,\Sigma)$, $\Sigma$ invertible. The p.d.f. of $\mathbf{X}$ is:
+$$ f(\mathbf{x}) = \frac{1}{ (\textrm{det}\: 2\pi \Sigma)^{1/2} } \exp \Big( -\frac{1}{2} (\mathbf{x}-\mu)'\Sigma^{-1} (\mathbf{x}-\mu) \Big).$$
+\end{enumerate}
+}
+
+\frame{
+\frametitle{ \normalsize \scshape{Bivariate Bernoulli}}
+$$\text{Supp} = \Big\{ (0,0), \: (0,1), \: (1,0), \: (1,1)  \Big\} $$
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:p_1\:\:   & \:\:p_2\:\:  \\\hline \:\:p_3\:\:   & \:\: p_4\:\:   \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*}
+$$\quad \quad \: \; p_1 + p_2 + p_3 + p_4 = 1 $$
+\begin{center}
+\quad (what are the marginal distributions?)
+\end{center}
+}
+
+\frame{
+\frametitle{ \normalsize {\scshape Remark: Joints are not `identified' by marginals}}
+$$ X \sim \textrm{Bernoulli} (p_x), \quad Y \sim \textrm{Bernoulli}(p_y)  $$
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  p_1  \:\:   & \:\:p_2 \:\:  \\\hline \:\: p_3 \:\:   & \:\: p_4 \:\:   \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*}
+\begin{eqnarray*}
+p_2 + p_4 &=& p_y\\
+p_3+p_4 &=& p_x \\
+p_1+p_2+p_3+p_4 &=& 1\\
+\end{eqnarray*}
+
+\begin{center}
+\textcolor{blue}{Solve for $p_1, p_2, p_3, p_4$}. 
+\end{center}
+}
+
+
+\frame{
+\frametitle{\normalsize {\scshape Best Linear Predictor (Practice Problem)}}
+
+\begin{itemize}
+\item [$\star$] Let $X, Y$ be real-valued random variables. \vspace{.3cm}
+\item [$\star$] Assume $\mu = (\mu_x, \mu_y)’$ and $\Sigma$ are known. \vspace{.3cm} 
+\item [$\star$] ``Predict’’ $Y$ using using a linear function of $(X-\mu_x)$:
+\[ \alpha + \beta (X-\mu_x)\]
+\item [$\star$] The best linear predictor minimizes expected squared error 
+\[ \min_{\alpha, \beta} \mathbb{E} [ (Y - \alpha -\beta (X-\mu_x))^2] \]
+\item [$\star$] Show that $\alpha^* = \mu_y$, $\beta^* = \textrm{Cov}(X,Y)/ V(Y)$.
+\end{itemize}
+
+
+}
+
+
+\section{Independence}
+
+\frame{
+\begin{center}
+\textbf{2. Independence}
+\end{center}
+}
+
+
+\frame{
+\frametitle{\normalsize {\scshape (In)dependence}}
+\begin{itemize}
+\justifying
+\item [$\star$] Important issue in the multivariate world: \vspace{.5cm}
+\item [] 
+\begin{center}How to summarize dependence or lack of dependence between random variables? \vspace{.5cm}
+\end{center}
+\item [$\star$] Say $X_1, \ldots, X_n$ are independent if for any $A_1, \ldots, A_n$  
+\[ \mathbb{P}( X_1 \in A_1, \ldots ,X_n \in A_n ) = \mathbb{P}(X_1 \in A_1)\ldots \mathbb{P}(X_n \in A_n).\]
+
+\item [$\star$] i.e., \textcolor{blue}{joint distribution equals the product of the marginals.} \vspace{.5cm}
+\end{itemize}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Are $X$ and $Y$ independent?}}
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  .3  \:\:   & \:\: .2 \:\:  \\\hline \:\: .5\:\:   & \:\: 0 \:\:   \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*} 
+}
+
+
+
+\frame{
+\frametitle{\normalsize {\scshape Useful Characterizations}}
+\begin{itemize}
+\justifying 
+\item [$\star$] Joint c.d.f is the product of the marginal c.d.f.s
+$$F(X_1, \ldots, X_n) = F(X_1) \ldots F(X_n).$$ 
+\item [$\star$] Joint p.d.f. is the product of marginal p.d.f.s
+$$f(x_1, \ldots, x_n) = f(x_1) \ldots f(x_n).$$ 
+\item [$\star$] Expectation of ``products’’ is the ``product’’ of expectations 
+$$\mathbb{E}[g_1(X_1), \ldots, g_n(X_n)] = \mathbb{E} [g_1(X_1)] \ldots \mathbb{E}[g(X_n)].$$
+\item [$\star$] Joint m.g.f. is the product of the marginal m.g.f.s
+$$ \mathbb{E}[ \exp (\mathbf{t}’\mathbf{X}) ] = \mathbb{E}[ \exp ( t_1 X_1 ) ] \ldots \mathbb{E}[ \exp ( t_n X_n ) ]   $$
+\end{itemize}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Independence implies zero Covariance}}
+ 
+$$\textrm{Cov}(X,Y) \equiv \expec[(X-\mu_x)(Y-\mu_y)]  $$ 
+
+$$ \implies $$
+
+$$\textrm{Cov}(X,Y) \equiv \expec[XY]- \mu_x \mu_y.  $$ 
+\vspace{.5cm}
+\begin{center}
+Therefore $(X,Y)$ independent $\implies$ $\textrm{Cov}(X,Y)=0$. 
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Does zero covariance implies independence?}}
+\begin{itemize}
+\item [$\star$] In general, the answer is no. Consider:
+
+\item []
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{rr} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{r} -1 \\ 0 \\ +1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  0  \:\:   & \:\: 3/9 \:\:  \\\hline \:\: 3/9  \:\:   & \:\: 0 \:\:   \\\hline \:\: 0 \:\: & \:\: 3/9 \:\:  \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*}
+\item [$\star$] But in some cases like multivariate normals, the answer is yes. \\
+\textcolor{gray}{(I will ask you to work this out in this week’s problem set)}
+\end{itemize}
+}
+
+\section{Conditional Probability}
+
+
+\frame{
+\begin{center}
+\textbf{3. Conditional Probability and Conditional Expectation} \vspace{.5cm} \\
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Definition of the conditional probability function}}
+\begin{itemize}
+\item [$\star$] $P(Y \in A | x)$: Conditional probability of $Y \in A$ given $x$. \vspace{.4cm} 
+\item [$\star$]  Defined as the \emph{function} such that
+\[ \int_{B} P(Y \in A | x) f_X(x) dx = P(Y \in A, X \in B).  \]
+\item [$\star$] When $X,Y$ have joint p.d.f. $f$ then
+\[ P(Y \in A | x) = \int_{A} \frac{f(x,y)}{f_{X}(x)} dy  \]
+\item [$\star$] The p.d.f. of $Y | X$ is defined as:
+\[ f(y | x) \equiv \textcolor{blue}{\frac{f(x,y)}{f_{X}(x)}}. \]
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{\normalsize {\scshape In our example}}
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\textrm{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  p_1  \:\:   & \:\:p_2 \:\:  \\\hline \:\: p_3 \:\:   & \:\: p_4 \:\:   \\\hline \end{array}\right. \\ 
+\end{eqnarray*} 
+$$P ( Y = 1 | X=1) = \frac{p_4}{p_3+p_4} $$
+$$P ( Y = 1 | X=0) = \frac{p_2}{p_1+p_2} $$
+}
+
+
+\frame{
+\frametitle{\normalsize \scshape{Conditional Expectation}}
+\begin{itemize}
+\justifying
+\item [$\star$] If $(X,Y)$ have joint p.d.f. f(x,y):
+$$\textcolor{blue}{\expec[g(Y) | x] \equiv \int g(y) \frac{f(x,y)}{f_{X}(x)}  dy.}  $$
+\item [$\star$] Law of Iterated Expectations $\mathbb{E}[\mathbb{E}[g(Y)| x]] = \mathbb{E}[g(Y)]$
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{\normalsize {\scshape Example}}
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  p_1  \:\:   & \:\:p_2 \:\:  \\\hline \:\: p_3 \:\:   & \:\: p_4 \:\:   \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*} 
+$$\expec[Y | X=1] \equiv (0) \frac{p_3}{p_3+p_4} + (1) \frac{p_4}{p_3+p_4}  $$
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Bivariate Normal}}
+\begin{center}
+In the problem set I will ask you show that if $(X,Y)$ are bivariate normal:
+\end{center}
+$$ Y | X \sim  \mathcal{N}_1 ( \underbrace{\alpha^* + \beta^*(X-\mu_x)}_{\textrm{Best Linear Pred}} \:, \: \textrm{Var} ( \underbrace{(Y-\alpha^*-\beta^*(X-\mu_x) )}_{\textrm{Approximation Error}}  ) $$
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Signal and Noise}}
+\begin{center}
+In the problem set I also ask you to consider the model
+$$ \underbrace{X}_{\textrm{Noisy Measure}} = \underbrace{\theta}_{\textrm{signal}} + \underbrace{\epsilon}_{\textrm{noise}}, $$
+$$ \theta \sim \mathcal{N}(\mu, \sigma^2_{\theta}), \quad \epsilon \sim \mathcal{N}(0, \sigma^2_{\epsilon}), \quad \theta \bot \epsilon $$
+\end{center}
+\begin{center}
+and to work-out the distribution of $\theta | X $.
+\end{center}
+}
+
+
+\section{Sums of Random Variables}
+
+\frame{
+\begin{center}
+\textbf{4. Sums of Random Variables}
+\end{center}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Let's go back to the example}}
+\begin{eqnarray*}
+&\text{Y} \nonumber \\
+& \left.\begin{array}{cc} 0 & \quad \quad 1  \end{array}\right. \nonumber\\
+\text{X} \quad \left.\begin{array}{c} 0 \\ 1 \end{array}\right. & \left.\begin{array}{|c|c|}\hline \:\:\  p_1  \:\:   & \:\: p_2 \:\:  \\\hline \:\: p_3  \:\:   & \:\: p_4 \:\:   \\\hline \end{array}\right. \\ \nonumber
+\end{eqnarray*}
+\begin{center}
+For any $t_1, t_2 \in \R$ define
+\end{center}
+$$W = t_1 X + t_2 Y $$
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Distribution of $t_1 X + t_2 Y$}}
+\begin{enumerate} 
+\justifying
+\item [$\star$] What is the distribution of $W$? 
+\item [] $$\text{Supp}=\{0,t_1, t_2, t_1+t_2\} $$
+\item [] $$\textcolor{blue}{\prob_{Z}(W=w) ?}  $$ 
+\item [$\star$] Note that:
+\item[] $$\prob_{Z}[W=t_1+t_2] = p_4, \quad  \prob_{Z}[W=t_2]=p_2, \quad \prob_{Z}[W=t_1]=p_3$$
+\item [] $$\prob_{Z}[W=0] = p_1  $$
+\end{enumerate}
+}
+
+\frame{
+\frametitle{\normalsize {\scshape Sums of Independent Random Variables}}
+\begin{itemize}
+\justifying
+\item [$\star$] The distribution of $X_1 + X_2$ need not be easy to obtain \vspace{.5cm}
+\item [$\star$] If $X_1$ and $X_2$ are independent and have m.g.f.s, it is 
+$$\mathbb{E}[ \exp (t(X  + X_2))] = \mathbb{E}[\exp(t X_1 )] \mathbb{E}[\exp(t X_2 )]$$
+\item [$\star$] Also, if $X_1$ and $X_2$ are independent and have p.d.f.s f and g; 
+\[ Z = X + Y \textrm{ has p.d.f. } \int f(z-y) g(y) dy  \]
+\end{itemize}
+}
+
+\end{document}
