@@ -1,0 +1,18 @@
+\BOOKMARK [1][-]{section.1}{Multivariate Distributions, Independence, and Conditional Probability}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Vector-valued random variables and Multivariate Distributions}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Absolutely Continuous Random Vectors}{section.1}% 3
+\BOOKMARK [3][-]{subsubsection.1.2.1}{Expectation of Random Vectors and Covariance Matrix}{subsection.1.2}% 4
+\BOOKMARK [3][-]{subsubsection.1.2.2}{Moment Generating Function of Random Vectors and Cram\351r-Wold Theorem}{subsection.1.2}% 5
+\BOOKMARK [3][-]{subsubsection.1.2.3}{A common example of an absolutely continuous random vector: Bivariate Normal Distribution}{subsection.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.3}{Independence}{section.1}% 7
+\BOOKMARK [3][-]{subsubsection.1.3.1}{Useful characterizations of independence}{subsection.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.4}{Conditional Probability and Conditional Expectation}{section.1}% 9
+\BOOKMARK [3][-]{subsubsection.1.4.1}{The conditional probability of Y given X}{subsection.1.4}% 10
+\BOOKMARK [3][-]{subsubsection.1.4.2}{The Conditional Expectation of g\(X\) given Y }{subsection.1.4}% 11
+\BOOKMARK [1][-]{appendix.A}{Kolmogorov's independence, Independence of Events, and Independence of Random Variables}{}% 12
+\BOOKMARK [1][-]{appendix.B}{Conditional Probability}{}% 13
+\BOOKMARK [2][-]{subsection.B.1}{Preliminaries}{appendix.B}% 14
+\BOOKMARK [1][-]{appendix.C}{Distance between probability measures}{}% 15
+\BOOKMARK [2][-]{subsection.C.1}{Bounded Lipschitz Distance}{appendix.C}% 16
+\BOOKMARK [3][-]{subsubsection.C.1.1}{Examples}{subsection.C.1}% 17
+\BOOKMARK [3][-]{subsubsection.C.1.2}{Main Result}{subsection.C.1}% 18
