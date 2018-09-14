@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  9 SEP 2018 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  14 SEP 2018 19:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1339,18 +1339,8 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 599.
 (./Lectures3-4.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 599.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 599.
-
-
-Package rerunfilecheck Warning: File `Lectures3-4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Lectures3-4.out':
-(rerunfilecheck)             Before: 6A49E55A378A83DAD9A90B5754B4865B;1691
-(rerunfilecheck)             After:  EBF2AEA68AD343658C959DD3995CFA9C;1691.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `Lectures3-4.out' has not changed.
+(rerunfilecheck)             Checksum: EBF2AEA68AD343658C959DD3995CFA9C;1691.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 599.
  )
 (\end occurred inside a group at level 1)
@@ -1366,4 +1356,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  63i,10n,96p,753b,549s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Lectures3-4.dvi (22 pages, 92388 bytes).
+Output written on Lectures3-4.dvi (22 pages, 92448 bytes).
