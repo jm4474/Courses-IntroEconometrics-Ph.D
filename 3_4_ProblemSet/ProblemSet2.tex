@@ -16,7 +16,7 @@ $$F(x_1^*, x_2^*)-F(x_1^*, x_2)-F(x_1, x_2^*)+F(x_1, x_2) \geq 0$$
 
 \noindent {\scshape Comment:} The Cram\'er-wold device is something you will find in the proofs of multivariate Central Limit Theorems. \\
   
-\noindent \textbf{Problem 3:} (The Best Linear Predictor) Let $X$ and $Y$ be two real-valued random variables. Let
+\noindent \textbf{Problem 3:} (The Best Linear Predictor, \textbf{30 Points}) Let $X$ and $Y$ be two real-valued random variables. Let
 \[\mu \equiv \begin{pmatrix} \mu_x \\ \mu_y \end{pmatrix} \textrm{ and } \Sigma, \]
 denote the mean and covariance of $(X,Y)’$. Both $\mu$ and $\Sigma$ are assumed to be known. Suppose that we are interested in linearly ``predicting’’ $Y$ using the deviations of $X$ from its mean. That is, we would like to predict $Y$ using a function of the form
 \[ \alpha + \beta (X-\mu_x). \]
@@ -27,16 +27,19 @@ The squared error is a random variable, which means that sometimes it will be bi
 The ``best’’ linear predictor of $Y$ in terms of $(X-\mu_x)$ is defined as the linear function $\alpha^* + \beta^* (X-\mu_x)$ that minimizes the mean squared-error; i.e., the function with parameters $(\alpha^*,\beta^*)$ such that:
 \[ (\alpha^*,\beta^*) \in \textrm{argmin}_{(\alpha,\beta)} \mathbb{E}[(Y-\alpha-\beta (X-\mu_x))^2].  \]
 \begin{enumerate}
-\item Show first that 
+\item (10/30 Points) Show first that 
 \[ \alpha^* = \mu_y. \]
-This result implies that if $X$ happens to be exactly equal to its mean, then the best linear predictor of $Y$ is its expectation. 
-\item Show then that $\beta^*$ solves the problem
+This result implies that if $X$ happens to be exactly equal to its mean, then the best linear predictor of $Y$ is its expectation.
+
+{\scshape Hint:} Add and subtract $\mu_y$ and expand the square. You should not be doing a lot of algebra. \\
+ 
+\item (10/30 Points) Show then that $\beta^*$ solves the problem
 \[ \min_{\beta} \mathbb{E}[ ((Y-\mu_y) - \beta (X-\mu_x))^2 ], \]
 and therefore 
 \[ \beta^*  = Cov(X,Y) / V(X). \]
-{\scshape Hint:} The objective function is quadratic in $\beta$ and the choice set for $\beta$ is convex. The problem is thus convex and the first order conditions are necessary and sufficient. Moreover, $\frac{\partial}{\partial \beta}\mathbb{E}[ ((Y-\mu_y) - \beta (X-\mu_x))^2 ] = \mathbb{E}[  \frac{\partial}{\partial \beta}((Y-\mu_y) - \beta (X-\mu_x))^2 ]$.
+{\scshape Hint:} The objective function is quadratic in $\beta$ and the choice set for $\beta$ is convex. You can see this by expanding the square and taking $\beta$ outside the expectation operator. The problem is thus convex and the first order conditions are necessary and sufficient. One thing to notice in this problem is that $\frac{\partial}{\partial \beta}\mathbb{E}[ ((Y-\mu_y) - \beta (X-\mu_x))^2 ] = \mathbb{E}[  \frac{\partial}{\partial \beta}((Y-\mu_y) - \beta (X-\mu_x))^2 ]$.
 
-\item Finally, define the error of the best linear predictor as:
+\item (10/30 Points) Finally, define the error of the best linear predictor as:
 \[ \epsilon = Y - \alpha^* - \beta^*(X-\mu).\]
 
 Show that $\mathbb{E}[\epsilon]=0$ and $Cov(\epsilon,X) = 0$. 
@@ -50,22 +53,26 @@ Is it true that the coefficients of the best linear predictor are:
  
  
  
-\noindent \textbf{Problem 4:} (Covariance equal to zero implies Independence?) 
+\noindent \textbf{Problem 4:} (Covariance equal to zero implies Independence?, \textbf{20 points}) 
 
 \begin{enumerate}
-\item Show that if $(X,Y)’$ are bivariate normal random variables $Cov(X,Y)=0$ implies independence. {\scshape Hint:} Use the definition of bivariate normal and any of the characterizations of independence we presented above.
-\item Let $X \sim \mathcal{N}(0,1)$. Let $Y=X^2$. Show that the $Cov(X,Y) = 0$. Are $(X,Y)$ independent? \end{enumerate}
+\item (10/20 Points) Show that if $(X,Y)’$ are bivariate normal random variables $Cov(X,Y)=0$ implies independence. {\scshape Hint:} Use the definition of bivariate normal and any of the characterizations of independence we presented above.
+\item (10/20 Points) Let $X \sim \mathcal{N}(0,1)$. Let $Y=X^2$. Show that the $Cov(X,Y) = 0$. Are $(X,Y)$ independent? \end{enumerate}
 
 
 
 
-\noindent \textbf{Problem 5:} (Conditional distribution of a bivariate normal vector). Consider the same set-up as in the practice problem 3 where we introduced the best linear predictor. In this problem we will make the additional assumption that $(X,Y)' \sim \mathcal{N}_2((\mu_x, \mu_y)’, \Sigma)$. What is the conditional distribution of $Y | X$? What is the relation between the best linear predictor of $Y$ and the conditional expectation $E[Y|X]$ in the bivariate normal model? \\
+\noindent \textbf{Problem 5:} (Conditional distribution of a bivariate normal vector, \textbf{25 points}). Consider the same set-up as in the practice problem 3 where we introduced the best linear predictor. In this problem we will make the additional assumption that $(X,Y)' \sim \mathcal{N}_2((\mu_x, \mu_y)’, \Sigma)$. 
 
-\noindent {\scshape Hint:} There are two ways of doing this problem. One of them is long: use the formula of conditional density and working out through the algebra. There is another shorter approach. Write:
+\begin{enumerate}
+\item (20/25 points) What is the conditional distribution of $Y | X$?
+\item (5/25 points) What is the relation between the best linear predictor of $Y$ and the conditional expectation $E[Y|X]$ in the bivariate normal model? 
+\end{enumerate}
+\noindent {\scshape Hint:} There are two ways of doing this problem. One of them is long (and not very helpful): use the formula of conditional density and figure out the algebra. There is another shorter approach that I encourage you to use. Write:
 \[  Y = \alpha^* + \beta^*(X-\mu_x) + \epsilon, \quad \epsilon \equiv Y - \alpha^*-\beta^*(X-\mu_x), \]
-and apply the results in practice problem 3. \\
+and note that $Y$ has been re-written as the sum of its best linear predictor and an ``error’’ term, both of which are uncorrelated (by problem 3). Moreover, both the best linear predictor and the error term are normal random variables. \\
 
-\noindent \textbf{Problem 6:} (Signal and Noise in a Bivariate Normal Model) Suppose that we have a random variable $X$ that is generated additively by  a ``signal’’ $\theta$ and ``noise’’ $\epsilon$ and:
+\noindent \textbf{Problem 6:} (Signal and Noise in a Bivariate Normal Model, \textbf{25 points}) Suppose that we have a random variable $X$ that is generated additively by  a ``signal’’ $\theta$ and ``noise’’ $\epsilon$ and:
 \[X = \theta + \epsilon.\]
 The signal and the noise are assumed to be independent normal random variables:
 \[ \epsilon \sim \mathcal{N}(0, \sigma^2_{\epsilon}), \quad \theta \sim \mathcal{N}(\mu, \sigma^2_{\theta}). \]
@@ -81,7 +88,7 @@ Assume $\sigma^2_{\epsilon}, \sigma^2_{\theta}, \mu$ are all known. We would lik
 
 
 
-\noindent \textbf{Problem 7 (Optional, you will need to read the appendix):}  Prove or disprove the following claim. If $\prob(A \cap B \cap C)=\prob(A)\prob(B)\prob(C)$ and the events $(A, B, C)$ are pairwise independent then the events $(A, B, C)$ are independent. \\
+%\noindent \textbf{Problem 7 (Optional, you will need to read the appendix):}  Prove or disprove the following claim. If $\prob(A \cap B \cap C)=\prob(A)\prob(B)\prob(C)$ and the events $(A, B, C)$ are pairwise independent then the events $(A, B, C)$ are independent. \\
 
 
 \bibliographystyle{../Auxiliary_Format_Files/ecta}
