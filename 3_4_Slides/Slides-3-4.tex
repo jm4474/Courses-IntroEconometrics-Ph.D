@@ -262,7 +262,7 @@ p_1+p_2+p_3+p_4 &=& 1\\
 \[ \alpha + \beta (X-\mu_x)\]
 \item [$\star$] The best linear predictor minimizes expected squared error 
 \[ \min_{\alpha, \beta} \mathbb{E} [ (Y - \alpha -\beta (X-\mu_x))^2] \]
-\item [$\star$] Show that $\alpha^* = \mu_y$, $\beta^* = \textrm{Cov}(X,Y)/ V(Y)$.
+\item [$\star$] Show that $\alpha^* = \mu_y$, $\beta^* = \textrm{Cov}(X,Y)/ V(X)$.
 \end{itemize}
 
 
@@ -313,7 +313,7 @@ $$F(X_1, \ldots, X_n) = F(X_1) \ldots F(X_n).$$
 \item [$\star$] Joint p.d.f. is the product of marginal p.d.f.s
 $$f(x_1, \ldots, x_n) = f(x_1) \ldots f(x_n).$$ 
 \item [$\star$] Expectation of ``products’’ is the ``product’’ of expectations 
-$$\mathbb{E}[g_1(X_1), \ldots, g_n(X_n)] = \mathbb{E} [g_1(X_1)] \ldots \mathbb{E}[g(X_n)].$$
+$$\mathbb{E}[g_1(X_1), \ldots, g_n(X_n)] = \mathbb{E} [g_1(X_1)] \ldots \mathbb{E}[g_n(X_n)].$$
 \item [$\star$] Joint m.g.f. is the product of the marginal m.g.f.s
 $$ \mathbb{E}[ \exp (\mathbf{t}’\mathbf{X}) ] = \mathbb{E}[ \exp ( t_1 X_1 ) ] \ldots \mathbb{E}[ \exp ( t_n X_n ) ]   $$
 \end{itemize}
@@ -466,7 +466,7 @@ $$W = t_1 X + t_2 Y $$
 \justifying
 \item [$\star$] The distribution of $X_1 + X_2$ need not be easy to obtain \vspace{.5cm}
 \item [$\star$] If $X_1$ and $X_2$ are independent and have m.g.f.s, it is 
-$$\mathbb{E}[ \exp (t(X  + X_2))] = \mathbb{E}[\exp(t X_1 )] \mathbb{E}[\exp(t X_2 )]$$
+$$\mathbb{E}[ \exp (t(X_1  + X_2))] = \mathbb{E}[\exp(t X_1 )] \mathbb{E}[\exp(t X_2 )]$$
 \item [$\star$] Also, if $X_1$ and $X_2$ are independent and have p.d.f.s f and g; 
 \[ Z = X + Y \textrm{ has p.d.f. } \int f(z-y) g(y) dy  \]
 \end{itemize}
