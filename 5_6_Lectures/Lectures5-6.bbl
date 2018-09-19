@@ -1,0 +1,18 @@
+\begin{thebibliography}{3}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Berger}{Berger}{1985}]{berger1985statistical}
+\textsc{Berger, J.} (1985): \emph{Statistical decision theory and Bayesian
+  analysis}, Springer.
+
+\bibitem[\protect\citeauthoryear{Ferguson}{Ferguson}{1967}]{Ferguson67}
+\textsc{Ferguson, T.} (1967): \emph{Mathematical Statistics: A Decision
+  Theoretic Approach}, vol.~7, Academic Press New York.
+
+\bibitem[\protect\citeauthoryear{Lehmann and Romano}{Lehmann and
+  Romano}{2005}]{Lehman05}
+\textsc{Lehmann, E. and J.~Romano} (2005): \emph{Testing Statistical
+  Hypotheses}, Springer Texts in Statistics, Springer Verlag.
+
+\end{thebibliography}
