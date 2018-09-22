@@ -50,7 +50,7 @@ Y \sim \mathcal{N}(X \beta, \sigma^2 \mathbb{I}_n ).
 and the parameter of the model is $\beta \in \mathbb{R}^{k}$. The model in (\ref{equation:HLR}) is known as the Homoskedastic Linear Regression model with normal/Gaussian errors (and known variance). 
 
 \begin{enumerate}
-\item (Identification, 20 points) Is the parameter $\beta$ identified? Does your answer depend on whether $n > k$?  
+\item (Identification, 20 points) Is the parameter $\beta$ identified? Does your answer depend on whether $n \geq k$?  
 
 \item (Statistical Sufficiency, 20 points) Let us define a \emph{statistic} $S$ as a mapping from the data $D$ to some euclidean space $\mathbb{R}^{p}$. A statistic $S$ is said to be sufficient for a parameter $\theta$  in a statistical model $\{P_{\theta}\}_{\theta \in \Theta}$ if the conditional distribution of the data, given the sufficient statistic, does not depend on $\theta$. That is:
 \[ \mathbb{P}_{\theta} (D | S(D)) = \mathbb{P}_{\theta’}(D| S(D)), \quad \textrm{for any } \theta, \theta’. \]
@@ -81,7 +81,7 @@ Which means that the statistician looses 1 unit if he supports action $i$ when t
 d_1(X_0) =a_0, && d_1(X_1) = a_0 \textrm{ (always $a_0$)}\\
 d_2(X_0) = a_0, && d_2(X_1) = a_1 \textrm{ ($a_0$ only if $X_0$)  }\\
 d_3(X_0) = a_1, && d_3(X_1) = a_0 \textrm{ ($a_0$ only if $X_1$)  }\\
-d_4(X_0) = a_1, && d_4(X_1) = a_1 \textrm{ ($a_0$ only if $X_1$)  }
+d_4(X_0) = a_1, && d_4(X_1) = a_1 \textrm{ (always $a_1$)  }
 \end{eqnarray*}
 Compute the risk function of each of these 4 decision rules and graph them as points in $\mathbb{R}^2$, $(R(d,\theta_0), R(d,\theta_1)$. Is it true that if $p_0 > .5 > p_1$ then $d_3$ is dominated?
 
