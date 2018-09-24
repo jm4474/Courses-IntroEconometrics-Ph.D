@@ -114,7 +114,7 @@ For each action taken, the utility or loss function is deterministic. However, w
 One way to summarize the performance of a decision rule in different points of the parameter space is by reporting the \emph{risk function}: \\
 
 \noindent \textbf{Definition 4:} (Ferguson p. 7 ) The \underline{risk function} of a decision rule $d$ is defined as:
-\[ R(\theta; d) = \mathbb{E}_{\theta}[\mathcal{L}(d(X),\theta)]. \]
+\[ R(\theta; d) = \mathbb{E}_{P_{\theta}}[\mathcal{L}(d(X),\theta)]. \]
 
 \noindent Another cite from \cite{Ferguson67} p. 7:
 
@@ -125,7 +125,7 @@ One way to summarize the performance of a decision rule in different points of t
 \noindent While a rule that has the smallest risk need not exist, it is simple to use a dominance criterion to discard bad decision rules. This is analogous to the idea of discarding dominated strategies in the analysis of games. \\ 
 
 \noindent \textbf{Definition 5:} A decision rule $d$ is \underline{dominated} if there is a decision rule $d’$ such that:
-\[R(\theta,d’) \leq R(\theta,d)\]
+\[R(\theta;d’) \leq R(\theta;d)\]
 for every $\theta \in \Theta$, with strict inequality for some $\theta$. Decision rules that are not dominated are called \emph{admissible}.  
 
 Not all decision rules can be compared using the dominance criterion (dominance is a partial order). There are two general methods for creating a complete ordering over decision rules: ``average’’ and ``worst-case’’ risk . These criteria lead to decision rules that can be defined generally for any statistical problem. 
@@ -135,7 +135,7 @@ Not all decision rules can be compared using the dominance criterion (dominance 
 
 Given a probability distribution $\pi$ on $\Theta$ (a \underline{prior}) we define the the \underline{Bayes risk} of a decision rule $d$ as:
 
-\[ r(\pi, d) \equiv \int_{\theta} R(\theta, d) d \pi (\theta) \]
+\[ r(\pi, d) \equiv \int_{\Theta} R(\theta, d) d \pi (\theta) \equiv \mathbb{E}_{\pi} [ R(\theta; d) ] \]
 
 \noindent \textbf{Definition 6:} A decision rule $d^*$ is said to be a \underline{Bayes Rule} with respect to the prior distribution $\pi$ (and relative to a class of decision rules $D$) if:
 
@@ -146,15 +146,15 @@ Given a probability distribution $\pi$ on $\Theta$ (a \underline{prior}) we defi
 By construction, Bayes rules require the specification of prior. Consequently, the properties of a Bayes decision rule will depend on the choice of such prior. However, the are some limits on how bad a Bayes rule can behave. The following result shows that under some minimal assumptions, Bayes rules are admissible; hence, it is not possible to improve upon them uniformly over $\Theta$. \\
 
 
-\noindent \textbf{Result}: Suppose that the risk function $R(d, \cdot)$ is continuous in $\theta$ for any decision rule $d$. Let $\pi$ be any prior with full support on $\Theta$.\footnote{A point $\theta$ is said to be on the support of a distribution $\pi$ is for every neighborhood $\mathcal{N}_{\theta}$ of $\theta$ have strictly positive probability. The distribution $\pi$ has full support if every $\theta \in \Theta$ is in the support of the distribution.} The Bayes rule $d^*$ corresponding to $\pi$ is admissible. \\
+\noindent \textbf{Result}: Suppose that the risk function $R(d; \cdot)$ is continuous in $\theta$ for any decision rule $d$. Let $\pi$ be any prior with full support on $\Theta$.\footnote{A point $\theta$ is said to be on the support of a distribution $\pi$ is for every neighborhood $\mathcal{N}_{\theta}$ of $\theta$ have strictly positive probability. The distribution $\pi$ has full support if every $\theta \in \Theta$ is in the support of the distribution.} The Bayes rule $d^*$ corresponding to $\pi$ is admissible. \\
 
 \noindent {\scshape Proof:} Suppose $d^*$ is not admissible. Then there exists $d^{\prime}$ such that:
-\[ R(d^{\prime}, \theta) \leq R(d^*, \theta),  \]
+\[ R(d^{\prime}; \theta) \leq R(d^*; \theta),  \]
 with strict inequality for some $\theta^* \in \Theta$. Since $R(d^*,\theta)$ is continuous in $\theta$, there exists a neighborhood $N_\theta^*$ such that 
 \[  R(d^{\prime}, \theta) < R(d^*, \theta) \quad \forall \quad \theta \in N_{\theta^*}. \]
 
 \noindent Since $\pi$ has full support 
-\[ \int_{N_{\theta^*}} R(d’,\theta) d \pi(\theta) < \int_{N_{\theta^*}} R(d’,\theta^*) d \pi(\theta).   \]
+\[ \int_{N_{\theta^*}} R(d’;\theta) d \pi(\theta) < \int_{N_{\theta^*}} R(d’;\theta^*) d \pi(\theta).   \]
 Consequently:
 \[ r(\pi, d^{\prime}) < r(\pi, d^*).   \]
 
