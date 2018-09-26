@@ -10,11 +10,11 @@
 
 \noindent \textbf{Problem Set 4 (Lectures 7-8)} \\
 
-\noindent \textbf{Problem 1 (Cramer-Rao Lower Bound for a scalar parameter, 50 points)}. In class we showed that the OLS estimator achieves the smallest variance among all unbiased estimators. The proof in the notes looks like a bunch of algebra, but it is actually based on a more general result we did not cover: the Cramer-Rao Lower Bound.\\
+\noindent \textbf{Problem 1 (Cramer-Rao Lower Bound for a scalar parameter, 40 points)}. In class we showed that the OLS estimator achieves the smallest variance among all unbiased estimators. The proof in the notes looks like a bunch of algebra, but it is actually based on a more general result we did not cover: the Cramer-Rao Lower Bound.\\
 
-\noindent Let $\widehat{\theta}(x)$ be the estimator of a real-valued parameter $\theta$ in the statistical model with pd.f. $f(x,\theta)$. Unfortunately, there is no theorem that says that ML estimators will be unbiased or that the ML estimators will achieve the lowest possible variance among unbiased estimators (if by chance they happen to be unbiased). \\
+\noindent Let $\widehat{\theta}(x)$ be the estimator of a real-valued parameter $\theta$ in the statistical model with pd.f. $f(x,\theta)$. Unfortunately, there is no theorem that says that ML estimators will always be unbiased or that the ML estimators will achieve the lowest possible variance among unbiased estimators (if by chance they happen to be unbiased). \\
 
-\noindent Instead of establishing the optimality of ML estimators, we will show that in parametric models we can provide a lower bound on the variance of any given estimator. The lower bound will be given as a function of the bias. The bound will be important, as in large samples, there are theorems that guarantee that ML estimators (which are asymptotically unbiased) will approach this bound. \\
+\noindent Instead of establishing the optimality of ML estimators, we will show that in parametric models (meaning, statistical models where $\theta$ is finite-dimensional) we can provide a lower bound on the variance of any given estimator. The lower bound we present depends on the bias. The bound will be important, as in large samples, there are theorems that guarantee that ML estimators (which are asymptotically unbiased) will eventually approach the lower bound on the variance. \\
 
 Here is what I would like you to show:
 
@@ -35,7 +35,7 @@ $$\text{Var}_{P_\theta}\Big[ \widehat{\theta}(x)\Big] \geq \Big[ \frac{\partial}
 
 $$S_{\theta}(x) \equiv \frac{\partial}{d\theta} \ln f(x,\theta)$$
 
-\noindent is called the \emph{score} of the statistical model $\{f(x,\theta)\}_{\theta \in \Theta}$ and $\text{Var}_{P_\theta}\Big[S_{\theta}(x) \Big]$ is called the Fisher information of the statistical model at $\theta$. 
+\noindent is the \underline{score} of the statistical model $\{f(x,\theta)\}_{\theta \in \Theta}$ and $\text{Var}_{P_\theta}\Big[S_{\theta}(x) \Big]$ is called the Fisher information of the statistical model at $\theta$. 
 
 
 \end{proposition}
@@ -43,11 +43,11 @@ $$S_{\theta}(x) \equiv \frac{\partial}{d\theta} \ln f(x,\theta)$$
 \noindent I will help you a bit with the proof. Just fill in the blanks (if you can give a different proof of this result---which probably you can do, based on the lecture notes---go for it!)
 
 \begin{proof}
-\noindent  (\textbf{5 points each}). The covariance between any estimator $\widehat{\theta}$ and the score (which is a random variable) is
+\noindent  (\textbf{5 points for each box}). The covariance between any estimator $\widehat{\theta}$ and the score (which is a random variable) is
 \begin{eqnarray*}
 \expec_{\theta} \Big[ \widehat{\theta}(x) S_{\theta}(x) \Big] &=&  \int_{\R} \widehat{\theta}(x) \frac{\partial}{d\theta} \ln f(x,\theta) f(x,\theta) dx \\
 &=& \int_{\R} \widehat{\theta}(x) \frac{\partial}{d\theta} f(x,\theta) dx \\
-&=& \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad } \\
+&=& \boxed{\quad \quad \Big. \int_{\mathbb{R}} \Big.  \hspace{.5cm} \quad \quad } \\
 && (\text{where we have used Equation \ref{equation:regCR}}) \\
 &=& \frac{\partial}{d\theta} \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }.
 \end{eqnarray*}
@@ -69,21 +69,43 @@ See pg. 24 \cite{durrett2010}.
 $$\text{Var}_{\theta}\Big[ \widehat{\theta}(x)\Big] \geq  \frac{\partial}{d\theta} \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }.$$
 \end{proof}
 
-\noindent \textbf{Corollary} (\textbf{15 Points}) Let $\widehat{\theta}$ be any \emph{unbiased} estimator for the mean parameter $\theta$ in the model for the data $(x_1,\ldots, x_n)$, where $x_i \sim \mathcal{N}(\theta, \sigma^2)$, i.i.d. and $\sigma^2$ is known. Show that the estimator
+\noindent \textbf{Corollary} (\textbf{5 Points}) Let $\widehat{\theta}$ be any \emph{unbiased} estimator for the mean parameter $\theta$ in the model for the data $(x_1,\ldots, x_n)$, where $x_i \sim \mathcal{N}(\theta, \sigma^2)$, i.i.d. and $\sigma^2$ is known. Show that the sample mean estimator
 $\widehat{\theta}(x_1, \ldots, x_n) = (1/n) \sum_{i=1}^{n} x_i$
-\noindent is the ML estimator and it achieves the smallest mean squared error relative to all unbiased estimators. \\
+\noindent maximizes the likelihood and it achieves the smallest mean squared error relative to all unbiased estimators ({\scshape Hint:} Use the Cramer-Rao Lower bound) . \\
 
-\noindent \textbf{Problem 2 (Score and Fisher Information Matrix in the Linear Regression model, 15 points)} Derive the score and the Fisher Information matrix in the Normal Linear Regression model. How does the variance of the OLS estimator relates to the Fisher Information matrix? Would you expect this relation to hold in other parametric models? \\
+\noindent \textbf{Problem 2 (Maximum Likelihood in the Linear Regression model, 25 points)} We have shown that the OLS estimator $\widehat{\beta}_{\textrm{OLS}}$ maximizes the likelihood for the Normal Linear Regression model: $Y \sim \mathcal{N}_{n} (\beta, \sigma^2 \mathbb{I}_n)$ when $\sigma^2$ is known. In this exercise I would like you to treat $\sigma^2$ as an unknown parameter, and derive the ML estimators of $\beta$ and $\sigma^2$. We will do this in two steps. 
+\begin{enumerate}
+\item  (10 points) Treating $\sigma^2$ as known, derive the score $S(x,\beta)$ and the Fisher Information matrix $\mathcal{I}(\beta)$  in the Normal Linear Regression model. Show that, at a given parameter $\beta$, 
+	\[ \widehat{\beta}_{\textrm{ML}} =  \mathcal{I}(\beta)^{-1} S(x,\beta)  + \beta   \sim \mathcal{N}_k ( \beta, \mathcal{I}(\beta)^{-1} ). \]
+	I am making this connection because one of the large sample approximations that you will show for ML estimators in the near future is that
+	\[ \widehat{\theta}_{\textrm{ML}} =  \mathcal{I}_n(\theta)^{-1} S_n(x_1, \ldots, x_n,\theta)  + \beta   \approx \mathcal{N}_k ( \theta, \mathcal{I}_n(\theta)^{-1} ). \]
+This means that ML estimators will eventually achieve the Cramer-Rao Lower bound.  \\
 
-\noindent \textbf{Problem 3 (Variance of the Ridge Estimator, 15 points)} In class we showed that the variance of the Ridge estimator is
+\item (15 points) Treating $\sigma^2$ as unknown, I would like you to derive the ML estimator for both parameters $\beta$ and $\sigma^2$. I would suggest you to start by deriving the score for this model (you already have one part) and solve the F.O.C. You will note that the ML estimator for $\beta$ is still the same as before. {\scshape Optional:} Derive the Fisher information matrix for this model. What is the distribution of $\widehat{\sigma}^2_{\textrm{ML}}$? 
+
+\end{enumerate}
+\noindent \textbf{Problem 3 (Bayesian Estimation in the Linear Regression model, 25 points)} We have derived the ML estimators for $(\beta, \sigma^2)$ in a Linear Regression model where both of these parameters are unknown. I will now ask you to derive the posterior mean estimators of $(\beta, \sigma^2)$, which means we will require a prior $\pi$ over $(\beta, \sigma^2)$. Consider the following one for some $\lambda > 0$: 
+\[ \beta | \sigma^2 \sim \mathcal{N}_k( \beta_0 , \sigma^2 (\lambda \mathbb{I}_k)^{-1} ).     \]
+and
+\[ \sigma^2 \sim \textrm{Inverse-Gamma} (a_0, \beta_0), \]
+which means that the p.d.f of $\sigma^2$ is up to a constant equal to
+\[ (\sigma^2)^{-a_0-1}  \exp \left ( -b_0 / \sigma^2  \right).\]
+\noindent Please derive the posterior mean of $\beta$ and the posterior mean of $\sigma^2$. \\
+
+\noindent {\scshape Hint:} This exercise can be really painful (tons of algebra) if you do not approach from the right angle. I would start by computing the distribution of
+\[ \beta | Y, \sigma^2.\]
+Note that this is a conditional posterior distribution (as I am conditioning on the data, but also on $\sigma^2$). If you condition on $\sigma^2$, you should be able to derive the posterior in exactly the same way we did in class. The posterior mean of $\sigma^2$ is slightly more difficult to derive, the idea is to derive the distribution of $Y | \sigma^2$ (yes, eliminating $\beta$ out). One way to do this is to write
+\[ Y = X\beta + \sigma^2 \epsilon_1, \quad \epsilon_1 \sim \mathcal{N}_n(0, \mathbb{I}_n), \]
+and
+\[ \beta = \beta_0 + \sigma^2 \epsilon_2, \quad \epsilon_2 \sim \mathcal{N}_k(0, (\lambda \mathbb{I}_k)^{-1}), \]
+where $\epsilon_1$ and $\epsilon_2$ are independent. Using the representation above you can derive the distribution of $Y | \sigma^2$ and then proceed to derive the posterior distribution of $\sigma^2 | Y$.  Good luck!\\
+
+\noindent \textbf{Problem 4 (OLS vs. Ridge Variance, 10 points)} In class we showed that the variance of the Ridge estimator is
 \[ \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{Ridge}}) = \sigma^2( X’X + \lambda \mathbb{I}_k)^{-1} X’X ( X’X + \lambda \mathbb{I}_k)^{-1}  \]
 
-\noindent Prove or disprove the following statement: when $k<n$, the trace of this variance has to be smaller than that of the ML/OLS estimator. \\
+\noindent Prove or disprove the following statement: when $k<n$ and $X$ has full-column rank, the trace of this variance has to be smaller than $\sigma^2 \textrm{tr}((X’X)^{-1})$. {\scshape Hint:} I am not looking for an algebraic proof of this result. I want you to exploit the properties of the Ridge estimator as a Bayesian estimator.   \\
 
-\noindent \textbf{Problem 4 (Expression for the Ridge Estimator, 30 points) } In class we derived the expression for the posterior distribution of $\beta | Y$ using Bayes’ Theorem and the Gaussian p.d.f.s. An alternative derivation would be to write down the joint distribution of $(\beta’, Y’)’$ and use the formula for the conditional mean and variance. For example, see the entry on conditional distributions in wiki \href{https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions}{(click here)}.  Convince yourself that the formulae are the same. You might need to use the Woodbury Identity Formula a couple of times to establish the connection. 
-
-
-\newpage
+\noindent \textbf{Problem 5 (Optional: Expression for the Ridge Estimator) } In class we derived the expression for the posterior distribution of $\beta | Y$ using Bayes’ Theorem and the Gaussian p.d.f.s. An alternative derivation would be to write down the joint distribution of $(\beta’, Y’)’$ and use the formula for the conditional mean and variance. For example, see the entry on conditional distributions in wiki \href{https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions}{(click here)}.  Convince yourself that the formulae are the same. You might need to use the Woodbury Identity Formula a couple of times to establish the connection. 
 
 \bibliographystyle{../Auxiliary_Format_Files/ecta}
 \bibliography{../Auxiliary_Format_Files/BibMaster}
