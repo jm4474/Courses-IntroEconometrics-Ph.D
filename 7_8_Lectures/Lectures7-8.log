@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  25 SEP 2018 21:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  26 SEP 2018 16:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1299,9 +1299,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 94.
 
-LaTeX Warning: Command \textquoteleft invalid in math mode on input line 98.
-
-
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 98.
 
 
@@ -1315,13 +1312,23 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 98.
 
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 98.
+
+
+Overfull \hbox (6.17517pt too wide) detected at line 99
+[]\U/msb/m/n/10.95 V[]\OT1/lmr/m/n/10.95 ([]) = \U/msb/m/n/10.95 E[]\OT1/lmr/m/
+n/10.95 [([] \OMS/lmsy/m/n/10.95 ^^@ \OML/lmm/m/it/10.95 ^^L\OT1/lmr/m/n/10.95 
+)([] \OMS/lmsy/m/n/10.95 ^^@ \OML/lmm/m/it/10.95 ^^L\OT1/lmr/m/n/10.95 )[]] = (
+\OML/lmm/m/it/10.95 X[]X\OT1/lmr/m/n/10.95 )[]\OML/lmm/m/it/10.95 X[]\U/msb/m/n
+/10.95 E[]\OT1/lmr/m/n/10.95 [(\OML/lmm/m/it/10.95 Y \OMS/lmsy/m/n/10.95 ^^@ \O
+ML/lmm/m/it/10.95 X^^L\OT1/lmr/m/n/10.95 )(\OML/lmm/m/it/10.95 Y \OMS/lmsy/m/n/
+10.95 ^^@ \OML/lmm/m/it/10.95 X^^L\OT1/lmr/m/n/10.95 )[]]\OML/lmm/m/it/10.95 X\
+OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 X[]X\OT1/lmr/m/n/10.95 )[] = \OML/lmm/m/
+it/10.95 ^^[[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 X[]X\OT1/lmr/m/n/10.95 )[
+]\OML/lmm/m/it/10.95 :
+ []
 
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 101.
-
-
-Overfull \vbox (0.54124pt too high) has occurred while \output is active []
-
 
 [4]
 Underfull \hbox (badness 10000) in paragraph at lines 118--119
@@ -1387,13 +1394,13 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 176.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 192.
 
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 194.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 194.
-
 [7]
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 194.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 194.
+
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 197.
 
@@ -1475,19 +1482,19 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 215.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 216.
 
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
-
 [8]
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 221.
+
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 229.
 
@@ -1504,6 +1511,7 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 257.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 262.
 
+[10]
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 267.
 
@@ -1513,7 +1521,7 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 270.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 274.
 
-[10] [11]
+[11]
 No file Lectures7-8.bbl.
 
 Package caption Warning: Unused \captionsetup[subfloat] on input line 25.
@@ -1541,4 +1549,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  63i,12n,96p,705b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Lectures7-8.dvi (11 pages, 51512 bytes).
+Output written on Lectures7-8.dvi (11 pages, 51656 bytes).

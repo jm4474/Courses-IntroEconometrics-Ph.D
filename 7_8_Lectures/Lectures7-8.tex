@@ -34,10 +34,10 @@ Y \sim \mathcal{N}(X \beta, \sigma^2 \mathbb{I}_n ),
 \end{equation}
  where $Y$ is the $n \times 1$ vector of outcome variables, $X$ is the $n \times k$ matrix of non-stochastic regressors, and $\beta \in \mathbb{R}^{k}$ is the parameter of interest. 
  
- We will show that if $k<n$, the Maximum Likelihood estimator for the model in (\ref{equation:Regression-model}) is the OLS estimator
+ We will show that if $k \leq n$ and $X$ has full-column rank, the Maximum Likelihood estimator for the model in (\ref{equation:Regression-model}) is the OLS estimator
 \[ \widehat{\beta}_{\textrm{OLS}} \equiv (X’X)^{-1} X’Y,  \]
 
-\noindent (which we introduced in the last problem). We will show this estimator is ``best'' among all \emph{unbiased} estimators and we will connect this result to the \emph{Cram\'er-Rao} bound for the variance of estimators in parametric models. We will also argue that ``best’’ among the class of unbiased estimators need not imply admissibility with respect to all estimators. In particular, we show that if $k \geq 3$, the OLS estimator is dominated and we present an ``empirical Bayes’’ estimator that dominates it.   
+\noindent (which we introduced in the last problem set). We will show this estimator is ``best'' among all \emph{unbiased} estimators and we will connect this result to the \emph{Cram\'er-Rao} bound for the variance of estimators in parametric models. We will also argue that ``best’’ among the class of unbiased estimators need not imply admissibility with respect to all estimators. In particular, we show that if $k \geq 3$, the OLS estimator is dominated and we present an ``empirical Bayes’’ estimator that dominates it.   
 
 The posterior mean estimator for the regression model assuming $\beta \sim \mathcal{N}_{k}(0 , (\sigma^2/ \lambda) \mathbb{I}_k )$ is the popular \emph{Ridge estimator}
 \[ \widehat{\beta}_{\textrm{Ridge}} \equiv (X’X + \lambda \mathbb{I}_k)^{-1} X’Y. \]
@@ -82,7 +82,7 @@ The maximum likelihood estimator at data $(Y,X)$ is then defined as the value of
 The first-order conditions for the program above, which are necessary and sufficient, yield
 \[ X’(Y-X\widehat{\beta}_{\textrm{ML}}) = \textbf{0}_{k \times 1} \iff X’Y = (X’X) \widehat{\beta}_{\textrm{ML}}. \]
 
-\noindent If $n \geq k$, there are infinitely many solutions that maximize the likelihood.  If $k < n$, there is a unique solution to this problem given by
+\noindent If $k > n$, there are infinitely many solutions that maximize the likelihood.  If $k \leq n$, and $X$ has full-column rank there is a unique solution to this problem given by
 \begin{equation} \label{equation:OLS}
 \widehat{\beta}_{\textrm{ML}} = \widehat{\beta}_{\textrm{OLS}} = (X’X)^{-1} X’Y.
 \end{equation}
@@ -95,7 +95,7 @@ for any $\beta$. Thus, we say that the ML estimator of $\beta$ is \underline{unb
 
 The variance of the ML estimator is 
 \begin{equation} \label{equation:variance}
-\mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{ML}}) = \mathbb{E}_{\mathbb{P}_{\beta}} [ \widehat{\beta}_{\textrm{ML}} \widehat{\beta}_{\textrm{ML}} ‘  ]  = (X’X)^{-1} X’ \mathbb{E}_{\mathbb{P}_{\beta}} [ Y Y’] X (X’X)^{-1} = \sigma^2 (X’X)^{-1}.  
+\mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{ML}}) = \mathbb{E}_{\mathbb{P}_{\beta}} [ (\widehat{\beta}_{\textrm{ML}}-\beta) (\widehat{\beta}_{\textrm{ML}} -\beta )^{\prime}  ]  = (X’X)^{-1} X’ \mathbb{E}_{\mathbb{P}_{\beta}} [ (Y-X\beta) (Y-X\beta)’] X (X’X)^{-1} = \sigma^2 (X’X)^{-1}.  
 \end{equation}
 This means that the mean squared error at $\beta$---denoted $\textrm{MSE}(\beta ; \widehat{\beta}_{\textrm{ML}})$---equals
 \[ \sigma^2 \textrm{tr} \left ( (X’X)^{-1} \right). \] 
