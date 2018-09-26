@@ -1,0 +1,91 @@
+%%!TEX TS-program = latex
+\documentclass[11pt]{article} %DIF > 
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\input ../Auxiliary_Format_Files/PreambleNotes.tex
+
+
+\begin{document}
+\onehalfspace
+
+\noindent \textbf{Problem Set 4 (Lectures 7-8)} \\
+
+\noindent \textbf{Problem 1 (Cramer-Rao Lower Bound for a scalar parameter, 50 points)}. In class we showed that the OLS estimator achieves the smallest variance among all unbiased estimators. The proof in the notes looks like a bunch of algebra, but it is actually based on a more general result we did not cover: the Cramer-Rao Lower Bound.\\
+
+\noindent Let $\widehat{\theta}(x)$ be the estimator of a real-valued parameter $\theta$ in the statistical model with pd.f. $f(x,\theta)$. Unfortunately, there is no theorem that says that ML estimators will be unbiased or that the ML estimators will achieve the lowest possible variance among unbiased estimators (if by chance they happen to be unbiased). \\
+
+\noindent Instead of establishing the optimality of ML estimators, we will show that in parametric models we can provide a lower bound on the variance of any given estimator. The lower bound will be given as a function of the bias. The bound will be important, as in large samples, there are theorems that guarantee that ML estimators (which are asymptotically unbiased) will approach this bound. \\
+
+Here is what I would like you to show:
+
+\begin{proposition}[Cram\'er-Rao Bound]
+Suppose that the estimator $\widehat{\theta}$ and the statistical model satisfy:
+\begin{equation} \label{equation:regCR}
+\int_{\R}\Big[ \widehat{\theta}(x) \frac{\partial}{\partial \theta}f(x,\theta) \Big] dx =  \frac{\partial}{\partial \theta} \int_{\R}\Big[ \widehat{\theta}(x) f(x,\theta) \Big] dx
+\end{equation}
+and 
+\begin{equation}\label{equation:scoreCR}
+\int_{\R} \Big[ \frac{\partial}{\partial \theta}f(x,\theta)  \Big] dx= \frac{\partial}{\partial \theta} \int_{\R} \Big[ f(x,\theta)  \Big] dx=0,
+\end{equation}
+\noindent (both of which require that we can change the order in which we take integrals and derivatives). If these conditions are satistfied:
+
+$$\text{Var}_{P_\theta}\Big[ \widehat{\theta}(x)\Big] \geq \Big[ \frac{\partial}{\partial \theta} \expec_{P_\theta}[\widehat{\theta}(x)] \Big]^2 \Big/ \text{Var}_{P_\theta}\Big[S_{\theta}(x) \Big],$$
+
+\noindent where
+
+$$S_{\theta}(x) \equiv \frac{\partial}{d\theta} \ln f(x,\theta)$$
+
+\noindent is called the \emph{score} of the statistical model $\{f(x,\theta)\}_{\theta \in \Theta}$ and $\text{Var}_{P_\theta}\Big[S_{\theta}(x) \Big]$ is called the Fisher information of the statistical model at $\theta$. 
+
+
+\end{proposition}
+
+\noindent I will help you a bit with the proof. Just fill in the blanks (if you can give a different proof of this result---which probably you can do, based on the lecture notes---go for it!)
+
+\begin{proof}
+\noindent  (\textbf{5 points each}). The covariance between any estimator $\widehat{\theta}$ and the score (which is a random variable) is
+\begin{eqnarray*}
+\expec_{\theta} \Big[ \widehat{\theta}(x) S_{\theta}(x) \Big] &=&  \int_{\R} \widehat{\theta}(x) \frac{\partial}{d\theta} \ln f(x,\theta) f(x,\theta) dx \\
+&=& \int_{\R} \widehat{\theta}(x) \frac{\partial}{d\theta} f(x,\theta) dx \\
+&=& \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad } \\
+&& (\text{where we have used Equation \ref{equation:regCR}}) \\
+&=& \frac{\partial}{d\theta} \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }.
+\end{eqnarray*}
+\noindent where $\expec_{\theta}[\widehat{\theta}(x)]$ is the bias of the estimator $\widehat{\theta}(x)$ at $\theta$. Assumption \ref{equation:scoreCR} implies 
+$$\expec_{\theta}[S_{\theta}(x)]= \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad } \\ ,$$
+\noindent which implies
+$$\expec_{\theta} \Big[ \widehat{\theta}(x) S_{\theta}(x) \Big] = \expec_{\theta} \Big[ \Big(\widehat{\theta}(x)-\expec_{\theta}[\widehat{\theta}(x)] \Big)S_{\theta}(x) \Big]$$
+\noindent Hence, by the Cauchy-Scharwz inequality:\footnote{For any two random variables $X$ and $Y$:
+\begin{equation*}
+\expec_{\prob}[XY] \leq \expec_{\prob}[X^2]^{1/2} \expec_{\prob}[Y^2]^{1/2}
+\end{equation*}
+See pg. 24 \cite{durrett2010}. 
+}
+\begin{eqnarray*}
+\expec_{\theta} \Big[ \widehat{\theta}(x) S_{\theta}(x) \Big]^2 &\leq&  \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }  \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad } \\
+&=& \text{Var}_{\theta} \Big[ \widehat{\theta}(x) \Big] \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }
+\end{eqnarray*}
+\noindent Therefore,
+$$\text{Var}_{\theta}\Big[ \widehat{\theta}(x)\Big] \geq  \frac{\partial}{d\theta} \boxed{\quad \quad \Big. \Big.  \hspace{.5cm} \quad \quad }.$$
+\end{proof}
+
+\noindent \textbf{Corollary} (\textbf{15 Points}) Let $\widehat{\theta}$ be any \emph{unbiased} estimator for the mean parameter $\theta$ in the model for the data $(x_1,\ldots, x_n)$, where $x_i \sim \mathcal{N}(\theta, \sigma^2)$, i.i.d. and $\sigma^2$ is known. Show that the estimator
+$\widehat{\theta}(x_1, \ldots, x_n) = (1/n) \sum_{i=1}^{n} x_i$
+\noindent is the ML estimator and it achieves the smallest mean squared error relative to all unbiased estimators. \\
+
+\noindent \textbf{Problem 2 (Score and Fisher Information Matrix in the Linear Regression model, 15 points)} Derive the score and the Fisher Information matrix in the Normal Linear Regression model. How does the variance of the OLS estimator relates to the Fisher Information matrix? Would you expect this relation to hold in other parametric models? \\
+
+\noindent \textbf{Problem 3 (Variance of the Ridge Estimator, 15 points)} In class we showed that the variance of the Ridge estimator is
+\[ \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{Ridge}}) = \sigma^2( X’X + \lambda \mathbb{I}_k)^{-1} X’X ( X’X + \lambda \mathbb{I}_k)^{-1}  \]
+
+\noindent Prove or disprove the following statement: when $k<n$, the trace of this variance has to be smaller than that of the ML/OLS estimator. \\
+
+\noindent \textbf{Problem 4 (Expression for the Ridge Estimator, 30 points) } In class we derived the expression for the posterior distribution of $\beta | Y$ using Bayes’ Theorem and the Gaussian p.d.f.s. An alternative derivation would be to write down the joint distribution of $(\beta’, Y’)’$ and use the formula for the conditional mean and variance. For example, see the entry on conditional distributions in wiki \href{https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions}{(click here)}.  Convince yourself that the formulae are the same. You might need to use the Woodbury Identity Formula a couple of times to establish the connection. 
+
+
+\newpage
+
+\bibliographystyle{../Auxiliary_Format_Files/ecta}
+\bibliography{../Auxiliary_Format_Files/BibMaster}
+
+\end{document}
