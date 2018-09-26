@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 SEP 2018 21:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 SEP 2018 11:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1136,12 +1136,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
+[3]
 No file Syllabus.bbl.
 
 Package caption Warning: Unused \captionsetup[subfloat] on input line 25.
 See the caption package documentation for explanation.
 
-[3]
+[4]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
  (./Syllabus.aux)
@@ -1156,13 +1157,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
 ### semi simple group (level 1) entered at line 12 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22862 strings out of 493089
- 410508 string characters out of 6134842
- 566087 words of memory out of 5000000
+ 22863 strings out of 493089
+ 410514 string characters out of 6134842
+ 567087 words of memory out of 5000000
  25877 multiletter control sequences out of 15000+600000
  69450 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,6n,96p,702b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,6n,96p,702b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
 c}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
@@ -1177,10 +1178,10 @@ mf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2015/texmf-dist/fo
 nts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on Syllabus.pdf (3 pages, 195671 bytes).
+Output written on Syllabus.pdf (4 pages, 196396 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
+ 91 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
