@@ -73,7 +73,7 @@ $$\text{Var}_{\theta}\Big[ \widehat{\theta}(x)\Big] \geq  \frac{\partial}{d\thet
 $\widehat{\theta}(x_1, \ldots, x_n) = (1/n) \sum_{i=1}^{n} x_i$
 \noindent maximizes the likelihood and it achieves the smallest mean squared error relative to all unbiased estimators ({\scshape Hint:} Use the Cramer-Rao Lower bound) . \\
 
-\noindent \textbf{Problem 2 (Maximum Likelihood in the Linear Regression model, 25 points)} We have shown that the OLS estimator $\widehat{\beta}_{\textrm{OLS}}$ maximizes the likelihood for the Normal Linear Regression model: $Y \sim \mathcal{N}_{n} (\beta, \sigma^2 \mathbb{I}_n)$ when $\sigma^2$ is known. In this exercise I would like you to treat $\sigma^2$ as an unknown parameter, and derive the ML estimators of $\beta$ and $\sigma^2$. We will do this in two steps. 
+\noindent \textbf{Problem 2 (Maximum Likelihood in the Linear Regression model, 25 points)} We have shown that the OLS estimator $\widehat{\beta}_{\textrm{OLS}}$ maximizes the likelihood for the Normal Linear Regression model: $Y \sim \mathcal{N}_{n} (X\beta, \sigma^2 \mathbb{I}_n)$ when $\sigma^2$ is known. In this exercise I would like you to treat $\sigma^2$ as an unknown parameter, and derive the ML estimators of $\beta$ and $\sigma^2$. We will do this in two steps. 
 \begin{enumerate}
 \item  (10 points) Treating $\sigma^2$ as known, derive the score $S(x,\beta)$ and the Fisher Information matrix $\mathcal{I}(\beta)$  in the Normal Linear Regression model. Show that, at a given parameter $\beta$, 
 	\[ \widehat{\beta}_{\textrm{ML}} =  \mathcal{I}(\beta)^{-1} S(x,\beta)  + \beta   \sim \mathcal{N}_k ( \beta, \mathcal{I}(\beta)^{-1} ). \]
