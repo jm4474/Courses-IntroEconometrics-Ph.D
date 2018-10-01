@@ -70,7 +70,7 @@ where $\textrm{tr}(\cdot)$ is the trace operator.  The decomposition is fairly s
 
 According to model (\ref{equation:Regression-model}) the vector of outcome variables is a multivariate normal with parameters $X\beta$ and $\sigma^2 \mathbb{I}_n$ and thus has a p.d.f given by
 \begin{equation}\label{equation:Regression-pdf}
-f( Y | \beta , X ) = \frac{1}{(2 \pi \sigma)^{k/2}} \exp \left( -\frac{1}{2 \sigma^2} (Y - X \beta)’ (Y-X\beta) \right).  
+f( Y | \beta , X ) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left( -\frac{1}{2 \sigma^2} (Y - X \beta)’ (Y-X\beta) \right).  
 \end{equation}
 This is true, regardless of whether we have very many covariates or not. For a fixed realization of the data, define the likelihood function, L($\beta$; (Y,X)), as the value attained by the p.d.f. in (\ref{equation:Regression-pdf}) at different values of the data ($Y, X$); that is 
 \[ L(\beta, (Y,X)) \equiv f(Y | \beta, X ). \]
@@ -181,7 +181,7 @@ The F.O.C are
 In this section we will show that the OLS estimator minimizes risk among the class of all unbiased estimators, provided some regularity conditions are met. 
 
 \begin{proposition}(Optimality of OLS) Consider the Normal regression model in (\ref{equation:Regression-model}). Let $\widehat{\beta}$ be an estimator of $\beta$ for which
-\[ \frac{\partial}{\partial \beta} \int_{\mathbb{R}^{k}} \widehat{\beta} f(Y | \beta; X ) dY = \int_{\mathbb{R}^{k}} \widehat{\beta} \frac{\partial}{\partial \beta} f(Y | \beta , X) dY,   \]
+\[ \frac{\partial}{\partial \beta} \int_{\mathbb{R}^{k}} \widehat{\beta} f(Y | \beta; X ) dY = \int_{\mathbb{R}^{k}} \widehat{\beta} \Big ( \frac{\partial}{\partial \beta} f(Y | \beta , X) \Big)’ dY,   \]
 at any $\beta$ in the parameter space. If $\widehat{\beta}$ is unbiased, then
 \[ \mathbb{V}_{\beta} ( \widehat{\beta} ) - \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{OLS}})  \]
 is positive semi-definite, implying that the mean squared error of $\widehat{\beta}$ is larger than that of the OLS everywhere on the parameter space. 
@@ -190,9 +190,9 @@ is positive semi-definite, implying that the mean squared error of $\widehat{\be
 \begin{proof}
 We would like show  that for any $c \in \mathbb{R}^{k}$, $c \neq 0$
 \[ c’ \left( \mathbb{V}_{\beta} ( \widehat{\beta} ) - \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{OLS}}) \right) c \geq 0. \]
-\end{proof}
+
 To do this, we start by computing the variance of $c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}}$, 
-which by definition of variance has to be nonegative. Since $\widehat{\beta}$ and $\widehat{\beta}_{\textrm{OLS}}$ are both unbiased
+which by definition of variance, has to be nonegative. Since $\widehat{\beta}$ and $\widehat{\beta}_{\textrm{OLS}}$ are both unbiased
 \begin{eqnarray*}
 \mathbb{V}_{\beta} \left( c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}} \right)&=&  \mathbb{V}_{\beta} (c’\widehat{\beta}) + \mathbb{V}_{\beta} (c’\widehat{\beta}_{\textrm{OLS}}) - 2 \textrm{cov}_{\beta} ( c’\widehat{\beta} , c’ \widehat{\beta}_{\textrm{OLS}}  ),  \\
 &&  \textrm{(since $\textrm{Var}(X-Y) = \textrm{Var}(X) + \textrm{Var}(Y)- 2 \textrm{cov}(X,Y)$)}\\
@@ -220,7 +220,7 @@ Consequently
 Hence, 
 \[ 0 \leq \mathbb{V}_{\beta} \left( c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}} \right) = c’ \mathbb{V}_{\beta}(\widehat{\beta}) c - c’ \mathbb{V}_{\beta}(\widehat{\beta}_{\textrm{OLS}}) c,  \]
 for every $\beta$. The result then follows. 
-
+\end{proof}
 
 \subsection{Suboptimality of the OLS estimator}
 
