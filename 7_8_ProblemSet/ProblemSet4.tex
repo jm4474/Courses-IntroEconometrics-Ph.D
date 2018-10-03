@@ -95,9 +95,9 @@ which means that the p.d.f of $\sigma^2$ is up to a constant equal to
 \noindent {\scshape Hint:} This exercise can be really painful (tons of algebra) if you do not approach from the right angle. I would start by computing the distribution of
 \[ \beta | Y, \sigma^2.\]
 Note that this is a conditional posterior distribution (as I am conditioning on the data, but also on $\sigma^2$). If you condition on $\sigma^2$, you should be able to derive the posterior in exactly the same way we did in class. The posterior mean of $\sigma^2$ is slightly more difficult to derive, the idea is to derive the distribution of $Y | \sigma^2$ (yes, eliminating $\beta$ out). One way to do this is to write
-\[ Y = X\beta + \sigma^2 \epsilon_1, \quad \epsilon_1 \sim \mathcal{N}_n(0, \mathbb{I}_n), \]
+\[ Y = X\beta + \sqrt{\sigma^2} \epsilon_1, \quad \epsilon_1 \sim \mathcal{N}_n(0, \mathbb{I}_n), \]
 and
-\[ \beta = \beta_0 + \sigma^2 \epsilon_2, \quad \epsilon_2 \sim \mathcal{N}_k(0, (\lambda \mathbb{I}_k)^{-1}), \]
+\[ \beta = \beta_0 + \sqrt{\sigma^2} \epsilon_2, \quad \epsilon_2 \sim \mathcal{N}_k(0, (\lambda \mathbb{I}_k)^{-1}), \]
 where $\epsilon_1$ and $\epsilon_2$ are independent. Using the representation above you can derive the distribution of $Y | \sigma^2$ and then proceed to derive the posterior distribution of $\sigma^2 | Y$.  Good luck!\\
 
 \noindent \textbf{Problem 4 (OLS vs. Ridge Variance, 10 points)} In class we showed that the variance of the Ridge estimator is

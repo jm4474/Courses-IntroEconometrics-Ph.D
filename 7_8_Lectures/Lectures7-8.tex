@@ -145,13 +145,16 @@ Completing the square and ignoring all the terms that do not have $\beta$ on the
 \end{equation*}
 This implies that:
 \begin{equation}
-\beta | Y, X \sim \mathcal{N}_{k} \left(  \left( V + X’X \right)^{-1} (X^{\prime} Y+V^{-1}\beta_0) \: , \:   \sigma^2 \left(V + X^{\prime} X \right)^{-1}   \right).
+\beta | Y, X \sim \mathcal{N}_{k} \left(  \left( V + X’X \right)^{-1} (X^{\prime} Y+V\beta_0) \: , \:   \sigma^2 \left(V + X^{\prime} X \right)^{-1}   \right).
 \end{equation}
 This means that the Bayesian Estimator of $\beta$ given the Gaussian prior $\pi(\beta)$ is:
 
 \[ \widehat{\beta}_{\textrm{Bayes}} \equiv \left( V + X^{\prime} X \right)^{-1} \left( X^{\prime} Y + V \beta_0 \right). \]
 
-\noindent The posterior mean estimator is well defined regardless the number of covariates.\footnote{If $V$ is positive definite, then the matrix $V+ X’X$ is positive definite as well, and thus invertible.} The posterior mean estimator for $V= \lambda \mathbb{I}_{k}$ is called the Ridge estimator
+\noindent The posterior mean estimator is well defined regardless the number of
+covariates.\footnote{If $V$ is positive definite, then the matrix $V+ X’X$ is
+  positive definite as well, and thus invertible.} The posterior mean estimator
+for $V= \lambda \mathbb{I}_{k}$ and $\beta_0 = 0$ is called the Ridge estimator
 
 \[  \widehat{\beta}_{\textrm{Ridge}} \equiv (X’X + \lambda \mathbb{I}_{k})^{-1} X’Y, \]
 
