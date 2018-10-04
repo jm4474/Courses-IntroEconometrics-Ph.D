@@ -270,11 +270,11 @@ Therefore,
 \[  \mathbb{E}_{\mathbb{P}_{\beta}} \left[ ||\widehat{\beta}_{JS} -\beta ||^2 \right] =  \mathbb{E}_{\mathbb{P}_{\beta}}  \left[ \frac{(k-2)^2}{|| \widehat{\beta}_{\textrm{OLS}} ||^2} \right] - k + 2 \mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} -\beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right]. . \]
 Also
 \begin{eqnarray*}
-\mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} - \beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right] &=& \textrm{Cov}( \widehat{\beta}_{\textrm{JS}},\widehat{\beta}_{OLS} ). 
+\mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} - \beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right] &=& \sum_{j=1}^{k} \textrm{Cov}( \widehat{\beta}^j_{\textrm{JS}},\widehat{\beta}^j_{OLS} ). 
 \end{eqnarray*}
 and the last term can be shown to equal
 \begin{eqnarray*}
-\sum_{j=1}^{K} \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{\partial \widehat{\beta}^i_{JS} }{\partial \widehat{\beta}^i_{\textrm{OLS}}} \right] &=& K - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{k  (k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] + \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{2(k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right]’ \\
+\sum_{j=1}^{k} \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{\partial \widehat{\beta}^j_{JS} }{\partial \widehat{\beta}^j_{\textrm{OLS}}} \right] &=& K - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{k  (k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] + \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{2(k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right]’ \\
 &=&  K - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{(k-2)^2}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] 
 \end{eqnarray*}
 Therefore,
