@@ -177,7 +177,7 @@ The parameters of the model are $\beta = (\beta_1, \ldots, \beta_{k})’$ and $\
 \[ \widehat{\beta}_{\textrm{ML}} = (X’X)^{-1}X’Y, \quad \widehat{\sigma}^2_{\textrm{ML}} = (Y-X \widehat{\beta}_{\textrm{ML}})’ (Y-X \widehat{\beta}_{\textrm{ML}})/n.  \]
 
 \noindent The parametric bootstrap algorithm starts by generating $I$ new data sets, independently according to the distribution
-\[ Y(i)  \sim \mathcal{N}_{n}( X \widehat{\beta}_{\textrm{ML}}\:, \: \widehat{\sigma}^2_{\textrm{ML}} (X’X)^{-1} ).   \]
+\[ Y(i)  \sim \mathcal{N}_{n}( X \widehat{\beta}_{\textrm{ML}}\:, \: \widehat{\sigma}^2_{\textrm{ML}} \mathbb{I}_n).   \]
 \noindent For each of these data sets, we can compute 
 
 \[ \widehat{\beta}_{\textrm{ML}}(i) = (X’X)^{-1}X’Y(i), \quad \widehat{\sigma}^2_{\textrm{ML}} = (Y(i)-X \widehat{\beta}_{\textrm{ML}}(i))’ (Y(i)-X \widehat{\beta}_{\textrm{ML}}(i))/n,  \]
