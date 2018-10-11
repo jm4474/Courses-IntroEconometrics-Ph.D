@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  7 OCT 2018 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.5.24)  10 OCT 2018 20:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1302,13 +1302,13 @@ LaTeX Warning: Command \textquoteright invalid in math mode on input line 269.
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 269.
 
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 273.
-
-
-LaTeX Warning: Command \textquoteright invalid in math mode on input line 273.
-
 [9]
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 273.
+
+
+LaTeX Warning: Command \textquoteright invalid in math mode on input line 273.
+
 
 LaTeX Warning: Command \textquoteright invalid in math mode on input line 291.
 
@@ -1374,4 +1374,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  63i,12n,96p,828b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Lectures9-10.dvi (13 pages, 57336 bytes).
+Output written on Lectures9-10.dvi (13 pages, 57444 bytes).

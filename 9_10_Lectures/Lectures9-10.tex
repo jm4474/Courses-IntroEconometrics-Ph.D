@@ -165,23 +165,23 @@ $$R(\phi,\theta_0) \leq \alpha $$
 \begin{proof}
 Let $\phi(x)$ be defined as in (\ref{equation:NPtest}). We would like to show the following: if $t(x)$ is another test of level $\alpha$, then $P_{\theta_1} (\phi(x)=1) \geq P_{\theta_1} (t(x)=1) \geq 0$. The prove proceed goes follows. By definition of $\phi$
 \begin{equation*}
-\phi(x)=1 \quad\quad \text{if}  \quad f(x, \theta_1) > \lambda f(x, \theta_0)
+\phi(x)=1 \quad\quad \text{if}  \quad f(x, \theta_1) > c_{LR}(\alpha) f(x, \theta_0)
  \end{equation*} 
 Since $t(x) \in [0,1]$ it follows that 
 \begin{equation*}
-\phi(x) - t(x) \geq 0 \quad\quad \text{if}  \quad f(x, \theta_1) > \lambda f(x, \theta_0)
+\phi(x) - t(x) \geq 0 \quad\quad \text{if}  \quad f(x, \theta_1) > c_{LR}(\alpha) f(x, \theta_0)
  \end{equation*} 
  and
  \begin{equation*}
-\phi(x) - t(x) \leq 0 \quad\quad \text{if}  \quad f(x, \theta_1) \leq \lambda f(x, \theta_0)
+\phi(x) - t(x) \leq 0 \quad\quad \text{if}  \quad f(x, \theta_1) \leq c_{LR}(\alpha) f(x, \theta_0)
  \end{equation*} 
  Therefore, the function:
  \begin{equation*}
-\left[ \phi(x)-t(x) \right] \left[ f(x, \theta_1) - \lambda f(x, \theta_0) \right] \geq 0
+\left[ \phi(x)-t(x) \right] \left[ f(x, \theta_1) - c_{LR}(\alpha) f(x, \theta_0) \right] \geq 0
  \end{equation*}
  Note then that, for all $x$
  \begin{equation*}
- \left[ \phi(x)-t(x) \right] f(x, \theta_1) \quad \geq  \quad \left[ \phi(x)-t(x) \right] \lambda f(x, \theta_0) 
+ \left[ \phi(x)-t(x) \right] f(x, \theta_1) \quad \geq  \quad \left[ \phi(x)-t(x) \right] c_{LR}(\alpha) f(x, \theta_0) 
  \end{equation*}
  Therefore, integrating with respect to x:
   \begin{equation*}
@@ -247,14 +247,14 @@ Algebra shows that the maximizer is
 \noindent This means that the likelihood ratio test statistic equals
 
 \begin{equation} \label{equation:GLR}
-n  \left( \log ( \widehat{\sigma}^2_{0} ) -\log( \widehat{\sigma}^2_{\textrm{ML}} ) \right). 
+n  \left( \ln ( \widehat{\sigma}^2_{0} ) -\ln( \widehat{\sigma}^2_{\textrm{ML}} ) \right). 
 \end{equation}
 
 The \emph{critical value}---the threshold against which the likelihood ratio statistic is compared against---is usually taken as the $1-\alpha$ quantile of $\chi^2$ distribution with degrees of freedom given by the dimension of $\beta_0$. We now explain this approximation for the linear regression model and then present an heuristic derivation of the more general approximation result. 
 
 Algebra shows that we can write the likelihood ratio test statistic above as
 
-\[n  \left( \log \left(  (\widehat{\sigma}^2_{0} - \widehat{\sigma}^2_{\textrm{ML}})/\widehat{\sigma}^2_{\textrm{ML}} +1  \right) \right). \]
+\[n  \left( \ln \left(  (\widehat{\sigma}^2_{0} - \widehat{\sigma}^2_{\textrm{ML}})/\widehat{\sigma}^2_{\textrm{ML}} +1  \right) \right). \]
 
 \noindent Under the null hypothesis we expect $\widehat{\sigma}^2_0$ and $\widehat{\sigma}^2_{\textrm{ML}}$ not to be very different. Since a standard first-order Taylor appproximation suggests that $\ln(1+x) \approx x$ when $x$ is small, the likelihood ratio test statistic is expected to be approximately equal to 
 
