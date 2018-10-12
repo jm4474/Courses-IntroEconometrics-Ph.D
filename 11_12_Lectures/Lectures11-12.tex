@@ -87,7 +87,7 @@ The region above is called a ``highest posterior density’’ region. As it is 
 
 In general, it is hard to give closed form expressions for the highest posterior density region. However, in large samples it is possible to provide (heuristic) approximations for these regions; exploiting the fact that---regardless of the prior---the posterior distribution is approximately distributed as
 \[  \mathcal{N}_{k} \left(  \widehat{\theta}_{\textrm{ML}} \quad, \quad \widehat{I}^{-1} \right),   \]
-\noindent where $\mathcal{I}$ is the observed information. This means that highest posterior density regions will be approximately of the form 
+\noindent where $\widehat{I}$ is the observed information. This means that highest posterior density regions will be approximately of the form 
 \begin{eqnarray*}
 \left \{ \theta \in \Theta \: \Bigg | \:  \frac{1}{ (2 \textrm{det} \widehat{I}))^{k/2} } \exp \left( -\frac{1}{2} (\theta - \widehat{\theta}_{\textrm{ML}}) ’\widehat{I}   (\theta - \widehat{\theta}_{\textrm{ML}})\right)  \geq (1-\delta)/\delta \right \}, \\
 \end{eqnarray*}
@@ -199,8 +199,8 @@ Let $\widehat{p}_{\eta}$ denote the $\eta$ quantile of $\{ g(\theta(i))\}_{i=1}^
 \[  \beta | Y, X, \sigma^2 \sim \mathcal{N}_{k} ( m , V   ),  \]
 where 
 \begin{eqnarray*}
-m  &\equiv& (X’X + \lambda \mathbb{I}_n)^{-1} X’Y, \\
-V  & \equiv & \sigma^2  (X’X + \lambda \mathbb{I}_n)^{-1}.
+m  &\equiv& (X’X + \lambda \mathbb{I}_k)^{-1} X’Y, \\
+V  & \equiv & \sigma^2  (X’X + \lambda \mathbb{I}_k)^{-1}.
 \end{eqnarray*}
 The posterior distribution for distribution for $\sigma^2$ is an Inverse-Gamma($a_n$,$b_n$) where
 \[ a_n = a_0 + n/2, \quad b_n = b_0 + \frac{1}{2}( (Y-Xm)’(Y-Xm) + \lambda m’m ). \]
