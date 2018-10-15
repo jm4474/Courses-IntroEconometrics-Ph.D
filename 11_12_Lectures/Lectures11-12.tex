@@ -132,17 +132,18 @@ Suppose further that each test has size of at most $\alpha$ in the sense that
 
 \noindent The confidence region obtained by ``test inversion’’ is given by
 
-\[ C  (x) \equiv \{ \theta \in \Theta \: | \: \phi_{\theta}(x)=1\}. \]
+\[ C  (x) \equiv \{ \theta \in \Theta \: | \: \phi_{\theta}(x)=0\}. \]
 
 \noindent The coverage of such confidence region at $\theta$ is given by
 \begin{eqnarray*}
 P_{f(x|\theta)} [\theta \in C(x)] &=& 1-P_{f(x|\theta)} [\theta \notin C(x)]  \\
-&=& 1- P_{f(x|\theta)} [ \phi_{\theta}(x) ] \\
+&=& 1- P_{f(x|\theta)} [ \phi_{\theta}(x) = 1] \\
 & \geq & 1-\alpha.   
 \end{eqnarray*}
 \noindent Therefore, 
 \[\inf_{\theta \in \Theta} P_{f(x|\theta)} [\theta \in C(x)] \geq 1-\alpha,   \]
-\noindent which implies that the confidence region formed by test inversion has confidence level, provided each of the tests $\phi_{\theta}$ have size of at $\alpha$. \\
+\noindent which implies that the confidence region formed by test inversion has
+confidence level $1-\alpha$, provided each of the tests $\phi_{\theta}$ have size of at most $\alpha$. \\
 
 {\scshape Using a confidence region to test a hypothesis:} A confidence region with $C(x)$ confidence level of at least $1-\alpha$ can be readily used to test a hypothesis of the form
 \[ \mathbf{H}_0: \theta =\theta_0 \quad \textrm{vs.} \quad \mathbf{H}_1: \theta \neq \theta_0. \]
