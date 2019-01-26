@@ -13,6 +13,6 @@ The
 
 | Class|Topics|  Lecture notes |
 |------|------|----------------|
-|Lecture 1    | Course Introduction |   [Intro slides](Courses-IntroEconometrics-Ph.D/blob/master/1_2_Slides/Slides-1-2.pdf)|
+|Lecture 1    | Course Introduction |   [Intro slides](/Courses-IntroEconometrics-Ph.D/blob/master/1_2_Slides/Slides-1-2.pdf)|
 |Lecture 2    |  Introduction to MDP |     [Lecture 2](https://github.com/jm4474/Courses-IntroEconometrics-Ph.D/blob/master/1_2_Slides/Slides-1-2.pdf)|
 
