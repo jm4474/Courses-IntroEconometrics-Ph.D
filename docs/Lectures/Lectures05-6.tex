@@ -1,0 +1,227 @@
+%%!TEX TS-program = latex
+\documentclass[11pt]{article} %DIF > 
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\input ../AuxFiles/PreambleNotes.tex
+
+\begin{document}
+\onehalfspace
+
+\vspace*{\fill}
+\begingroup
+\centering
+
+\Large {\scshape Introduction to Statistics}\\
+
+(Lectures 5-6)
+
+\endgroup
+\vspace*{\fill}
+
+\newpage
+
+\section{A Decision-Theoretic Approach to Statistics}
+The following two lectures (Lecture 5-6) provide an introduction to Statistics from a \emph{decision-theoretic} perspective. This means we will think about estimation of parameters, testing of statistical hypotheses, and the construction of confidence sets as \emph{decision problems}. You can find interesting introductions to  statistical inference from a decision-theoretic perspective in Chapter 1 of \cite{Lehman05} and Chapter 1 of \cite{Ferguson67}, p. 1-11.
+
+{\scshape Overview of Lectures 5-6:} The objective of Lecture 5 and 6 is to present a framework to think about statistical inference in a \emph{finite sample}.  We will define the following objects:
+
+
+\begin{enumerate}[a)]
+\item $x$: Data
+\item $\{P_{\theta}\}_{\theta \in \Theta}$: Statistical Model
+\item $\Theta$: Parameter space
+\item $\mathcal{L}(a,\theta)$: Payoff or loss  of an action.
+\item $d(x)$: Decision rule
+\item $\expec_{\theta}[L(d(x),\theta)]$: Expected payoff /loss of an strategy conditional on $\theta$.
+\end{enumerate}
+
+\subsection{Data and Statistical model}
+
+The starting point of any statistical analysis is a data set. Let $X$ be a random variable taking values in some set $\mathcal{X} \subseteq \R^{S}$. A realization of $X$ will be refereed to as \underline{data}. Thus, data, are nothing else than realizations of some random variable/vector. \\
+
+To conduct statistical analysis we will require some structure on the process that generated the data. Such structure is described by a statistical model:\\ 
+
+\noindent \textbf{Definition 1:}A \underline{statistical model} for the data is a collection of probability distributions over $\mathcal{X}$:
+\[ \{\mathbb{P}_{\theta}\}_{\theta \in \Theta} \]
+ indexed by an element $\theta$ in some space $\Theta$. The index $\theta$ is referred to as \underline{parameter} and the set $\Theta$ as the \underline{parameter space}. 
+ 
+The notion of statistical model plays a key role in econometrics. Concepts such as ``identification’’ and ``sufficient statistics’’ are formally defined in terms of a statistical model. You will have a chance to appreciate this point in the problem set (Problems 1 and 2).  
+
+\subsection{Statistical (Decision) Problems}
+
+We will define a \underline{statistical decision problem} as a game involving two players (``nature'' and the statistician) and two stages (data generation and decision making).  The extensive form description of the game is as follows. 
+
+In the first stage, nature selects a parameter $\theta \in \Theta$ and uses it to generate data according to the distribution $\mathbb{P}_{\theta}$ (if you want a more specific picture, imagine that after selecting $\theta$ nature goes immediatly to matlab/python/R and generates one draw according to $P_\theta$). 
+
+In the second stage, the econometrician/statistician/decision maker observes the data, but does not observe the parameter selected by nature. The decision maker is not under a full veil of ignorance: in addition to having data, the decision maker knows the statistical model used by nature. 
+
+ Based on the realized data, the econometrician would like to take an \emph{action} ``$a$'' whose payoff depends on the parameter selected by nature. This means that some actions are reasonable in some states but not in others. This is modeled by endowing the decision maker with a state-contingent utility or loss:
+$$u(a,\theta) \quad \text{or} \quad \mathcal{L}(a,\theta) $$
+The action is assumed to live in an action space $\mathcal{A}$. The \emph{decision problem} faced by the econometrician is the selection of an action depending on the realization of the data. 
+
+This leads to the following definition:\\
+
+\noindent {\textbf{Definiton 2}: } A \underline{statistical problem} is a tuple: 
+\[(\Theta, A, u, \{P_{\theta}\})\] 
+containing a parameter space, an action space, a utility (or loss) function, and a statistical model. \\
+
+
+
+\subsection{Decision Rules}
+
+
+
+In a statistical game (as in any other game) the objective of the observer (and presumably of the players) is to think about reasonable strategies that can be played. In the (extensive form) statistical game the information sets for the statistician are the data realizations. Thus,\\
+
+\noindent \textbf{Definition 3:} A strategy of \underline{decision rule} $d$ for the statistician in a statistical game is a function $d: \mathcal{X} \rightarrow A$.  \\
+
+Here are some examples of statistical problems and decision rules: 
+
+\begin{enumerate}
+\item \underline{Estimation Problem}: The action space for the econometrician is $\Theta$. This means that after observing a data realization, the econometrician needs to decide what is the parameter $\theta$ that generated the data. 
+
+The decision rules for this problem are usually called \textbf{estimators}.
+
+A typical loss for this problem is \textbf{quadratic loss}: $\mathcal{L}(a,\theta)=(a-\theta)^2$.
+
+
+\item \underline{Testing Problem}: The parameter space is partitioned into two sets: $\Theta_0$ is called the null hypothesis and $\Theta_1$ is the alternative hypothesis. The action space of the econometrician contains only two elements $\{a_0, a_1\}$ ($a_0$ is interpreted as expressing support for the null and $a_1$ as expressing support for the alternative). 
+
+Decision rules for this problem are usually called \textbf{tests}.
+
+A typical loss for this problem is the so-called \textbf{0-1 loss}: $\mathcal{L}(a_1,\theta_0)=1$ and $\mathcal{L}(a_0,\theta_1)=1$ (with the loss being 0 otherwise).
+
+\item \underline{Inference problem:} The action for the econometrician consists of subsets of the real line. The interpretation is that each subset contains the best candidate values for $\theta$. 
+
+Decision rules for this problem are usually called \textbf{confidence sets}.
+
+A typical loss for this problem is:
+
+\[ \mathcal{L}(C;\theta)\equiv\delta \mathbf{1}\{ \theta \notin C \} + (1-\delta) \textrm{Vol}(C)  \]
+
+\end{enumerate}
+
+\subsection{``Optimal’’ Decision Rules}
+
+\cite{Ferguson67} Chapter 1, p. 1: 
+
+\begin{quote}
+\emph{``The fundamental problem of decision theory can be stated quite simply. Given a game $(\Theta,A,u,\{P_{\theta}\})$ and a random observable $X$ whose distribution depends on $\theta \in \Theta$, what decision rule $\delta$ should the statistician use?’’}
+\end{quote}
+
+For each action taken, the utility or loss function is deterministic. However, when the statistician reports a decision rule the loss associated to a particular decision, the payoff is a random variable: each action will lead to a different value of the loss function, depending on the data realization. 
+
+One way to summarize the performance of a decision rule in different points of the parameter space is by reporting the \emph{risk function}: \\
+
+\noindent \textbf{Definition 4:} (Ferguson p. 7 ) The \underline{risk function} of a decision rule $d$ is defined as:
+\[ R(\theta; d) = \mathbb{E}_{P_{\theta}}[\mathcal{L}(d(X),\theta)]. \]
+
+\noindent Another cite from \cite{Ferguson67} p. 7:
+
+\begin{quote}
+\emph{``It is a natural reaction to search for a best decision rule, a rule that has the smallest risk no matter what the true state of nature is. Unfortunately, situations in which the best decision rule exists are rare and uninteresting.’’}
+\end{quote}
+
+\noindent While a rule that has the smallest risk need not exist, it is simple to use a dominance criterion to discard bad decision rules. This is analogous to the idea of discarding dominated strategies in the analysis of games. \\ 
+
+\noindent \textbf{Definition 5:} A decision rule $d$ is \underline{dominated} if there is a decision rule $d’$ such that:
+\[R(\theta;d’) \leq R(\theta;d)\]
+for every $\theta \in \Theta$, with strict inequality for some $\theta$. Decision rules that are not dominated are called \emph{admissible}.  
+
+Not all decision rules can be compared using the dominance criterion (dominance is a partial order). There are two general methods for creating a complete ordering over decision rules: ``average’’ and ``worst-case’’ risk . These criteria lead to decision rules that can be defined generally for any statistical problem. 
+
+
+\subsubsection{Bayes Rules} 
+
+Given a probability distribution $\pi$ on $\Theta$ (a \underline{prior}) we define the the \underline{Bayes risk} of a decision rule $d$ as:
+
+\[ r(\pi, d) \equiv \int_{\Theta} R(\theta, d) d \pi (\theta) \equiv \mathbb{E}_{\pi} [ R(\theta; d) ] \]
+
+\noindent \textbf{Definition 6:} A decision rule $d^*$ is said to be a \underline{Bayes Rule} with respect to the prior distribution $\pi$ (and relative to a class of decision rules $D$) if:
+
+\[ r(\pi, d^*) = \inf_{d} r(\pi, d)   \]
+
+\noindent That is, if it minimizes Bayes risk. 
+
+By construction, Bayes rules require the specification of prior. Consequently, the properties of a Bayes decision rule will depend on the choice of such prior. However, the are some limits on how bad a Bayes rule can behave. The following result shows that under some minimal assumptions, Bayes rules are admissible; hence, it is not possible to improve upon them uniformly over $\Theta$. \\
+
+
+\noindent \textbf{Result}: Suppose that the risk function $R(d; \cdot)$ is continuous in $\theta$ for any decision rule $d$. Let $\pi$ be any prior with full support on $\Theta$.\footnote{A point $\theta$ is said to be on the support of a distribution $\pi$ is for every neighborhood $\mathcal{N}_{\theta}$ of $\theta$ have strictly positive probability. The distribution $\pi$ has full support if every $\theta \in \Theta$ is in the support of the distribution.} The Bayes rule $d^*$ corresponding to $\pi$ is admissible. \\
+
+\noindent {\scshape Proof:} Suppose $d^*$ is not admissible. Then there exists $d^{\prime}$ such that:
+\[ R(d^{\prime}; \theta) \leq R(d^*; \theta),  \]
+with strict inequality for some $\theta^* \in \Theta$. Since $R(d^*,\theta)$ is continuous in $\theta$, there exists a neighborhood $N_\theta^*$ such that 
+\[  R(d^{\prime}, \theta) < R(d^*, \theta) \quad \forall \quad \theta \in N_{\theta^*}. \]
+
+\noindent Since $\pi$ has full support 
+\[ \int_{N_{\theta^*}} R(d’;\theta) d \pi(\theta) < \int_{N_{\theta^*}} R(d’;\theta^*) d \pi(\theta).   \]
+Consequently:
+\[ r(\pi, d^{\prime}) < r(\pi, d^*).   \]
+
+\noindent A contradiction. \\
+
+\begin{flushright}
+$\square$
+\end{flushright}
+
+\noindent Thus, Bayes Rules are admissible under mild regularity conditions. Interestingly, a converse of this result is also true: any admissible decision rule is, with some qualifications,	 Bayes for some prior. This result is known as the \emph{Complete Class Theorem}; see Chapter 2 (in particular 2.10) in \cite{Ferguson67}, if interested.  
+
+Bayes rules are not a statistical panacea. There are examples in which a poorly selected prior (one that ignores certain parts of the parameter space) leads to a Bayes rule that can be strictly improved. 
+
+Bayes Rules are defined very generally, but minimizing Bayes risk is a conceptually complicated problem: we are optimizing over a space of functions (the decision rules). We now show that it is possible to simplify the optimization problem, by distinguishing between prior and posterior information. 
+
+Let $f(x;\theta)$ denote the p.d.f corresponding to $\mathbb{P}_{\theta}$ and assume that $\pi(\theta)$ is also a p.d.f. Note that:
+
+\begin{eqnarray*}
+r(\pi, d) &\equiv& \int_{\Theta} R(d(x); \theta ) \pi(\theta) d{\theta} \\
+&=&  \int_{\Theta}\Big( \int_{\mathcal{X}} \mathcal{L}(d(x); \theta) f(x| \theta) d x  \Big)  \pi(\theta) d{\theta} \\
+&& (\textrm{by definition of Risk}) \\
+&=& \int_{\mathcal{X}}   \Big( \int_{\Theta} \mathcal{L}(d(x); \theta) f(x| \theta) \pi(\theta) d \theta  \Big)   dx \\
+&=& \int_{\mathcal{X}}   \Big( \int_{\Theta} \mathcal{L}(d(x); \theta)\pi (\theta | x) d \theta  \Big) f^*(x)  dx
+\end{eqnarray*}
+
+\noindent where $f^*(x)= \int_{\theta} f(x|\theta) \pi(\theta) d \theta$ is the marginal density of the data in a model with joint p.d.f. given by $f(x|\theta) \pi(\theta)$. So, minimizing (ex-ante) Bayes Risk is the same as choosing the action $d(x) \in \mathcal{A}$ that minimizes: 
+
+\[ \int_{\Theta} \mathcal{L}(d(x); \theta)\pi (\theta | x) d \theta.  \] 
+
+\noindent The latter quantity is referred to as \underline{posterior loss}. Minimizing posterior loss is an easier problem, as action spaces are typically subsets of $\mathbb{R}^{n}$ not spaces of functions. In the next lectures, we will work out a few examples to develop a better understanding of this result. 
+
+\subsubsection{Minimax rules} 
+
+An essentially different type of ordering of the decision rules may be obtained by comparing the rules according to the worst that could happen to the statistician. In other words, $d_1$ is preferred to $d_2$ if
+
+\[ \sup_{\theta} R(\theta, d_1) < \sup_{\theta} R(\theta, d_2) \]
+
+\noindent \textbf{Definition 7:} A decision rule $\delta_0$ is said to be minimax (relative to a class $D$ of decisions) if:
+
+\[ \sup_{\theta \in \Theta} R(\theta, d_0) = \inf_{d \in D} \sup_{\theta \in \Theta} R(\theta, d) \] 
+
+The minimax rule is designed to protect the statistician against worst-case situations: the rule is chosen to minimize the worst-case risk (or to obtain the best performance in the worst possible situation). 
+
+One of the reasons minimax decision rules are appealing is that their construction does not require the user to specify any prior belief. This is an attractive property, but it comes at the cost of making the reasonability of minimax decision rules harder to justify. In general, there is no guarantee that minimax rules are admissible. We will not show it, but under some conditions \emph{minimax rules are Bayes}; that is, there exists a prior distribution $\pi_0$ that makes the minimax rule $d_0$ a Bayes rule. 
+
+A further connection between Bayes and minimax rules is as follows. \\
+
+\noindent \textbf{Result:} Suppose that $d^*$ is a Bayes rule with constant risk; that is $R(\theta, d^*)= C$ for some $C \in \mathbb{R}$. Then $d^*$ is minimax. \\
+
+\noindent \emph{Proof:} If $\pi$ has constant risk for any prior $\pi$
+\[ \sup_{\theta \in \Theta} R(\theta, d^*) = \int_{\Theta} R(\theta, d^*) d \pi(\theta)   \]
+ In particular, if $d^*$ is Bayes for $\pi^*$, for any $d$
+ \[  \int_{\Theta} R(\theta, d^*) d \pi^*(\theta) \leq \int_{\Theta} R(\theta, d) d \pi^*(\theta),    \]
+by definition. However, for any decision rule $d$
+ \[  \int_{\Theta} R(\theta, d) d \pi^*(\theta) \leq \int_{\Theta} \sup_{\theta \in \Theta} R(\theta, d) d \pi^*(\theta) = \sup_{\theta \in \Theta} R(\theta,d).    \]
+ We conclude that for any $d$,
+ \[\sup_{\theta \in \Theta} R(\theta, d^*) \leq  \sup_{\theta \in \Theta} R(\theta,d).  \]
+Implying $d^*$ is minimax. 
+%See exercise 1-2, p. 59
+
+%A bit more formally, a distribution $\tau_0$ is said to be least favorable if:
+
+%\[ \inf_{\delta} r(\tau_0,\delta) = \sup_{\tau} \inf_{\delta} r(\tau,\delta) \]
+
+\newpage 
+
+\bibliographystyle{../AuxFiles/ecta}
+\bibliography{../AuxFiles/BibMaster}
+
+\end{document}
