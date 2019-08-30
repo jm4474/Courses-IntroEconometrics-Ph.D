@@ -1,7 +1,3 @@
----
-title: Introduction to Econometrics I
----
-
 ## Course Info
 
 **Instructor:** José Luis Montiel Olea <br />
