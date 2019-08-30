@@ -1,8 +1,0 @@
-\BOOKMARK [1][-]{section.1}{Confidence Sets}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Description of the problem}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Loss function}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Minimizing Posterior-Loss}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.4}{Confidence Regions and Hypothesis Testing}{section.1}% 5
-\BOOKMARK [2][-]{subsection.1.5}{Parametric Bootstrap and Bayesian Credible sets}{section.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.5.1}{The Parametric Bootstrap}{subsection.1.5}% 7
-\BOOKMARK [2][-]{subsection.1.6}{Credible Sets based on the quantiles of the posterior}{section.1}% 8
