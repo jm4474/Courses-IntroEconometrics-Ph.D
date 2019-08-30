@@ -1,13 +1,12 @@
-
-# Introduction to Econometrics I
-
-This course provides a graduate level introduction to probability and statistics. The course was designed for economists starting their doctoral education. Edits, comments and suggestions are welcome.
+---
+title: Introduction to Econometrics I
+---
 
 ## Course Info
 
-**Instructor:** José Luis Montiel Olea
+**Instructor:** José Luis Montiel Olea <br />
 
-[Syllabus](Syllabus/Syllabus.pdf) **Meeting times.**
+[Syllabus](Syllabus/Syllabus.pdf) **Meeting times.** 
 
 |                 | Time               | Place                       |
 |--------------- |------------------ |--------------------------- |
