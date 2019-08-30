@@ -5,5 +5,7 @@
 *.fls
 *.aux
 *.synctex.gz
+*.nav
+*.snm
 
 auto/
