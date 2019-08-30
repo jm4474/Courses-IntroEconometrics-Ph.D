@@ -1,5 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Random Vectors and MV distributions}{5}{0}{1}
-\beamer@sectionintoc {2}{Independence}{24}{0}{2}
-\beamer@sectionintoc {3}{Conditional Probability}{30}{0}{3}
-\beamer@sectionintoc {4}{Sums of Random Variables}{37}{0}{4}
