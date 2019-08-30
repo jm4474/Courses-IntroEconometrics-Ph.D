@@ -1,9 +1,19 @@
-## Course Info (Fall 2019)
 
-**[Syllabus](https://github.com/jm4474/Courses-IntroEconometrics-Ph.D/blob/master/Syllabus/Syllabus.pdf)**<br />
-**Lecture schedule:**  MW 1:10pm-2:25pm, 227 Seeley W. Mudd Building <br />
-**Instructor:** José Luis Montiel Olea <br />
+# Fall 19
 
-## Lecture notes Fall 2018 available [here](https://github.com/jm4474/Courses-IntroEconometrics-Ph.D)
+## Course Info
 
+**Instructor:** José Luis Montiel Olea
 
+|                 | Time               | Place                       |
+|--------------- |------------------ |--------------------------- |
+| **Class**       | MW 1.10pm - 2.25pm | 227 Seeley W. Mudd Building |
+| **Offce Hours** | TBD                | TBD                         |
+
+[Syllabus](docs/Syllabus/Syllabus.pdf)
+
+## Material
+
+| Class | Topic                       | Slides/Notes                                       | References/Suggested reading |
+|----- |--------------------------- |-------------------------------------------------- |---------------------------- |
+| 1     | Introduction to Probability | [Lectures 1 and 2](docs/Lectures/Lectures01-2.pdf) | TBA                          |
