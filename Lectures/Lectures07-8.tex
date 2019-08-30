@@ -1,0 +1,290 @@
+%%!TEX TS-program = latex
+\documentclass[11pt]{article} %DIF > 
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\input ../AuxFiles/PreambleNotes.tex
+
+
+\begin{document}
+\onehalfspace
+
+\vspace*{\fill}
+\begingroup
+\centering
+
+\Large {\scshape Introduction to Statistics}\\
+
+(Lectures 7-8: Estimation)
+
+\endgroup
+\vspace*{\fill}
+
+\newpage
+
+
+\section{Estimation}
+
+{\scshape Overview:} \noindent Lectures 7-8 will focus on \emph{estimation}. As we have mentioned before, a strategy in the estimation problem is an \emph{estimator}. The loss function used for this problem is the squared distance between the estimated value and the true parameter. This loss gives rise to the popular \emph{mean squared error} performance criterion. 
+
+
+
+We will analyze two commonly used estimation strategies---Maximum Likelihood (ML) and Posterior Mean estimators---in the context of the homoskedastic Normal regression model with (known variance); i.e., 
+\begin{equation} \label{equation:Regression-model}
+Y \sim \mathcal{N}(X \beta, \sigma^2 \mathbb{I}_n ), 
+\end{equation}
+ where $Y$ is the $n \times 1$ vector of outcome variables, $X$ is the $n \times k$ matrix of non-stochastic regressors, and $\beta \in \mathbb{R}^{k}$ is the parameter of interest. 
+ 
+ We will show that if $k \leq n$ and $X$ has full-column rank, the Maximum Likelihood estimator for the model in (\ref{equation:Regression-model}) is the OLS estimator
+\[ \widehat{\beta}_{\textrm{OLS}} \equiv (X’X)^{-1} X’Y,  \]
+
+\noindent (which we introduced in the last problem set). We will show this estimator is ``best'' among all \emph{unbiased} estimators and we will connect this result to the \emph{Cram\'er-Rao} bound for the variance of estimators in parametric models. We will also argue that ``best’’ among the class of unbiased estimators need not imply admissibility with respect to all estimators. In particular, we show that if $k \geq 3$, the OLS estimator is dominated and we present an ``empirical Bayes’’ estimator that dominates it.   
+
+The posterior mean estimator for the regression model assuming $\beta \sim \mathcal{N}_{k}(0 , (\sigma^2/ \lambda) \mathbb{I}_k )$ is the popular \emph{Ridge estimator}
+\[ \widehat{\beta}_{\textrm{Ridge}} \equiv (X’X + \lambda \mathbb{I}_k)^{-1} X’Y. \]
+The Ridge estimator is well-defined regardless of the number of covariates and it is admissible by construction. The Ridge estimator provides a simple example of ``shrinkage’’ or ``regularization’’. A practical concern is that the Ridge estimator is biased, and the bias depends on the choice of the prior hyperparameters and the true parameter at which we evaluate the bias.  
+
+One result that we will not cover in the notes, but that is important to keep in mind is that despite the inadmissibility of the OLS estimator for the \emph{full} vector of coefficients $\beta$, OLS is admissible for the problem in which we are interested in estimating only one regression coefficient but controlling for other variables.   
+
+
+
+\subsection{Quadratic Loss} 
+Let $\mathcal{A} =\Theta = \mathbb{R}^{k}$. The loss function we will work with is the so-called quadratic loss
+\[ \mathcal{L}(a, \beta) = || a- \beta ||^2 = (a-\beta)’(a-\beta) =  \sum_{j=1}^{k} (a_j  - \theta_j)^2,  \]
+which measures the squared distance between the estimator $\widehat{\beta}$ and the parameter $\beta$. 
+The risk of any estimator $\widehat{\beta}$ (which is a map from data $(Y,X)$ to $\Theta$) is given by
+\begin{equation} \label{equation:MSE}
+\mathbb{E}_{\mathbb{P}_{\beta}}[ \mathcal{L}(\widehat{\beta}, \beta) ] = \mathbb{E}_{\mathbb{P}_{\beta}}[ (\widehat{\beta}- \beta)’(\widehat{\beta}-\beta) ]. 
+\end{equation}
+Equation (\ref{equation:MSE}) is referred to as \emph{the mean-squared estimation error} at $\beta$. We now present a simple algebraic decomposition of the mean squared error in terms of the ``bias’’ and ``variance’’ of the estimator $\widehat{\beta}$. Assuming that $\overline{\beta}  \equiv \mathbb{E}_{\beta}[ \widehat{\beta} ]$ is finite, we define the \underline{bias} of $\widehat{\beta}$ at $\beta$ as
+$$ B_\beta(\widehat{\beta}) = \overline{\beta} - \beta.$$
+If the covariance matrix of $\widehat{\beta}$---denoted $\textrm{V}_{\beta} (\widehat{\beta})$---is also finite, the mean squared-error can be written as
+\begin{eqnarray*}
+\mathbb{E}_{\mathbb{P}_{\beta}}[ (\widehat{\beta}- \beta)’(\widehat{\beta}-\beta) ] &=& \mathbb{E}_{\mathbb{P}_{\beta}}[ (\widehat{\beta}-\overline{\beta} +\overline{\beta} - \beta)’(\widehat{\beta}-\overline{\beta} +\overline{\beta} -\beta) ],  \\
+&=& (\overline{\beta}-\beta)’(\overline{\beta}-\beta) +  \mathbb{E}_{\mathbb{P}_{\beta}}[ (\widehat{\beta}-\overline{\beta} )’(\widehat{\beta}-\overline{\beta}) ]  \\
+&=& ||B_\beta(\widehat{\beta})  ||^2 + \textrm{tr} \left( \textrm{V}_{\beta} (\widehat{\beta}) \right),
+\end{eqnarray*}
+where $\textrm{tr}(\cdot)$ is the trace operator.  The decomposition is fairly straightforward, but it highlights the fact that the bias and variance of the estimator fully determine its risk whenever the loss is quadratic. Also, the correlation between any of the components of $\widehat{\beta}$ is not relevant for the risk calculation. 
+
+
+\subsection{Maximum Likelihood Estimation}
+
+According to model (\ref{equation:Regression-model}) the vector of outcome variables is a multivariate normal with parameters $X\beta$ and $\sigma^2 \mathbb{I}_n$ and thus has a p.d.f given by
+\begin{equation}\label{equation:Regression-pdf}
+f( Y | \beta , X ) = \frac{1}{(2 \pi \sigma^2)^{n/2}} \exp \left( -\frac{1}{2 \sigma^2} (Y - X \beta)’ (Y-X\beta) \right).  
+\end{equation}
+This is true, regardless of whether we have very many covariates or not. For a fixed realization of the data, define the likelihood function, L($\beta$; (Y,X)), as the value attained by the p.d.f. in (\ref{equation:Regression-pdf}) at different values of the data ($Y, X$); that is 
+\[ L(\beta, (Y,X)) \equiv f(Y | \beta, X ). \]
+The maximum likelihood estimator at data $(Y,X)$ is then defined as the value of $\beta$ that maximizes the likelihood; that is
+\[ \widehat{\beta}_{\textrm{ML}} \equiv \textrm{argmax}_{\beta \in \mathbb{R}^{k}} L(\beta, (Y,X)).   \]
+
+\noindent The likelihood function implied by (\ref{equation:Regression-pdf}) is decreasing in $(Y-XB)’(Y-XB)$, a term which is usually referred to as the sum of square residuals. Therefore, maximizing the likelihood is equivalent to solving the \emph{least-squares} problem
+\[ \textrm{min}_{\beta \in \mathbb{R}^{k}} (Y-X\beta)’(Y-X\beta).   \]
+The first-order conditions for the program above, which are necessary and sufficient, yield
+\[ X’(Y-X\widehat{\beta}_{\textrm{ML}}) = \textbf{0}_{k \times 1} \iff X’Y = (X’X) \widehat{\beta}_{\textrm{ML}}. \]
+
+\noindent If $k > n$, there are infinitely many solutions that maximize the likelihood.  If $k \leq n$, and $X$ has full-column rank there is a unique solution to this problem given by
+\begin{equation} \label{equation:OLS}
+\widehat{\beta}_{\textrm{ML}} = \widehat{\beta}_{\textrm{OLS}} = (X’X)^{-1} X’Y.
+\end{equation}
+
+\noindent The bias of the maximum likelihood estimator:
+\begin{equation} \label{equation:bias}
+\textrm{B}_{\beta}(\widehat{\beta}_{\textrm{ML}}) = \mathbb{E}_{\mathbb{P}_{\beta}} [ (X’X)^{-1} X’Y ] - \beta = \mathbf{0}_{k \times 1}.
+\end{equation}
+for any $\beta$. Thus, we say that the ML estimator of $\beta$ is \underline{unbiased}.\footnote{An estimator $\widehat{\beta}$ is unbiased if $\mathbb{E}_{\beta} [\widehat{\beta}] = \beta$ for all $\beta \in \Theta$.} 
+
+The variance of the ML estimator is 
+\begin{equation} \label{equation:variance}
+\mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{ML}}) = \mathbb{E}_{\mathbb{P}_{\beta}} [ (\widehat{\beta}_{\textrm{ML}}-\beta) (\widehat{\beta}_{\textrm{ML}} -\beta )^{\prime}  ]  = (X’X)^{-1} X’ \mathbb{E}_{\mathbb{P}_{\beta}} [ (Y-X\beta) (Y-X\beta)’] X (X’X)^{-1} = \sigma^2 (X’X)^{-1}.  
+\end{equation}
+This means that the mean squared error at $\beta$---denoted $\textrm{MSE}(\beta ; \widehat{\beta}_{\textrm{ML}})$---equals
+\[ \sigma^2 \textrm{tr} \left ( (X’X)^{-1} \right). \] 
+
+\noindent for any $\beta$. Consequently, an interesting property of the ML/OLS estimator is that its risk function is constant over the parameter space.  
+
+\noindent 
+
+\subsection{Posterior Mean under a Normal Prior}
+In this subsection we analyze the Bayes estimator of the parameter $\beta$. We have already showed that any Bayes rule can be obtained by minimizing posterior loss at each data realization. Let $\pi$ denote a prior over the parameter $\beta$. In our set-up the posterior loss of an action $a$ is
+\[ \mathbb{E}_{\pi} [ \: || a - \beta ||^2 \: | \: (Y,X) \: ]. \]
+Using the same argument that we used to decompose the mean squared-error in terms of bias and variance we can show that
+\begin{eqnarray*}
+\mathbb{E}_{\pi} [ \: || a - \beta ||^2 \: | \: (Y,X) \: ] &=& \mathbb{E}[ \: || a - \mathbb{E}_{\pi} [ \: \beta \: | \:  (Y,X) \:  ] + \mathbb{E}_{\pi} [ \beta \: | \: (Y,X) ] -  \beta ||^2 \: | \: (Y,X) \: ],  \\
+&=& || a - \mathbb{E}_{\pi} [ \beta \: | \: (Y,X) ] ||^2  + \textrm{tr} \left( \mathbb{V}_{\pi} ( \beta \: | \: (Y,X) ) \right). 
+\end{eqnarray*}
+This shows that, regardless of the specific prior we pick, the Bayes estimator is the posterior mean of $\beta$
+\[ \widehat{\beta}_{\textrm{Bayes}} =   \mathbb{E}_{\pi} [ \: \beta \: | \: (Y,X) \: ].  \]
+
+Before committing to a specific prior $\pi$, we will show that under quadratic loss the Bayes estimator is the posterior mean.\\  
+
+{\scshape Posterior Mean under a Normal Prior:}  Consider then the following prior on $\beta$:
+
+\begin{equation}
+\beta  \sim \pi (\beta) \equiv \mathcal{N}_{k}( \beta_0 \: , \: \sigma^2 V^{-1}).
+\end{equation}
+
+\noindent The prior assumes that all the coefficients are approximately normal with values close to the vector $\beta_0$ and covariance matrix given by $\sigma^2 V^{-1}$. There is typically no magical recipe to select a prior. More often than not, the selection of a prior trades-off interpretation and convenience in its implementation. 
+
+We derive the posterior distribution of $\beta$. One way of deriving this posterior distribution is by an application of Bayes Theorem
+\begin{equation*}
+\pi(\beta \: | \: \sigma^2, y, X ) = \frac{f(Y  \: | \: \beta, X) \pi(\beta ) }{\int_{\Theta} f(Y, \: | \: \beta, X) \pi (\beta ) d \beta}. 
+\end{equation*}
+
+\noindent The posterior is thus proportional to the likelihood times the prior, both of which are Gaussian. 
+
+\noindent Consequently, $f(Y | X, \beta, \sigma^2 )\:  \pi(\beta | \sigma^2 )$ is, up to a constant that does not depend on $\beta$, proportional to
+\begin{equation} \label{equation:posterior}
+\exp \left( -\frac{1}{2\sigma^2} (Y-X\beta)^{\prime} (Y-X \beta) \right)  \exp \left(-\frac{1}{2 \sigma^2} (\beta-\beta_0)^{\prime} V (\beta-\beta_0) \right). 
+\end{equation}
+
+\noindent The expression above equals:
+\[ \exp \left( -\frac{1}{2\sigma^2} Y^{\prime} Y \right) \exp \left(  - \frac{1}{2 \sigma^2 } \beta \left(V + X’X \right) \beta + \frac{1}{\sigma^2}(Y^{\prime} X+V\beta_0) \beta \right). \]
+Completing the square and ignoring all the terms that do not have $\beta$ on them, gives the posterior distribution as a constant times the exponential of:
+\begin{equation*}
+-\frac{1}{2 \sigma^2} \left( \beta -  \left( V + X^{\prime} X \right)^{-1} (X^{\prime} y+ V \beta_0) \right) \left(V+ X’X \right) \left(\beta -  ( V^{-1} + X^{\prime} X )^{-1} (X^{\prime} Y+ V \beta_0) \right). 
+\end{equation*}
+This implies that:
+\begin{equation}
+\beta | Y, X \sim \mathcal{N}_{k} \left(  \left( V + X’X \right)^{-1} (X^{\prime} Y+V\beta_0) \: , \:   \sigma^2 \left(V + X^{\prime} X \right)^{-1}   \right).
+\end{equation}
+This means that the Bayesian Estimator of $\beta$ given the Gaussian prior $\pi(\beta)$ is:
+
+\[ \widehat{\beta}_{\textrm{Bayes}} \equiv \left( V + X^{\prime} X \right)^{-1} \left( X^{\prime} Y + V \beta_0 \right). \]
+
+\noindent The posterior mean estimator is well defined regardless the number of
+covariates.\footnote{If $V$ is positive definite, then the matrix $V+ X’X$ is
+  positive definite as well, and thus invertible.} The posterior mean estimator
+for $V= \lambda \mathbb{I}_{k}$ and $\beta_0 = 0$ is called the Ridge estimator
+
+\[  \widehat{\beta}_{\textrm{Ridge}} \equiv (X’X + \lambda \mathbb{I}_{k})^{-1} X’Y, \]
+
+\noindent which, by construction, is admissible. The Ridge estimator is biased:
+\begin{eqnarray*}
+\mathbb{E}_{\mathbb{P}_{\beta}} [ \widehat{\beta}_{\textrm{Ridge}} ] - \beta &=& (X’X + \lambda \mathbb{I}_{k})^{-1} X’X\beta - \beta,  \\
+&=& (X’X + \lambda \mathbb{I}_{k})^{-1} (X’X\beta - (X’X + \lambda \mathbb{I}_{k}) \beta), \\
+&=& -\lambda (X’X + \lambda \mathbb{I}_k)^{-1} \beta.
+\end{eqnarray*}
+\noindent and the magnitude of the bias depends on $\beta$. The variance of the Ridge estimator is
+\[ \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{Ridge}}) = \sigma^2( X’X + \lambda \mathbb{I}_k)^{-1} X’X ( X’X + \lambda \mathbb{I}_k)^{-1}  \]
+
+\noindent When $k<n$, the trace of this variance has to be smaller than that of the ML/OLS estimator.
+
+{\scshape Posterior Mean as a Penalized/Regularized OLS estimator:} \noindent Equation (\ref{equation:posterior}) is decreasing as a function of the \emph{penalized} sum of squared residuals 
+\[ (y-X\beta)^{\prime} (y-X \beta) + (\beta-\beta_0)^{\prime} V (\beta-\beta_0). \]
+
+
+\noindent Under the Gaussian posterior the posterior mean and posterior mode are the same. Therefore, another way of deriving the posterior mean estimator is by finding a solution to the problem:
+\[ \min_{\beta} (y-X\beta)^{\prime} (y-X \beta) + (\beta-\beta_0)^{\prime} V (\beta-\beta_0) \]
+The F.O.C are 
+\[ X’(Y-X\beta) + V(\beta - \beta_0) = \textbf{0}_{n \times k} \iff  X’Y + V \beta_0 = (X’X + V) \beta. \]
+\noindent Solving for $\beta$ gives the estimator $\widehat{\beta}_{\textrm{Bayes}}$. 
+
+\subsection{Optimality of the OLS estimator among unbiased estimators}
+
+In this section we will show that the OLS estimator minimizes risk among the class of all unbiased estimators, provided some regularity conditions are met. 
+
+\begin{proposition}(Optimality of OLS) Consider the Normal regression model in (\ref{equation:Regression-model}). Let $\widehat{\beta}$ be an estimator of $\beta$ for which
+\[ \frac{\partial}{\partial \beta} \int_{\mathbb{R}^{k}} \widehat{\beta} f(Y | \beta; X ) dY = \int_{\mathbb{R}^{k}} \widehat{\beta} \Big ( \frac{\partial}{\partial \beta} f(Y | \beta , X) \Big)’ dY,   \]
+at any $\beta$ in the parameter space. If $\widehat{\beta}$ is unbiased, then
+\[ \mathbb{V}_{\beta} ( \widehat{\beta} ) - \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{OLS}})  \]
+is positive semi-definite, implying that the mean squared error of $\widehat{\beta}$ is larger than that of the OLS everywhere on the parameter space. 
+\end{proposition}
+ 
+\begin{proof}
+We would like show  that for any $c \in \mathbb{R}^{k}$, $c \neq 0$
+\[ c’ \left( \mathbb{V}_{\beta} ( \widehat{\beta} ) - \mathbb{V}_{\beta} (\widehat{\beta}_{\textrm{OLS}}) \right) c \geq 0. \]
+
+To do this, we start by computing the variance of $c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}}$, 
+which by definition of variance, has to be nonegative. Since $\widehat{\beta}$ and $\widehat{\beta}_{\textrm{OLS}}$ are both unbiased
+\begin{eqnarray*}
+\mathbb{V}_{\beta} \left( c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}} \right)&=&  \mathbb{V}_{\beta} (c’\widehat{\beta}) + \mathbb{V}_{\beta} (c’\widehat{\beta}_{\textrm{OLS}}) - 2 \textrm{cov}_{\beta} ( c’\widehat{\beta} , c’ \widehat{\beta}_{\textrm{OLS}}  ),  \\
+&&  \textrm{(since $\textrm{Var}(X-Y) = \textrm{Var}(X) + \textrm{Var}(Y)- 2 \textrm{cov}(X,Y)$)}\\
+&=& c’ \mathbb{V}_{\beta}(\widehat{\beta}) c + c’ \mathbb{V}_{\beta}(\widehat{\beta}_{\textrm{OLS}}) c - 2 \mathbb{E}_{\mathbb{P}_{\beta}} \left[  c’ (\widehat{\beta}-\beta) (\widehat{\beta}_{\textrm{OLS}}-\beta)’ c \right] \\
+&& \textrm{(using the fact that both estimators are unbiased)}. \\
+&=& c’ \mathbb{V}_{\beta}(\widehat{\beta}) c + c’ \mathbb{V}_{\beta}(\widehat{\beta}_{\textrm{OLS}}) c - 2 c’ \mathbb{E}_{\mathbb{P}_{\beta}} \left[  \widehat{\beta} (\widehat{\beta}_{\textrm{OLS}}-\beta)’  \right] c. 
+\end{eqnarray*}
+Where the last term is the covariance between $\widehat{\beta}$ and the OLS residual. Using the definition of OLS
+\[ \widehat{\beta}_{\textrm{OLS}}- \beta = (X’X)^{-1} X’(Y-X\beta),  \]
+and using the definition of the the Gaussian p.d.f. $f(Y | \beta,X)$ we can see verify that
+\[\widehat{\beta}_{\textrm{OLS}}- \beta =  \sigma^2  (X’X)^{-1} \frac{\partial}{\partial \beta} \ln f(Y | \beta, X ).  \]
+Consequently 
+\begin{eqnarray*}
+\mathbb{E}_{\mathbb{P}_{\beta}} \left[  \widehat{\beta} (\widehat{\beta}_{\textrm{OLS}}-\beta)’  \right] &=& \sigma^2 \mathbb{E}_{\mathbb{P}_{\beta}} \left[  \widehat{\beta} \left( \frac{\partial}{\partial \beta} \ln f(Y | \beta, X )\right)’ \right]  (X’X)^{-1}, \\
+&=& \sigma^2 \left( \int_{\mathbb{R}^{k}} \widehat{\beta}  \left( \frac{\partial}{\partial \beta} \ln f(Y | \beta, X )\right)’  f(Y | \beta , X) dY \right) (X’X)^{-1} \\
+&=& \sigma^2 \left( \int_{\mathbb{R}^{k}} \widehat{\beta}  \left( \frac{\partial}{\partial \beta} f(Y | \beta, X )\right)’ dY \right) (X’X)^{-1}\\
+&& \textrm{(where we have used the chain rule and $\partial \ln x/ \partial x = 1/x$)}\\ 
+&=& \sigma^2 \frac{\partial }{\partial \beta }\left( \int_{\mathbb{R}^{k}} \widehat{\beta}   f(Y | \beta, X )\right)  (X’X)^{-1}\\
+&& (\textrm{by assumption}) \\ 
+&=& \sigma^2 \left( \frac{\partial }{\partial \beta } \mathbb{E}_{\mathbb{P}_{\beta}}[\widehat{\beta}]  \right) (X’X)^{-1}\\
+&=& \sigma^2 (X’X)^{-1}\\
+&& \textrm{(since $\widehat{\beta}$ is unbiased).} \\
+&=& \mathbb{V}_{\beta}(\widehat{\beta}_{\textrm{OLS}}).
+\end{eqnarray*}
+Hence, 
+\[ 0 \leq \mathbb{V}_{\beta} \left( c’\widehat{\beta} - c’ \widehat{\beta}_{\textrm{OLS}} \right) = c’ \mathbb{V}_{\beta}(\widehat{\beta}) c - c’ \mathbb{V}_{\beta}(\widehat{\beta}_{\textrm{OLS}}) c,  \]
+for every $\beta$. The result then follows. 
+\end{proof}
+
+\subsection{Suboptimality of the OLS estimator}
+
+If $k \geq 3$, the OLS estimator is dominated. In this section we present an estimator that dominates OLS.
+
+Assume that $X’X = \mathbb{I}_n$. Start with a Bayesian estimator for $\beta$ under the normal prior $\beta \sim \mathcal{N}_{k}(0,  v \mathbb{I}_k ) = \mathcal{N}_{k}(0,  \sigma^2 (v/\sigma^2) \mathbb{I}_k ) $. We have shown that such Bayes estimator is
+\begin{eqnarray*}
+\widehat{\beta}_{\textrm{Bayes}} &=& \left(  \mathbb{I}_k + \frac{\sigma^2}{v} \mathbb{I}_k  \right)^{-1} \widehat{\beta} _{\textrm{OLS}}, \\ 
+&=& \left( \frac{v}{v+\sigma^2} \right) \widehat{\beta}_{\textrm{OLS}}, \\
+&=& \left(1 -  \frac{\sigma^2}{v+\sigma^2} \right) \widehat{\beta}_{\textrm{OLS}}
+\end{eqnarray*}
+The hyperparameter $v$ ``shrinks’’ the OLS estimator towards the prior mean. Instead of picking $v$ \emph{a priori}, it is possible to use data to estimate it. Such an approach is usually called ``empirical Bayes’’. 
+
+The distribution of the data conditional on the parameter is 
+\[ \widehat{\beta}_{\textrm{OLS}} \sim \mathcal{N}_{k}(\beta, \sigma^2 \mathbb{I}_k).  \]
+This conditional distribution, along with the prior, specify a full joint distribution over $(\widehat{\beta}_{\textrm{OLS}}, \beta)$. The marginal distribution of the data is 
+\[\widehat{\beta}_{\textrm{OLS}} \sim \mathcal{N}_{k}\left ( 0 , (\sigma^2  + v)  \mathbb{I}_k  \right). \]
+We can use this statistical model to estimate the ``shrinkage’’ factor that appears in the Bayes estimator. Note that
+\[ ||\widehat{\beta}_{\textrm{OLS}} ||^2 \sim (\sigma^2 + v) \chi^2_{k}, \]
+Therefore, standard results for the mean of the inverse of a chi-square distribution yield
+\[\mathbb{E} \left[ \frac{k-2 }{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] = \frac{1}{v+\sigma^2}, \]
+provided $k \geq 3$. An unbiased estimator for the ``shrinkage’’ factor that appears in the formula of $\widehat{\beta}_{\textrm{Bayes}}$ is thus:
+\[\left(1 -  \frac{\sigma^2 (k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right). \]
+We now show that the ``empirical Bayes’’ estimator 
+\[\widehat{\beta}_{JS} \equiv \left(1 -  \frac{\sigma^2 (k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right) \widehat{\beta}_{\textrm{OLS}}, \]
+dominates OLS. This estimator was first proposed by Willard James and Charles Stein in 1961. The estimator is typically referred to as the James-Stein estimator. 
+
+\begin{proposition}
+Suppose $X’X = \mathbb{I}_{k}$ and $\sigma^2=1$. If $k \geq 3$, the James-Stein estimator dominates the ML/OLS estimator. 
+\end{proposition}
+\begin{proof}
+\[ || \widehat{\beta}_{\textrm{JS}} - \widehat{\beta}_{\textrm{OLS}} ||^2  = || \widehat{\beta}_{\textrm{JS}} - \beta ||^2 + || \beta -\widehat{\beta}_{\textrm{OLS}} ||^2 + 2 ( \widehat{\beta}_{\textrm{JS}} - \beta  )’ (\beta -\widehat{\beta}_{\textrm{OLS}}) \]
+implies
+\[|| \widehat{\beta}_{\textrm{JS}} - \beta ||^2 = || \widehat{\beta}_{\textrm{JS}} - \widehat{\beta}_{\textrm{OLS}} ||^2 - || \beta -\widehat{\beta}_{\textrm{OLS}} ||^2 + 2 ( \widehat{\beta}_{\textrm{JS}} - \beta  )’ (\widehat{\beta}_{\textrm{OLS}}- \beta). \]
+Taking expectation on both sides yields
+\begin{eqnarray*} 
+\mathbb{E}_{\mathbb{P}_{\beta}} \left[ || \widehat{\beta}_{\textrm{JS}} - \beta ||^2 \right] & = & \mathbb{E}_{P_{\beta}} \left[  || \widehat{\beta}_{\textrm{JS}} - \widehat{\beta}_{\textrm{OLS}}||^2 \right] \\
+&-& \mathbb{E}_{\mathbb{P}_{\beta}} \left[ || \widehat{\beta}_{\textrm{OLS}}- \beta ||^2 \right] \\
+&+& 2 \mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} -\beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right].
+\end{eqnarray*}
+Algebra shows that 
+\[\widehat{\beta}_{JS} - \widehat{\beta}_{\textrm{OLS}} \equiv \left(  \frac{(k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right) \widehat{\beta}_{\textrm{OLS}}. \]
+Therefore,
+\[  \mathbb{E}_{\mathbb{P}_{\beta}} \left[ ||\widehat{\beta}_{JS} -\beta ||^2 \right] =  \mathbb{E}_{\mathbb{P}_{\beta}}  \left[ \frac{(k-2)^2}{|| \widehat{\beta}_{\textrm{OLS}} ||^2} \right] - k + 2 \mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} -\beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right]. . \]
+Also
+\begin{eqnarray*}
+\mathbb{E}_{\mathbb{P}_{\beta}} \left[ (\widehat{\beta}_{\textrm{JS}} - \beta)’( \widehat{\beta}_{\textrm{OLS}}- \beta)  \right] &=& \sum_{j=1}^{k} \textrm{Cov}( \widehat{\beta}^j_{\textrm{JS}},\widehat{\beta}^j_{OLS} ). 
+\end{eqnarray*}
+and the last term can be shown to equal
+\begin{eqnarray*}
+\sum_{j=1}^{k} \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{\partial \widehat{\beta}^j_{JS} }{\partial \widehat{\beta}^j_{\textrm{OLS}}} \right] &=& K - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{k  (k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] + \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{2(k-2)}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right]’ \\
+&=&  K - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{(k-2)^2}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] 
+\end{eqnarray*}
+Therefore,
+\[  \mathbb{E}_{\mathbb{P}_{\beta}} \left[ ||\widehat{\beta}_{JS} -\beta ||^2 \right] = k - \mathbb{E}_{\mathbb{P}_{\beta}} \left[ \frac{(k-2)^2}{||\widehat{\beta}_{\textrm{OLS}} ||^2} \right] \leq k =\mathbb{E}_{\mathbb{P}_{\beta}} \left[ ||\widehat{\beta}_{OLS} -\beta ||^2 \right].    \]
+\end{proof}
+
+\newpage
+
+
+\bibliographystyle{../AuxFiles/ecta}
+\bibliography{../AuxFiles/BibMaster}
+
+\end{document}

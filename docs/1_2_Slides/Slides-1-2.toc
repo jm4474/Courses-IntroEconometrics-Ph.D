@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{4}{0}{1}
-\beamer@sectionintoc {2}{Probability Space/Random Variables}{5}{0}{2}
-\beamer@sectionintoc {3}{C.D.F.}{20}{0}{3}
-\beamer@sectionintoc {4}{Discrete/Continuous Type}{31}{0}{4}
-\beamer@sectionintoc {5}{Moments}{67}{0}{5}
