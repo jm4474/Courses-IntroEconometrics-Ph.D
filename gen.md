@@ -1,11 +1,9 @@
-- [Introduction to Econometrics I](#sec-1)
-  - [Course Info](#sec-1-1)
 
-# Introduction to Econometrics I<a id="sec-1"></a>
+# Introduction to Econometrics I
 
 This course provides a graduate level introduction to probability and statistics. The course was designed for economists starting their doctoral education. Edits, comments and suggestions are welcome.
 
-## Course Info<a id="sec-1-1"></a>
+## Course Info
 
 **Instructor:** José Luis Montiel Olea
 

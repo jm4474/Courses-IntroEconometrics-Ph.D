@@ -1,3 +1,4 @@
+#+OPTIONS: toc:nil
 # This file uses org-mode to generate the markdown 
 * Introduction to Econometrics I
 
