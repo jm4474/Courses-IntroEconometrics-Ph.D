@@ -9,7 +9,7 @@
 | **Class**       | MW 1.10pm - 2.25pm | 227 Seeley W. Mudd Building |
 | **Offce Hours** | TBD                | TBD                         |
 
-[Syllabus](docs/Syllabus/Syllabus.pdf)
+## [Syllabus](docs/Syllabus/Syllabus.pdf)
 
 ## Material
 
