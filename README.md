@@ -1,5 +1,3 @@
-# Course Info
-
 # Fall 19
 
 ## Course Info
