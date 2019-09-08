@@ -1,6 +1,6 @@
 ![Statistics](docs/AuxFiles/website/Last-line-of-defense-statistics.gif)
 
-# Fall 19
+# Fall 2019
 
 ## Course Info
 
@@ -13,7 +13,9 @@
 | Wednesday 10.00am - 11.15am | 403 International Affairs Building |
 | Wednesday 1.10pm - 2.25pm   | 227 Seeley W. Mudd Building        |
 
-## [Syllabus](docs/Syllabus/Syllabus.pdf)
+## Syllabus
+
+The syllabus is available [here](docs/Syllabus/Syllabus.pdf)
 
 ## Office Hours
 
