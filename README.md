@@ -15,6 +15,10 @@
 
 ## [Syllabus](docs/Syllabus/Syllabus.pdf)
 
+## Office Hours
+
+Thursday 430pm-530pm. Please register [here](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0)  
+
 ## Material
 
 | Class | Topic                                                                                                                                                      | Slides/Notes                                                                                           | References/Suggested reading |
