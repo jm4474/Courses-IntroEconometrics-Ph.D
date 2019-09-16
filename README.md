@@ -19,7 +19,7 @@ The syllabus is available [here](docs/Syllabus/Syllabus.pdf)
 
 ## Office Hours
 
-Thursday 430pm-530pm. Please register [here](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0)  
+Wednesday 6:00pm-7:00pm. Please register [here](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0)  
 
 ## Material
 
