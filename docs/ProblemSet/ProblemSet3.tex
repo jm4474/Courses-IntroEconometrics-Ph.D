@@ -53,8 +53,8 @@ and the parameter of the model is $\beta \in \mathbb{R}^{k}$. The model in (\ref
 \item (Identification, 20 points) Is the parameter $\beta$ identified? Does your answer depend on whether $n \geq k$?  
 
 \item (Statistical Sufficiency, 20 points) Let us define a \emph{statistic} $S$ as a mapping from the data $D$ to some euclidean space $\mathbb{R}^{p}$. A statistic $S$ is said to be sufficient for a parameter $\theta$  in a statistical model $\{P_{\theta}\}_{\theta \in \Theta}$ if the conditional distribution of the data, given the sufficient statistic, does not depend on $\theta$. That is:
-\[ \mathbb{P}_{\theta} (D | S(D)) = \mathbb{P}_{\theta’}(D| S(D)), \quad \textrm{for any } \theta, \theta’. \]
-Since, after conditioning on $S$, the distribution of the data does not depend any longer on $\theta$, the statistic $S$ is usually interpreted as carrying all the relevant information that the data has to give about $\theta$. This typically means that having $S$ is as good as having the whole data $D$. 
+\[ \mathbb{P}_{\theta} (D | S(D)), \]
+does not depend on $\theta$. Since, after conditioning on $S$, the distribution of the data does not depend any longer on $\theta$, the statistic $S$ is usually interpreted as carrying all the relevant information that the data has to give about $\theta$. This typically means that having $S$ is as good as having the whole data $D$. 
 
 Suppose $n > k$ and assume $(X’X)$ is invertible. Consider the $\mathbb{R}^{p}$ valued statistic 
 \[ S = (X’X)^{-1} X’ Y, \]
