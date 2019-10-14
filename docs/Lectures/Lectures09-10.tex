@@ -24,7 +24,7 @@
 
 \section{Testing}
 
-{\scshape Overview:} \noindent Lectures 9-10 will focus on \emph{testing}. The parameter space in the testing game is partitioned into two subsets: the ``null’’ hypothesis $\Theta_0$ and the ``alternative’’ hypothesis $\Theta_1$. There are two actions $\{0,1\}$, where an action $a$ is interpreted as ``reject the null in favor of the alternative’’ with probability $a$. The loss function used for this problem is the ``0-1 loss’’: $\mathcal{L}(0,\theta) = 0 =  L(1,\theta’)$ for any $\theta \in \Theta_0$, $\theta’ \in \Theta_1$ and $\mathcal{L}(a,\theta)=1$ otherwise. This loss gives rise to the popular \emph{Type I/Type II} error performance criterion. 
+{\scshape Overview:} \noindent Lectures 9-10 will focus on \emph{testing}. The parameter space in the testing game is partitioned into two subsets: the ``null’’ hypothesis $\Theta_0$ and the ``alternative’’ hypothesis $\Theta_1$. There are two actions $\{0,1\}$, where action $a=1$ is interpreted as ``reject the null in favor of the alternative’’  and action $a=0$ is its negation. The loss function used for this problem is the ``0-1 loss’’: $\mathcal{L}(0,\theta) = 0 =  L(1,\theta’)$ for any $\theta \in \Theta_0$, $\theta’ \in \Theta_1$ and $\mathcal{L}(a,\theta)=1$ otherwise. This loss gives rise to the popular \emph{Type I/Type II} error performance criterion. 
 
 We first study an idealized environment in which the parameter space has only two components: the null $(\theta_0)$ and the alternative ($\theta_1$). We show that in this set-up any reasonable test must maximize “power” subject to a “size” constraint. Moreover, we show that power maximizer tests reject whenever the “likelihood ratio” between the alternative and the null is large enough. 
 
@@ -39,7 +39,7 @@ Let $X$ be a random variable and let $\{f(x | \theta)\}_{\theta \in \Theta}$ be 
 
 As usual, the econometrician cannot observe the parameter selected by nature but observes data. Based on the data, the statistician would like to decide whether the parameter selected by nature belongs to $\Theta_0$ (the null) or to $\Theta_1$ (the alternative). 
 
-In the simplest set-up, the statistician can take only two actions: $a \in \{0,1\}$. Action $a$ is interpreted as ``reject the null in favor of the alternative’’ with probability $a$. Hence, if the econometrician picks $a=1$, he/she will be rejecting the null in favor of the alternative (and thus, saying that $\theta \in \Theta_1$). If, however, $a=0$ we the econometrician does not reject the null (which we interpret as saying that $\theta \in \Theta_0$).  
+In the simplest set-up, the statistician can take only two actions: $a \in \{0,1\}$. If the econometrician picks $a=1$, he/she will be rejecting the null in favor of the alternative (and thus, saying that $\theta \in \Theta_1$). If, however, $a=0$ we the econometrician does not reject the null (which we interpret as saying that $\theta \in \Theta_0$).  
 
 A \emph{decision rule/algorithm/strategy} for the statistician in the hypothesis testing problem is a mapping
 \begin{equation*}
