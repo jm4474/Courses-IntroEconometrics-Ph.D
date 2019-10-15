@@ -132,12 +132,12 @@ Suppose further that each test has size of at most $\alpha$ in the sense that
 
 \noindent The confidence region obtained by ``test inversion’’ is given by
 
-\[ C  (x) \equiv \{ \theta \in \Theta \: | \: \phi_{\theta}(x)=1\}. \]
+\[ C  (x) \equiv \{ \theta \in \Theta \: | \: \phi_{\theta}(x)=0\}. \]
 
 \noindent The coverage of such confidence region at $\theta$ is given by
 \begin{eqnarray*}
 P_{f(x|\theta)} [\theta \in C(x)] &=& 1-P_{f(x|\theta)} [\theta \notin C(x)]  \\
-&=& 1- P_{f(x|\theta)} [ \phi_{\theta}(x) ] \\
+&=& 1- P_{f(x|\theta)} [ \phi_{\theta}(x) = 1] \\
 & \geq & 1-\alpha.   
 \end{eqnarray*}
 \noindent Therefore, 
