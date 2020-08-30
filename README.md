@@ -1,6 +1,6 @@
 ![Statistics](docs/AuxFiles/website/Last-line-of-defense-statistics.gif)
 
-# Fall 2019
+# Fall 2020
 
 ## Course Info
 
@@ -10,8 +10,8 @@
 
 | Time                        | Place                              |
 |-----------------------------|------------------------------------|
-| Wednesday 10.00am - 11.15am | 403 International Affairs Building |
-| Wednesday 1.10pm - 2.25pm   | 227 Seeley W. Mudd Building        |
+| Monday 8.10am - 9.25am | Somewhere in the virtual multiverse |
+| Wednesday 8.10am - 9.25am   | Somewhere in the virtual multiverse       |
 
 ## Syllabus
 
