@@ -11,7 +11,7 @@
 | Time                        | Place                              |
 |-----------------------------|------------------------------------|
 | Monday 10am - 11.15am | 303 Hamilton Hall |
-| Wednesday 1pm - 2.25am   | 520 Mathematics Building       |
+| Monday 1pm - 2.25am   | 520 Mathematics Building       |
 
 ## Syllabus
 
