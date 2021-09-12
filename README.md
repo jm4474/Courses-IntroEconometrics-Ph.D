@@ -19,7 +19,7 @@ The syllabus is available [here](docs/Syllabus/Syllabus.pdf)
 
 ## Office Hours
 
-I will have 1 hour of office hours every week. In the past I have asked the students to register before coming in this [link](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0). We will decide together what time works best for everyone.   
+I will have 1 hour of office hours every week. In the past I have asked the students to register in this [link](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0). We will decide together what time works best for everyone.   
 
 ## Material
 
