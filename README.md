@@ -1,6 +1,6 @@
 ![Statistics](docs/AuxFiles/website/Last-line-of-defense-statistics.gif)
 
-# Fall 2020
+# Fall 2021
 
 ## Course Info
 
@@ -10,8 +10,8 @@
 
 | Time                        | Place                              |
 |-----------------------------|------------------------------------|
-| Monday 8.10am - 9.25am | Somewhere in the virtual multiverse |
-| Wednesday 8.10am - 9.25am   | Somewhere in the virtual multiverse       |
+| Monday 10am - 11.15am | 303 Hamilton Hall |
+| Wednesday 1pm - 2.25am   | 520 Mathematics Building       |
 
 ## Syllabus
 
@@ -19,7 +19,7 @@ The syllabus is available [here](docs/Syllabus/Syllabus.pdf)
 
 ## Office Hours
 
-Wednesday 11.30am-12.00pm and 1.00pm-1.30pm. Please register [here](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0)  
+I will have 1 hour of office hours every week. In the past I have asked the students to register before coming in this [link](https://docs.google.com/spreadsheets/d/1eMTUTJyi9JwQyad5gTy4xvlNs0DYrk7Q_xbCc-fErj8/edit#gid=0). We will decide together what time works best for everyone.   
 
 ## Material
 
