@@ -80,9 +80,9 @@ Let $\Omega$ be any given nonempty set and let $\mathcal{F}$ be a nonempty colle
 	The pair $(\Omega, \mathcal{F})$, where $\mathcal{F}$ is a $\sigma$-algebra of subsets of $\Omega$ is called a measurable space. The subsets of $\mathcal{F}$ are called the events of $\Omega$.
 \end{definition}
 
-\noindent If you are interested in playing with these definitions, here is a simple exercise. \\
+\noindent In recitation, you will go over the following exercises:
 
-\begin{prproblem}[Optional]
+\begin{prproblem}
 Let $A$ be a collection of elements of $2^\Omega$. Define 
 $$F^*(A) \equiv \{\mathcal{F} \: | \: \mathcal{F} \: \text{is a} \: \sigma\text{-algebra of } \Omega \: \text{containing} \: A\} $$
 
@@ -92,7 +92,7 @@ $$F^*(A) \equiv \{\mathcal{F} \: | \: \mathcal{F} \: \text{is a} \: \sigma\text{
 \end{enumerate}
 \end{prproblem}
 
-\begin{prproblem}[Optional] \label{prprob:closed_under_inter}
+\begin{prproblem} \label{prprob:closed_under_inter}
   Show that $\sigma$-algebra is ``closed'' under countable intersections. That
   is, if $F_n \in \mathcal{F}$ for all $n\in\mathbb{N}$ then $\cap_{n=1}^\infty
   F_n \in \mathcal{F}$.
@@ -166,7 +166,7 @@ In order for you to manipulate the definition of a probability measure, you will
 
 \subsection{Random Variables}
 
-Along with a probability measure, a central concept in probability and statistics is that of a \emph{random variable}.
+Along with a probability measure, a central concept in probability and statistics is that of a \emph{random variable}. Estimators, statistical tests, confidence sets, treatment assignment rules are all random variables.
 
 \begin{definition}[S-valued random variable]
 Let $(\Omega, \mathcal{F})$, $(S, \mathcal{S})$ be two measurable spaces. The map:
@@ -182,6 +182,7 @@ Note that, by definition, a random variable takes events in the space $S$ to wel
 
 $$P_{X}(A) \equiv \prob(X^{-1}(A)) \quad \forall \: A \in \mathcal{S}.$$
 
+\noindent $P_{X}(A)$ is also called the push-forward measure of $\mathbb{P}$ under $X$; see Chapter 5, p. 80 of \cite{Stroock99}.
 \end{definition}
 
 
@@ -319,13 +320,13 @@ $$\expec_{F}[g(X)] \equiv \int_{\R} g(x)f(x)dx  $$
  \noindent Now, some important observations:
  
  \begin{enumerate}
- \item \textbf{Mean of a random variable:} $E_{F}[X] \equiv \mu$ is called the \emph{mean} or \emph{first moment} of $X$. If $E_{f}[|X|]< \infty$ then $X$ is said to be integrable.
- \item \textbf{Variance of a random variable:} $E_{F}[ (X-\mu)^2 ]\equiv \sigma^2$ is called the \emph{variance} or \emph{second centered moment} of $X$. The mean and the variance of random variables will play an important role in Weak Laws of Large numbers and Central Limit Theorems. For certain random variables the variance need not be finite (the pareto distribution with parameter $\alpha=2$ is an example of this fact)
+ \item \textbf{Mean of a random variable:} $E_{F}[X] \equiv \mu$ is called the \emph{mean} or \emph{first moment} of $X$. If $E_{F}[|X|]< \infty$ then $X$ is said to be integrable.
+ \item \textbf{Variance of a random variable:} $E_{F}[ (X-\mu)^2 ]\equiv \sigma^2$ is called the \emph{variance} or \emph{second centered moment} of $X$. The mean and the variance of random variables will play an important role in Weak Laws of Large numbers and Central Limit Theorems. For certain random variables the variance need not be finite (the Pareto distribution with parameter $\alpha=2$ is an example of this fact)
  \item \textbf{Jensen's Inequality:} For any convex function $g$: $\expec_{F}[g(X)] \geq g(\expec[X])$. This is an important result. We will not prove it, but we will be using it quite often.  
  \item \textbf{Markov's Inequality:} For any random variable $X$ and $c>0$, $c\prob_{X}[|X|>c] \leq \expec_{F}[|X|]$  
  \item \textbf{k-th Moment:} $E_{F}[X^{k}]$ is called the $k$-th uncentered moment of the random variable $X$, $k=1,2, \ldots$. Note that Jensen's inequality implies that if $E_{F}[|X|^{k}]<\infty$ for some $k \in \mathbb{N}$ then $E_{F}[|X|^{j}]<\infty$ for all $j<k$. Likewise, if $E_{F}[|X|^{k}]=\infty$, then $E_{F}[|X|^{j}]=\infty$ for all $j>k$. 
  
-  \item \textbf{Layer Representation of k-th moments:} if $X$ is an absolutely continuous random variable and $\expec[|X|^{k}]<\infty$ then $\expec[|X|^{k}]=k\int_{0}^{\infty}c^{k-1}\prob_{X}(|x|>c)dc$.
+  \item \textbf{Layer Representation of k-th moments:} if $X$ is an absolutely continuous random variable and $\expec[|X|^{k}]<\infty$ then $\expec[|X|^{k}]=k\int_{0}^{\infty}c^{k-1}\prob_{X}(|x|>c)dc$. A more general version of this result is given in Theorem 5.14 in \cite{Stroock99}.
  
   \item \textbf{Moment Generating Function:} The random variable $X$ is said to have a moment generating function $m_{X}(t)$ if 
  $$m_{X}(t) \equiv \expec_{F}[\exp(tX)]<\infty \quad \text{for all } t \in (-\epsilon, \epsilon)$$
@@ -357,7 +358,7 @@ $$\phi(t)\equiv m_{X}(it)=\expec[\exp(itX)] $$
 $$f(x) = \int_{-\infty}^{\infty} \exp(-it) \phi(t) dt $$
 \end{enumerate}
 
-You can found details in Section 26 (342-349) in \cite{Billingsley95} or Section 3.3 (106-111) in \cite{durrett2010}. The main take away (and we will use this result later) is that under certain conditions two random variables with the same moment generating function have the same distribution over the Borel $\sigma$-algebra in the real line. In this sense, the moment generating function provides a characterization of the c.d.f.  
+You can found details in Section 26 (342-349) in \cite{Billingsley95} or Section 3.3 (106-111) in \cite{durrett2010}. The main take away (and we will use this result later) is that two random variables with the same moment generating function have the same distribution over the Borel $\sigma$-algebra in the real line. In this sense, the moment generating function provides a characterization of the c.d.f.  
 
 \newpage
 
