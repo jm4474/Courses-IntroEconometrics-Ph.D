@@ -14,7 +14,7 @@
 
 \noindent \textbf{Problem Set 3, (Lectures 5 and 6)} \\
 
-\noindent \textbf{Problem 1 (Identification, 30 points):} Say that the parameters of a statistical model $\{P_{\theta}\}_{\theta \in \Theta}$ are \emph{identified} if for any $\theta_1, \theta_2 \in \Theta$, $\theta_1 \neq \theta_2 \implies P_{\theta_1} \neq P_{\theta_2}$. Identification means that there are no two different members in the statistical model that yield the same distribution over the data. 
+\noindent \textbf{Problem 1 (Identification, 50 points):} Say that the parameters of a statistical model $\{P_{\theta}\}_{\theta \in \Theta}$ are \emph{identified} if for any $\theta_1, \theta_2 \in \Theta$, $\theta_1 \neq \theta_2 \implies P_{\theta_1} \neq P_{\theta_2}$. Identification means that there are no two different members in the statistical model that yield the same distribution over the data. 
 
 \begin{enumerate}
 \item (10 points) Show that the parameters $(\mu,\sigma^2)$ are identified in the model $X \sim N(\mu, \sigma^2)$. 
@@ -24,7 +24,7 @@
 \item (5 easy points)  The parameter $\theta$ is identified in the model $X \sim \mathcal{N}(\theta,1)$ but the parameters $(\theta_1,\theta_2)$ are not identified in the model $X \sim \mathcal{N}(\theta_1+\theta_2, 1)$. Fix $\theta = \theta_0$ and define the ``identified set’’ at $\theta_0$ to be the values of $(\theta_1,\theta_2)$ such that $P_{\theta_0} = P_{(\theta_1,\theta_2)}$. What is the identified set at $\theta_0 = 0$?
 \end{enumerate}
 
-\noindent \textbf{Problem 2 (Homoskedastic Linear Regression with Normal errors, 40 points):} Suppose we have a data set containing an outcome variable $y_i$ and a vector of $k$ controls $x_i = (x_{i1},\ldots, x_{ik})’$ for $n$ individuals. Assume that the controls are ``fixed’’ (that is, they are treated as if they were non-random) and let the outcome variable be modeled as
+\noindent \textbf{Problem 2 (Homoskedastic Linear Regression with Normal errors and Normal distribution of covariates, 50 points):} Suppose we have a data set containing an outcome variable $y_i$ and a vector of $k$ controls $x_i = (x_{i1},\ldots, x_{ik})’$ for $n$ individuals. Assume that the controls are $N_k(\mathbf{0},\Sigma)$ (where $\Sigma$ is a known positive definite matrix) and let the outcome variable be modeled as
 \[ y_i = x_i’ \beta + \epsilon_{i}, \]
 where $\beta \in \mathbb{R}^{k}$, $\epsilon_{i} \sim \mathcal{N}(0, \sigma^2)$ is assumed to be i.i.d. across individuals, and we treat $\sigma^2$ as known.  If we collect the outcome variables in the $n \times 1$ vector
 \[ 
@@ -43,11 +43,11 @@ x_1’ \\
 x_n’
 \end{pmatrix},
 \]
-A statistical model for the response variables is
+A statistical model for $(Y,X)$ can be described using  
 \begin{equation} \label{equation:HLR}
-Y \sim \mathcal{N}(X \beta, \sigma^2 \mathbb{I}_n ). 
+Y | X \sim \mathcal{N}(X \beta, \sigma^2 \mathbb{I}_n ). 
 \end{equation}
-and the parameter of the model is $\beta \in \mathbb{R}^{k}$. The model in (\ref{equation:HLR}) is known as the Homoskedastic Linear Regression model with normal/Gaussian errors (and known variance). 
+and $X$ is an $n \times k$ matrix where each row is the transpose of an independent draw from a $N_k(0, \Sigma)$. Since $\Sigma$ and $\sigma^2$ are both known, the parameter of this statistical model is $\beta \in \mathbb{R}^{k}$. The model in (\ref{equation:HLR}) is known as the Homoskedastic Linear Regression model with normal/Gaussian errors, known variance, and Gaussian distribution of covariates. 
 
 \begin{enumerate}
 \item (Identification, 20 points) Is the parameter $\beta$ identified? Does your answer depend on whether $n \geq k$?  
@@ -56,7 +56,7 @@ and the parameter of the model is $\beta \in \mathbb{R}^{k}$. The model in (\ref
 \[ \mathbb{P}_{\theta} (D | S(D)), \]
 does not depend on $\theta$. Since, after conditioning on $S$, the distribution of the data does not depend any longer on $\theta$, the statistic $S$ is usually interpreted as carrying all the relevant information that the data has to give about $\theta$. This typically means that having $S$ is as good as having the whole data $D$. 
 
-Suppose $n > k$ and assume $(X’X)$ is invertible. Consider the $\mathbb{R}^{p}$ valued statistic 
+Suppose $n > k$ and $(X’X)$ is invertible for almost every data realization. Consider the $\mathbb{R}^{p}$ valued statistic 
 \[ S = (X’X)^{-1} X’ Y, \]
 
 which is called the Ordinary Least Squares estimator of $\beta$ in a linear regression model. Is it true that $S$ is a sufficient statistic for $\beta$?
@@ -65,36 +65,36 @@ which is called the Ordinary Least Squares estimator of $\beta$ in a linear regr
 
 
 
-\noindent \textbf{Problem 3 (A statistical problem with binary actions, binary data, two parameters, 30 points):} Here is a problem to make you go through the concepts of decision problem, admissibility, and Bayes rules. This is going to look like a very stylized problem, but you will find this again in the context of hypothesis testing problems. 
+%\noindent \textbf{Problem 3 (A statistical problem with binary actions, binary data, two parameters, 30 points):} Here is a problem to make you go through the concepts of decision problem, admissibility, and Bayes rules. This is going to look like a very stylized problem, but you will find this again in the context of hypothesis testing problems. 
+%
+%The data is binary $\{X_0, X_1\}$ (think of a coin flip) and the statistical model is
+%\[ P(X_0 | \theta_0) \equiv p_0 > p_1 \equiv P(X_0 | \theta_1 ). \]
+%This means there are only two possible parameter values and that it is more likely to see $X_0$ realized whenever $\theta_0$ generated the data. 
+%There are two actions $(a_0, a_1)$. One way of thinking about them is that $a_i$ is that action that $\theta_i$ generated the data. The loss function for this problem is 
+%\[ \mathcal{L}(a_0, \theta_0) = 0 = \mathcal{L}(a_1, \theta_1)    \]
+%and
+%\[ \mathcal{L}(a_1, \theta_0) = 1 = \mathcal{L}(a_0, \theta_1).    \]
+%Which means that the statistician looses 1 unit if he supports action $i$ when the data was not generated by $\theta_i$. 
+%\begin{enumerate}
+%\item (10 points) Decision rules are maps from $\{ X_0 , X_1 \}$ to $\{a_0, a_1\}$. There are essentially 4 decision rules 
+%\begin{eqnarray*}
+%d_1(X_0) =a_0, && d_1(X_1) = a_0 \textrm{ (always $a_0$)}\\
+%d_2(X_0) = a_0, && d_2(X_1) = a_1 \textrm{ ($a_0$ only if $X_0$)  }\\
+%d_3(X_0) = a_1, && d_3(X_1) = a_0 \textrm{ ($a_0$ only if $X_1$)  }\\
+%d_4(X_0) = a_1, && d_4(X_1) = a_1 \textrm{ (always $a_1$)  }
+%\end{eqnarray*}
+%Compute the risk function of each of these 4 decision rules and graph them as points in $\mathbb{R}^2$, $(R(d,\theta_0), R(d,\theta_1)$. Is it true that if $p_0 > .5 > p_1$ then $d_3$ is dominated?
+%
+%\item (10 points) What priors would a Bayesian decision maker need to have in order to choose $d_i$, $i=1,2,3, 4$?. Assume that $p_0 > .5 > p_1$. \\
+%
+%\item (10 points) Imagine now that the action space becomes $[0,1]$. Action $a$ is interpreted as a randomized action: choose $a_0$ with probability $a$ and $a_1$ with probability $1-a$. Define
+%$$ \mathcal{L}(a,\theta_i) = a \mathcal{L}(a_0, \theta_i) + (1-a) \mathcal{L}(a_1,\theta_i).$$
+%
+%Consider an action of the form $d(X_0) = a’$ and $d(X_1)= a^{\prime \prime}$. What is the risk of the decision $d$? Is it true that if $p_0 > p_1$ the decision rule $d(X_0) = 0$ and $d(X_1) = 1$ is dominated? 
+%
+%{\scshape Optional:} How would you plot the risk of all decision rules in $\mathbb{R}^2$? How does the set of all admissible decision rules look like?
 
-The data is binary $\{X_0, X_1\}$ (think of a coin flip) and the statistical model is
-\[ P(X_0 | \theta_0) \equiv p_0 > p_1 \equiv P(X_0 | \theta_1 ). \]
-This means there are only two possible parameter values and that it is more likely to see $X_0$ realized whenever $\theta_0$ generated the data. 
-There are two actions $(a_0, a_1)$. One way of thinking about them is that $a_i$ is that action that $\theta_i$ generated the data. The loss function for this problem is 
-\[ \mathcal{L}(a_0, \theta_0) = 0 = \mathcal{L}(a_1, \theta_1)    \]
-and
-\[ \mathcal{L}(a_1, \theta_0) = 1 = \mathcal{L}(a_0, \theta_1).    \]
-Which means that the statistician looses 1 unit if he supports action $i$ when the data was not generated by $\theta_i$. 
-\begin{enumerate}
-\item (10 points) Decision rules are maps from $\{ X_0 , X_1 \}$ to $\{a_0, a_1\}$. There are essentially 4 decision rules 
-\begin{eqnarray*}
-d_1(X_0) =a_0, && d_1(X_1) = a_0 \textrm{ (always $a_0$)}\\
-d_2(X_0) = a_0, && d_2(X_1) = a_1 \textrm{ ($a_0$ only if $X_0$)  }\\
-d_3(X_0) = a_1, && d_3(X_1) = a_0 \textrm{ ($a_0$ only if $X_1$)  }\\
-d_4(X_0) = a_1, && d_4(X_1) = a_1 \textrm{ (always $a_1$)  }
-\end{eqnarray*}
-Compute the risk function of each of these 4 decision rules and graph them as points in $\mathbb{R}^2$, $(R(d,\theta_0), R(d,\theta_1)$. Is it true that if $p_0 > .5 > p_1$ then $d_3$ is dominated?
-
-\item (10 points) What priors would a Bayesian decision maker need to have in order to choose $d_i$, $i=1,2,3, 4$?. Assume that $p_0 > .5 > p_1$. \\
-
-\item (10 points) Imagine now that the action space becomes $[0,1]$. Action $a$ is interpreted as a randomized action: choose $a_0$ with probability $a$ and $a_1$ with probability $1-a$. Define
-$$ \mathcal{L}(a,\theta_i) = a \mathcal{L}(a_0, \theta_i) + (1-a) \mathcal{L}(a_1,\theta_i).$$
-
-Consider an action of the form $d(X_0) = a’$ and $d(X_1)= a^{\prime \prime}$. What is the risk of the decision $d$? Is it true that if $p_0 > p_1$ the decision rule $d(X_0) = 0$ and $d(X_1) = 1$ is dominated? 
-
-{\scshape Optional:} How would you plot the risk of all decision rules in $\mathbb{R}^2$? How does the set of all admissible decision rules look like?
-
-\end{enumerate}
+%\end{enumerate}
 
 
 \end{document}
