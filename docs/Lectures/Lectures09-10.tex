@@ -24,12 +24,12 @@
 
 \section{Testing}
 
-{\scshape Overview:} \noindent Lectures 9-10 will focus on \emph{testing}. The parameter space in the testing game is partitioned into two subsets: the ``null’’ hypothesis $\Theta_0$ and the ``alternative’’ hypothesis $\Theta_1$. There are two actions $\{0,1\}$, where action $a=1$ is interpreted as ``reject the null in favor of the alternative’’  and action $a=0$ is its negation. The loss function used for this problem is the ``0-1 loss’’: $\mathcal{L}(0,\theta) = 0 =  L(1,\theta’)$ for any $\theta \in \Theta_0$, $\theta’ \in \Theta_1$ and $\mathcal{L}(a,\theta)=1$ otherwise. This loss gives rise to the popular \emph{Type I/Type II} error performance criterion. 
+{\scshape Overview:} \noindent Lectures 9-10 will focus on \emph{testing}. The parameter space in the testing game is partitioned into two subsets: the ``null’’ hypothesis $\Theta_0$ and the ``alternative’’ hypothesis $\Theta_1$. There are two actions $\{0,1\}$, where action $a=1$ is interpreted as ``reject the null in favor of the alternative’’  and action $a=0$ is its negation. The loss function used for this problem is the ``0-1 loss’’: $\mathcal{L}(0,\theta) = 0 =  L(1,\theta’)$ for any $\theta \in \Theta_0$, $\theta’ \in \Theta_1$ and $\mathcal{L}(a,\theta)=1$ otherwise. This loss gives rise to \emph{Type I/Type II} error as performance criterion. 
 
-We first study an idealized environment in which the parameter space has only two components: the null $(\theta_0)$ and the alternative ($\theta_1$). We show that in this set-up any reasonable test must maximize “power” subject to a “size” constraint. Moreover, we show that power maximizer tests reject whenever the “likelihood ratio” between the alternative and the null is large enough. 
+We first study an idealized environment in which the parameter space has only two components: the null $(\theta_0)$ and the alternative ($\theta_1$). We show that in this set-up any reasonable test must maximize “power” subject to a “size” constraint. Moreover, tests that maximize power reject whenever the “likelihood ratio” between the alternative and the null is large enough. 
 
 
-We then analyze some commonly used testing strategies for parametric models with “composite” null or alternative hypothesis: the Likelihood Ratio test, the Wald test, and the Score test. We specialize these trinity of tests to the linear regression model with unknown variance.  
+We then analyze some commonly used testing strategies for more general parametric models: the Likelihood Ratio test, the Wald test, and the Score test. We analyze these \emph{trinity} of tests in the linear regression model with unknown variance.  
 
 
 
@@ -47,17 +47,17 @@ A \emph{decision rule/algorithm/strategy} for the statistician in the hypothesis
 \end{equation*}
 These decision rules are called ``tests’’. The collection of all data sets for which the econometrician rejects the null hypothesis 
 $$\{x \: | \: \phi(x)=1\} $$
-\noindent is called the critical region of the test $\phi$. \\
+\noindent is called the \emph{critical region} of the test $\phi$. \\
 
 
 \subsection{0-1 Loss and Type I/Type II error}
 
 The payoff/loss for the econometrician depends on the action taken (1 or 0) and the true state of the world ($\theta$). The following $\{0,1\}$-loss structure is typical in testing problems:
 \begin{equation*}
-\left.\begin{array}{ccc} a/s& \theta \in \Theta_0 & \theta \in \Theta_1 \\ 1 & 1 & 0 \\0 & 0 & 1\end{array}\right.
+\left.\begin{array}{ccc} a/s& \theta \in \Theta_0 & \theta \in \Theta_1 \\ 1 & 1 & 0 \\0 & 0 & 1\end{array}.\right.
 \end{equation*}
 
-This is intended to model a payoff structure in which the econometrician is only punished when taking the ``wrong’’ decision. The punishments are symmetric, but it is easy to extend this framework. 
+See \cite{Ferguson67}, p. 199, equation (5.4). This loss is intended to model a payoff structure in which the econometrician is only punished when taking the ``wrong’’ decision. The punishments are symmetric, but it is easy to relax this restriction. 
 
 The expected loss (risk) is computed as follows. When $\theta \in \Theta_0$ the econometrician only experiences a loss if he/she (incorrectly) rejects the null hypothesis. Thus, the expected loss equals the probability of (incorrectly!) rejecting the null hypothesis ($\phi(x)=1$) when the null hypothesis is true. For any $\theta \in \Theta_0:$ 
 
@@ -66,11 +66,13 @@ The expected loss (risk) is computed as follows. When $\theta \in \Theta_0$ the 
 \end{equation}
 
 
-\noindent This is referred to as the \emph{rate of Type I error} of the test $\phi(x)$ at $\theta \in \Theta_0$. The \emph{largest} rate of Type I error of a test; i.e., 
+\noindent This is referred to as the \emph{rate of Type I error} of the test $\phi(x)$ (or error of the first kind)  at $\theta \in \Theta_0$. The \emph{largest} rate of Type I error of a test; i.e., 
 
 \[ \sup_{\theta \in \Theta_0} P_{\theta}(\phi(x)=1)  \]  
 
-\noindent is called the \emph{size} of the test.
+\noindent is called the \emph{size} of the test. See \cite{Lehman05} p. 57. 
+
+%When $\Theta_0$ is a singleton, the rate of Type I error of a test at $\theta_0$ is called the \emph{level} of the test. 
 
 
 
@@ -79,9 +81,9 @@ When $\theta \in \Theta_1$ the econometrician only experiences a loss if he/she 
 \mathbb{E}_{f(x|\theta)} [  \mathcal{L}(\phi(x),\theta)   ] = \mathbb{E}_{f(x|\theta)} [ \mathbf{1}\{\phi(x)=0\}   ] = P_{\theta}(\phi(x)=0) .
 \end{equation}
 
-\noindent This is the \emph{rate of Type II error} of the test $\phi(x)$ at $\theta$. It is also common to make reference to the \emph{power} of a test at $\theta \in \Theta_1$. The power is defined as the probability of rejecting the null when it is not true; thus, it equals one minus the rate of Type II error; i.e., 
-
+\noindent This is the \emph{rate of Type II error} of the test $\phi(x)$ at $\theta$ (also known as error of the second kind). See \cite{Lehman05} p. 57.  It is also common to make reference to the \emph{power} of a test at $\theta \in \Theta_1$. The power is defined as the probability of rejecting the null when it is not true; thus, it equals one minus the rate of Type II error; i.e., 
 \[ 1- P_{\theta} (\phi(x)=0) = P_{\theta}(\phi(x)=1). \]
+See equation 3.2 in \cite{Lehman05} p. 57.
 
 \subsection{Testing a ``simple’’ null against a ``simple’’ alternative}
 
@@ -89,7 +91,7 @@ Suppose that both $\Theta_0$ and $\Theta_1$ are singletons, so that the testing 
 \[ \textbf{H}_0: \theta=\theta_0 \textrm{ vs. }  \textbf{H}_1: \theta=\theta_1. \]
 In this problem it is relatively straightforward to characterize the ``optimal’’ test. Define a randomized test as a map 
 $$\phi:X \rightarrow [0,1]$$
-\noindent where $\phi(x)$ is interpreted as the probability of ``rejecting the null hypothesis’’ after observing $x$. See \cite{Ferguson67}, p. 198, 199 (also, think about what we did in the last problem of problem set 3!). The rates of Type I/Type II error of a randomized test $\phi$ are given by:
+\noindent where $\phi(x)$ is interpreted as the probability of ``rejecting the null hypothesis’’ after observing $x$. See \cite{Ferguson67}, p. 198, 199. The rates of Type I/Type II error of a randomized test $\phi$ are given by:
 \[ R(\phi,\theta_0) = \mathbb{E}_{f(x|\theta_0)}[\phi(x)], \quad R(\phi,\theta_1) = 1-\mathbb{E}_{f(x|\theta_1)}[\phi(x)]. \]
 
 The following proposition shows that under a mild assumption, any admissible test for this problem maximizes power subject to a ``size control’’ constraint. 
@@ -136,7 +138,7 @@ which implies $R(\phi',\theta_1)>0$. Contradiction.
 \end{proof}
 
 
-The implication of this proposition is important: if you want to use an admissible test for the simple null against simple alternative then you have no choice but to maximize power subject to a size control constraint. The following proposition tells us how to solve this optimization problem: reject the null hypothesis if the likelihood of the data under the alternative is sufficiently higher than the likelihood under the null. 
+The implication of this proposition is as follows: if you want to use an admissible test for the simple null against simple alternative then you have no choice but to maximize power subject to a size control constraint. The following proposition---which follows closely the discussion in p. 201 of \cite{Ferguson67}---tells us how to solve this optimization problem: reject the null hypothesis if the likelihood of the data under the alternative is sufficiently higher than the likelihood under the null. 
 
 
 
@@ -202,7 +204,7 @@ We have just shown that the test that rejects the null hypothesis whenever the l
 
 \noindent {\scshape Example:} Consider the linear regression model with non-stochastic regressors:
 \begin{equation}
-Y \sim \mathcal{N}_n(X \beta, \sigma^2 \mathbb{I}_n ).
+Y | X \sim \mathcal{N}_n(X \beta, \sigma^2 \mathbb{I}_n ).
 \end{equation}
 Assume (as we did in the last problem set) that both $\beta \in \mathbb{R}^{k}$ and $\sigma^2 \in \mathbb{R}_{+}$ are unknown. Suppose that we are interested in the problem
 
@@ -226,9 +228,9 @@ is large enough. \\
 
 \noindent {\scshape Likelihood Ratio Test for the Linear Regression Model:} We now compute the generalized likelihood ratio statistic for the testing problem (\ref{equation:Hypothesis}) in the linear regression model. First, we maximize the likelihood under the alternative hypothesis $\beta \neq \beta_0$. This is the same as just maximizing the likelihood over the whole parameter space
 
-\[  \max_{\beta, \sigma^2} f(Y | \beta , \sigma^2). \] 
+\[  \max_{\beta, \sigma^2} f(Y | X, \beta , \sigma^2). \] 
 
-\noindent We solved in the previous problem set and we showed that:
+\noindent For simplicity, we will write $f(Y| \beta, \sigma^2)$ where we explicitly ignore the dependence on X (as we assume that their distribution is a degenerate at a point). We solved in the previous problem set and we showed that:
 
 \[ \widehat{\beta}_{\textrm{ML}} = (X’X)^{-1}X’Y, \quad \widehat{\sigma}^2_{\textrm{ML}} = (Y-X\widehat{\beta}_{\textrm{ML}})’(Y-X\widehat{\beta}_{\textrm{ML}})/n. \] 
 
