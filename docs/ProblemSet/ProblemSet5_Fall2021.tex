@@ -1,0 +1,45 @@
+%%!TEX TS-program = latex
+\documentclass[11pt]{article} %DIF > 
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+\input ../AuxFiles/PreambleNotes.tex
+
+
+\begin{document}
+\onehalfspace
+
+\noindent \textbf{Problem Set 5 (Lectures 9-10)} \\
+
+\noindent \textbf{Problem 1 (40 points: Averaging Type I/Type II errors in Simple Hypothesis Testing Problems)} Consider the testing problem:
+\[ \mathbf{H}_0: \theta_0 \quad \textrm{vs.} \quad \mathbf{H}_1: \theta_1. \]
+Let $f(x|\theta_0)$ denote the likelihood under the null, and $f(x|\theta_1)$ the likelihood under the alternative. 
+
+In class, we argued that---under the 0-1 loss---a test $\phi$ for the simple hypothesis testing problem is characterized by its profile of Type I/Type II errors: 
+\[  (R(\phi,\theta_0), R(\phi,\theta_1))' \in \mathbb{R}^2.  \]
+Suppose we want to pick a test $\phi$ that minimizes the \emph{average} rate of error. That is, let $\pi_0 \in (0,1)$ and consider the problem
+\begin{equation*}
+\inf_{\phi} \:  \pi_0 R(\phi,\theta_0) + (1-\pi_0) R(\phi,\theta_1). 
+\end{equation*}
+Show that the test that minimizes the average rate of error is the likelihood ratio test (with critical value $\pi_0/1-\pi_0$). \\ 
+
+\noindent \textbf{Problem 2 (40 points: Minimax Tests for Simple Hypothesis Testing Problems)} Consider the testing problem 
+\[ \mathbf{H}_0: x \sim \mathcal{N}(0,1) \quad \textrm{vs.} \quad \mathbf{H}_1: x \sim \mathcal{N}(2*(1.64),1). \]
+\noindent A test for this problem is \emph{minimax} if it solves the problem 
+\[ \inf_{\phi} \sup \{ R(\phi,\theta_0), R(\phi,\theta_1).\} \] 
+What is the minimax test for this problem?\\
+
+\noindent \textbf{Problem 3 (20 points: Generalized Likelihood Ratio)} Consider the composite testing problem 
+\[ \mathbf{H}_0: \theta \in \Theta_0 \quad \textrm{vs.} \quad \mathbf{H}_1: \theta \in \Theta_1. \]
+\noindent A test for this problem is \emph{minimax} if it solves the problem 
+\[ \inf_{\phi} \sup \{ R(\phi,\theta_0), R(\phi,\theta_1).\} \] 
+Casella and Berger (Statistical Inference, 2nd Edition, p. 375) define the Generalized Likelihood Ratio as the test that rejects the null hypothesis whenever: 
+\[   \frac{\sup_{\theta \in \theta_0} f(x|\theta)}{\sup_{\theta \in \Theta} f(x|\theta) } \leq c,   \] 
+where $c \in [0,1]$. Is this test \underline{equivalent} to the test that rejects the null hypothesis whenever
+\[  \frac{\sup_{\theta \in \Theta_1} f(x|\theta)}{\sup_{\theta \in \Theta_0} f(x|\theta_0) } \geq 1/c?  \]
+
+
+
+\bibliographystyle{../AuxFiles/ecta}
+\bibliography{../AuxFiles/BibMaster}
+
+\end{document}
